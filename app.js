@@ -24,17 +24,22 @@ const App = (function () {
       .replace(/"/g, '&quot;');
   }
 
-  // Insert newlines before 가./나./다./라. list items so they display on separate lines.
-  // Only fires when the pattern actually appears; safe to call on any stem.
-  function formatStem(text) {
+  // Format Korean exam text: inserts newlines before list markers so they render on separate lines.
+  // Handles: 가./나./다./라. list items, • bullet points, 가:/나: explanation labels.
+  function formatText(text) {
     if (!text) return '';
-    // Match: one or more spaces + single jamo label (가나다라) + period + space
-    // Replaces with: newline + label + period + space
-    // e.g. "...않는다. 나. 투자권유..." → "...않는다.\n나. 투자권유..."
     return text
+      // 가. 나. 다. 라. — list items preceded by whitespace
       .replace(/\s+([가나다라])\.\s+/g, (_, label) => '\n' + label + '. ')
+      // • · bullet points — replace surrounding spaces with newline
+      .replace(/[ \t]*[•·][ \t]*/g, '\n• ')
+      // 가: 나: 다: 라: — explanation labels mixed into option text
+      .replace(/\s+([가나다라]):\s+/g, (_, label) => '\n' + label + ': ')
       .trimStart();
   }
+
+  // Alias kept for any future references
+  const formatStem = formatText;
 
   function show(screenId) {
     document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
@@ -283,7 +288,7 @@ const App = (function () {
 
       const textSpan = document.createElement('span');
       textSpan.className = 'opt-text';
-      textSpan.textContent = opt.text;   // verbatim, no escaping needed in textContent
+      textSpan.textContent = formatText(opt.text);   // verbatim + line-break formatting
 
       btn.appendChild(markerSpan);
       btn.appendChild(textSpan);
@@ -385,7 +390,7 @@ const App = (function () {
       row.innerHTML =
         '<span class="opt-marker">' + esc(opt.displayKey) + '</span>' +
         tvHtml +
-        '<span class="reveal-opt-text">' + esc(opt.text) + '</span>' +
+        '<span class="reveal-opt-text">' + esc(formatText(opt.text)).replace(/\n/g, '<br>') + '</span>' +
         chosenFlag + answerFlag;
 
       detailEl.appendChild(row);
@@ -393,7 +398,7 @@ const App = (function () {
 
     // Full explanation (verbatim) — shown once for the whole question
     const explEl = $('reveal-explanation');
-    explEl.textContent = (q.explanation && q.explanation.trim()) ? q.explanation : '해설 없음';
+    explEl.textContent = (q.explanation && q.explanation.trim()) ? formatText(q.explanation) : '해설 없음';
 
     // Source citation
     const yearStr = (q.year_tags && q.year_tags.length) ? q.year_tags.join(', ') : '';
@@ -436,11 +441,4 @@ const App = (function () {
       bodyEl.textContent = targetNote.body;  // verbatim
 
       notesContent.appendChild(titleEl);
-      notesContent.appendChild(bodyEl);
-    }
-  }
-
-  // ── Wrong-answer toggle button ─────────────────────────────────────────────
-
-  function updateWrongBtn() {
-    if (!session
+      notesC
