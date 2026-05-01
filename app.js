@@ -82,8 +82,9 @@ const App = (function () {
 
     buildTopicSelector();
     bindEvents();
-    // exam_C (calc mode): hide frequency/count/high-yield settings
-    if ((window.THUNDER_EXAM_META || {}).exam_id === 'exam_C') {
+    // calc-mode (exam_C, exam_C_var, ...): hide frequency/count/high-yield settings
+    const examIdForUi = (window.THUNDER_EXAM_META || {}).exam_id || '';
+    if (examIdForUi === 'exam_C' || examIdForUi.startsWith('exam_C_')) {
       ['inp-count', 'rng-alpha', 'chk-high-yield'].forEach(function(id) {
         const el = document.getElementById(id);
         if (!el) return;
