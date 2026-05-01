@@ -244,6 +244,7 @@
     }
     .opt-btn.opt-correct .opt-marker { color: var(--green); }
     .opt-btn.opt-wrong   .opt-marker { color: var(--red); }
+    .opt-text { flex: 1; white-space: pre-wrap; word-break: keep-all; }
 
     /* ── Reveal panel ────────────────────────────────────────────────── */
     #quiz-reveal {
@@ -284,7 +285,7 @@
     }
     .reveal-row .opt-marker { color: var(--accent); font-weight: 700; min-width: 22px; }
     .reveal-row.reveal-row-answer .opt-marker { color: var(--green); }
-    .reveal-opt-text { flex: 1; }
+    .reveal-opt-text { flex: 1; white-space: pre-wrap; word-break: keep-all; }
 
     .badge-o { background: var(--green-lt); color: var(--green); border: 1px solid #86efac; border-radius: 4px; padding: 0 5px; font-size: .75rem; font-weight: 700; }
     .badge-x { background: var(--red-lt);   color: var(--red);   border: 1px solid #fca5a5; border-radius: 4px; padding: 0 5px; font-size: .75rem; font-weight: 700; }
@@ -620,9 +621,4 @@
 <!-- 1. Data (sets window.THUNDER_*) -->
 <script src="data/data.js"></script>
 <!-- 2. Modules -->
-<script src="progress.js"></script>
-<script src="quiz_engine.js"></script>
-<script src="app.js"></script>
-
-</body>
-</html>
+<scrip
