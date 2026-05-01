@@ -4,27 +4,9 @@
 const QuizEngine = (function () {
   const MARKERS = ['①', '②', '③', '④'];
 
-  // ── Exam question allocation (44회 기준, 100문항 합계) ─────────────────────
-  // 각 과목·편에 배정된 실제 출제 문항 수 (데이터 뱅크 크기가 아님).
-  // 드롭다운 "(N문항)" 표시에 사용 — 시험 출제 비중을 직관적으로 파악하기 위함.
-  const EXAM_ALLOC = {
-    '1과목1편':  7,
-    '1과목2편':  8,
-    '1과목3편':  5,
-    '2과목1편':  5,
-    '2과목2편':  5,
-    '2과목3편': 12,
-    '2과목4편':  8,
-    '3과목1편':  5,
-    '3과목2편': 11,
-    '3과목3편':  3,
-    '3과목4편':  6,
-    '3과목5편':  6,
-    '3과목6편':  6,
-    '3과목7편':  4,
-    '3과목8편':  4,
-    '3과목9편':  5
-  };  // sum = 100
+  // EXAM_ALLOC: loaded dynamically from window.THUNDER_EXAM_ALLOC (set by data.js).
+  // Falls back to empty object — topics will show bank count instead of alloc count.
+  let EXAM_ALLOC = {};
 
   let stmtMap    = {};   // statement_id  → statement object
   let qBank      = [];   // all questions (correct_marker != null)
@@ -33,6 +15,8 @@ const QuizEngine = (function () {
   // ── Init ──────────────────────────────────────────────────────────────────
 
   function init(statements, questions, notes) {
+    // Read exam alloc from data.js global (set before init() is called)
+    EXAM_ALLOC = window.THUNDER_EXAM_ALLOC || {};
     stmtMap = Object.create(null);
     statements.forEach(s => { stmtMap[s.statement_id] = s; });
 

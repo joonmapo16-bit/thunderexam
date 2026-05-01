@@ -133,6 +133,23 @@
     }
     .alpha-val { font-size: .85rem; font-weight: 700; color: var(--accent); min-width: 24px; }
 
+    /* ── Coverage box (home screen) ──────────────────────────────────── */
+    .coverage-box {
+      background: #f8f9fc;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 12px;
+      margin-bottom: 14px;
+    }
+    .coverage-box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .coverage-box-label { font-size: .78rem; color: var(--muted); }
+    .coverage-box-detail { font-size: .72rem; color: var(--muted); }
+
     /* ── Buttons ─────────────────────────────────────────────────────── */
     .btn {
       display: inline-block;
@@ -151,6 +168,7 @@
     .btn-primary   { background: var(--accent); color: #fff; }
     .btn-secondary { background: var(--surface); color: var(--accent); border: 1.5px solid var(--accent); }
     .btn-danger    { background: var(--red-lt); color: var(--red); border: 1.5px solid #fca5a5; }
+    .btn-warning   { background: var(--yellow-lt); color: var(--yellow); border: 1.5px solid #fcd34d; }
     .btn-sm        { padding: 6px 14px; font-size: .82rem; }
     .btn-full      { width: 100%; text-align: center; }
 
@@ -160,7 +178,7 @@
       flex-wrap: wrap;
     }
 
-    /* ── Progress bar ────────────────────────────────────────────────── */
+    /* ── Progress bars ───────────────────────────────────────────────── */
     .progress-bar-wrap {
       height: 5px;
       background: var(--border);
@@ -173,6 +191,40 @@
       background: var(--accent);
       border-radius: 3px;
       transition: width .3s ease;
+    }
+
+    /* Dual-bar row in quiz screen */
+    .quiz-bars-wrap {
+      margin-top: 8px;
+      margin-bottom: 2px;
+    }
+    .quiz-bar-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+    }
+    .quiz-bar-track {
+      flex: 1;
+      height: 5px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .quiz-bar-track.coverage-track { background: #dcfce7; }
+    .quiz-bar-fill {
+      height: 100%;
+      border-radius: 3px;
+      transition: width .3s ease;
+    }
+    .bar-fill-session  { background: var(--accent); }
+    .bar-fill-coverage { background: var(--green); }
+    .bar-label {
+      font-size: .68rem;
+      color: var(--muted);
+      white-space: nowrap;
+      min-width: 80px;
+      text-align: right;
     }
 
     /* ── Quiz meta ───────────────────────────────────────────────────── */
@@ -264,7 +316,6 @@
     .verdict-correct { background: var(--green-lt); color: var(--green); }
     .verdict-wrong   { background: var(--red-lt);   color: var(--red);   }
 
-    /* Per-option rows in reveal */
     .reveal-row {
       display: flex;
       align-items: flex-start;
@@ -294,7 +345,6 @@
     .flag-chosen { font-size: .72rem; color: var(--red); font-weight: 600; }
     .flag-answer { font-size: .72rem; color: var(--green); font-weight: 600; }
 
-    /* Explanation block */
     .reveal-section-label {
       font-size: .72rem;
       font-weight: 700;
@@ -322,7 +372,6 @@
       margin-top: 8px;
     }
 
-    /* Notes section */
     #btn-show-notes {
       font-size: .8rem;
       color: var(--accent);
@@ -368,6 +417,19 @@
       background: var(--yellow-lt);
       color: var(--yellow);
       border-color: #fcd34d;
+    }
+
+    /* ── Exhaustion toast ────────────────────────────────────────────── */
+    #exhaustion-toast {
+      background: var(--green-lt);
+      border: 1px solid #86efac;
+      border-radius: var(--radius);
+      padding: 10px 14px;
+      font-size: .85rem;
+      color: var(--green);
+      font-weight: 600;
+      margin-bottom: 10px;
+      text-align: center;
     }
 
     /* ── End screen ──────────────────────────────────────────────────── */
@@ -423,7 +485,18 @@
   <div class="container">
     <div>
       <div class="app-title">⚡ ThunderExam</div>
-      <div class="app-subtitle">7일 만에 80점 달성 — 기출 퀴즈</div>
+      <div class="app-subtitle" id="app-subtitle">7일 만에 80점 달성 — 기출 퀴즈</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
+      <!-- Exam selector -->
+      <select id="exam-selector" style="font-size:0.78rem;padding:4px 8px;border-radius:6px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer">
+        <option value="exam_A">펀드투자권유자문인력</option>
+        <option value="exam_B">투자자산운용사</option>
+      </select>
+      <!-- Per-exam progress reset -->
+      <button class="btn btn-secondary btn-sm" id="btn-reset-progress" title="이 시험의 학습 기록 초기화">초기화</button>
+      <!-- Home button: shown during quiz/end screens -->
+      <button class="btn btn-secondary btn-sm hidden" id="btn-home">🏠 홈</button>
     </div>
   </div>
 </header>
@@ -461,13 +534,25 @@
       <div class="card-title">세션 설정</div>
 
       <div class="form-row">
-        <label>과목</label>
+        <label>과목·편</label>
         <select id="sel-topic"></select>
       </div>
       <div class="form-row">
         <label>주제</label>
         <select id="sel-subtopic"></select>
       </div>
+
+      <!-- Coverage bar (home screen) — updates when topic/subtopic changes -->
+      <div class="coverage-box" id="home-coverage-box">
+        <div class="coverage-box-header">
+          <span class="coverage-box-label">학습 커버리지</span>
+          <span class="coverage-box-detail" id="home-coverage-detail">—</span>
+        </div>
+        <div class="progress-bar-wrap" style="height:8px; margin-bottom:0;">
+          <div class="progress-bar-fill" id="home-coverage-bar" style="width:0%; background:var(--green);"></div>
+        </div>
+      </div>
+
       <div class="form-row">
         <label>문항 수</label>
         <input type="number" id="inp-count" value="10" min="1" max="96">
@@ -498,9 +583,14 @@
       </div>
     </div>
 
-    <!-- Reset -->
-    <div style="text-align:right; margin-top:4px;">
-      <button class="btn btn-danger btn-sm" id="btn-reset">기록 초기화</button>
+    <!-- Reset buttons -->
+    <div style="display:flex; gap:8px; justify-content:flex-end; margin-top:4px; flex-wrap:wrap;">
+      <button class="btn btn-warning btn-sm" id="btn-reset-coverage">커버리지 초기화</button>
+      <button class="btn btn-danger btn-sm" id="btn-reset-stats">통계 초기화</button>
+      <button class="btn btn-danger btn-sm" id="btn-reset-all">전체 초기화</button>
+    </div>
+    <div style="font-size:.68rem; color:var(--muted); text-align:right; margin-top:4px;">
+      통계: 정답률·오답목록 / 커버리지: 편별 진도 / 전체: 모두
     </div>
 
   </div>
@@ -512,9 +602,27 @@
 <div id="screen-quiz" class="screen hidden">
   <div class="container">
 
-    <!-- Progress -->
-    <div class="progress-bar-wrap" style="margin-top:8px;">
-      <div class="progress-bar-fill" id="quiz-bar" style="width:0%"></div>
+    <!-- Exhaustion notice (shown when pool was fully covered and reset) -->
+    <div id="exhaustion-toast" class="hidden">
+      🎉 이 편의 모든 문제를 완주했습니다! 처음부터 다시 시작합니다.
+    </div>
+
+    <!-- Dual progress bars -->
+    <div class="quiz-bars-wrap">
+      <!-- Session progress -->
+      <div class="quiz-bar-row">
+        <div class="quiz-bar-track">
+          <div class="quiz-bar-fill bar-fill-session" id="quiz-bar" style="width:0%"></div>
+        </div>
+        <span class="bar-label" id="quiz-session-label">0 / 0</span>
+      </div>
+      <!-- Coverage progress -->
+      <div class="quiz-bar-row">
+        <div class="quiz-bar-track coverage-track">
+          <div class="quiz-bar-fill bar-fill-coverage" id="quiz-coverage-bar" style="width:0%"></div>
+        </div>
+        <span class="bar-label" id="quiz-coverage-label">커버리지 0%</span>
+      </div>
     </div>
 
     <!-- Mock exam timer bar -->
@@ -527,7 +635,6 @@
     <!-- Question card -->
     <div class="card">
       <!-- Meta row -->
-      <div class="quiz-meta">
         <span class="badge badge-topic" id="quiz-topic"></span>
         <span class="badge badge-subtopic hidden" id="quiz-subtopic"></span>
         <span class="badge badge-polarity" id="quiz-polarity"></span>
@@ -583,7 +690,6 @@
     <div class="card">
       <div class="end-score-box">
         <div class="end-score-pct" id="end-session-accuracy">—</div>
-        <div class="end-score-pct" id="end-session-accuracy">—</div>
         <div class="end-score-label">이번 세션 정답률</div>
         <div class="end-message" id="end-message"></div>
         <div id="mock-pass-fail" class="hidden" style="margin-top:10px;font-size:1rem;font-weight:700;"></div>
@@ -618,7 +724,11 @@
 </div>
 
 <!-- ── Scripts (order matters) ─────────────────────────────────────────── -->
-<!-- 1. Data (sets window.THUNDER_*) -->
-<script src="data/data.js"></script>
-<!-- 2. Modules -->
-<scrip
+<!-- Data (data/<examId>/data.js) is loaded dynamically by app.js -->
+<script src="progress.js"></script>
+<script src="quiz_engine.js"></script>
+<script src="app.js"></script>
+<!-- app.js boot: injects data/<examId>/data.js then calls App.init() -->
+
+</body>
+</html>

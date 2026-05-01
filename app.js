@@ -1,13 +1,23 @@
 // app.js — Main application controller
 'use strict';
 
+// ── Active exam (persisted in localStorage across page loads) ─────────────
+const ACTIVE_EXAM = (function () {
+  return localStorage.getItem('thunderexam_active_exam') || 'exam_A';
+})();
+
 const App = (function () {
 
   // ── State ─────────────────────────────────────────────────────────────────
-  let appState   = null;   // Progress state object
-  let session    = [];     // [{question, shuffledOptions}, ...]
-  let cursor     = 0;      // current question index within session
-  let sessionLog = [];     // per-question result: {questionId, correct}
+  let appState   = null;
+  let session    = [];
+  let cursor     = 0;
+  let sessionLog = [];
+
+  let currentFilterKey  = '';
+  let currentTopic      = '전체';
+  let currentSubtopic   = '전체';
+  let currentHighYield  = false;
 
   let isMockExam        = false;
   let mockTimeLeft      = 0;
@@ -24,41 +34,51 @@ const App = (function () {
       .replace(/"/g, '&quot;');
   }
 
-  // Format Korean exam text: inserts newlines before list markers so they render on separate lines.
-  // Handles: 가./나./다./라. list items, • bullet points, 가:/나: explanation labels.
   function formatText(text) {
     if (!text) return '';
     return text
-      // 가. 나. 다. 라. — list items preceded by whitespace
       .replace(/\s+([가나다라])\.\s+/g, (_, label) => '\n' + label + '. ')
-      // • · bullet points — replace surrounding spaces with newline
       .replace(/[ \t]*[•·][ \t]*/g, '\n• ')
-      // 가: 나: 다: 라: — explanation labels mixed into option text
       .replace(/\s+([가나다라]):\s+/g, (_, label) => '\n' + label + ': ')
       .trimStart();
   }
 
-  // Alias kept for any future references
   const formatStem = formatText;
 
   function show(screenId) {
     document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
     document.getElementById(screenId).classList.remove('hidden');
     window.scrollTo(0, 0);
+    const homeBtn = $('btn-home');
+    if (screenId === 'screen-home') {
+      homeBtn.classList.add('hidden');
+    } else {
+      homeBtn.classList.remove('hidden');
+    }
   }
 
   function $(id) { return document.getElementById(id); }
 
+  function makeFilterKey(topic, subtopic) {
+    return (topic || '전체') + '||' + (subtopic || '전체');
+  }
+
   // ── Init ──────────────────────────────────────────────────────────────────
 
   function init() {
-    // Data loaded by data.js as window globals
     QuizEngine.init(
       window.THUNDER_STATEMENTS,
       window.THUNDER_QUESTIONS,
       window.THUNDER_NOTES
     );
-    appState = Progress.load();
+    appState = Progress.load(ACTIVE_EXAM);
+
+    // Show active exam name in subtitle
+    const meta = window.THUNDER_EXAM_META || {};
+    const subtitle = $('app-subtitle');
+    if (subtitle && meta.exam_name) {
+      subtitle.textContent = meta.exam_name;
+    }
 
     buildTopicSelector();
     bindEvents();
@@ -71,12 +91,14 @@ const App = (function () {
   function buildTopicSelector() {
     const sel = $('sel-topic');
     sel.innerHTML = '';
-    QuizEngine.getTopics().forEach(t => {
+    QuizEngine.getTopicsWithMeta().forEach(m => {
       const o = document.createElement('option');
-      o.value = t; o.textContent = t;
+      o.value       = m.key;
+      o.textContent = m.label;
       sel.appendChild(o);
     });
     buildSubtopicSelector(sel.value);
+    updateHomeCoverage();
   }
 
   function buildSubtopicSelector(topic) {
@@ -87,12 +109,36 @@ const App = (function () {
       o.value = s; o.textContent = s;
       sel.appendChild(o);
     });
+    updateHomeCoverage();
+  }
+
+  // ── Coverage bars ─────────────────────────────────────────────────────────
+
+  function updateHomeCoverage() {
+    const topic    = $('sel-topic').value;
+    const subtopic = $('sel-subtopic').value;
+    const { seen, total } = QuizEngine.getCoverageForFilter(topic, subtopic, appState.answered);
+    const pct = total ? Math.round(seen / total * 100) : 0;
+    $('home-coverage-bar').style.width = pct + '%';
+    $('home-coverage-detail').textContent = seen + ' / ' + total + ' 문항 (' + pct + '%)';
+  }
+
+  function updateQuizCoverageBar() {
+    const seenIds  = Progress.getSeenForFilter(appState, currentFilterKey);
+    const seenCount = seenIds.size;
+    const total    = QuizEngine.getPoolSize(currentTopic, currentSubtopic, currentHighYield);
+    const pct      = total ? Math.round(seenCount / total * 100) : 0;
+    $('quiz-coverage-bar').style.width = pct + '%';
+    $('quiz-coverage-label').textContent = seenCount + '/' + total + ' (' + pct + '%)';
   }
 
   // ── Event wiring ──────────────────────────────────────────────────────────
 
   function bindEvents() {
-    $('sel-topic').addEventListener('change', e => buildSubtopicSelector(e.target.value));
+    $('sel-topic').addEventListener('change', e => {
+      buildSubtopicSelector(e.target.value);
+    });
+    $('sel-subtopic').addEventListener('change', () => updateHomeCoverage());
 
     $('rng-alpha').addEventListener('input', e => {
       $('lbl-alpha').textContent = parseFloat(e.target.value).toFixed(1);
@@ -101,7 +147,12 @@ const App = (function () {
     $('btn-start').addEventListener('click', startSession);
     $('btn-wrong-drill').addEventListener('click', startWrongDrill);
     $('btn-mock-exam').addEventListener('click', startMockExam);
-    $('btn-reset').addEventListener('click', resetProgress);
+
+    $('btn-reset-stats').addEventListener('click', resetStats);
+    $('btn-reset-coverage').addEventListener('click', resetCoverage);
+    $('btn-reset-all').addEventListener('click', resetAll);
+
+    $('btn-home').addEventListener('click', goHome);
 
     $('btn-next').addEventListener('click', nextQuestion);
     $('btn-toggle-wrong').addEventListener('click', toggleCurrentWrong);
@@ -115,12 +166,48 @@ const App = (function () {
       stopTimer();
       $('mock-timer-bar').classList.add('hidden');
       isMockExam = false;
-      renderHome(); show('screen-home');
+      renderHome();
+      show('screen-home');
     });
     $('btn-end-wrong').addEventListener('click', startWrongDrill);
+
+    // Exam selector
+    const examSel = $('exam-selector');
+    if (examSel) {
+      examSel.value = ACTIVE_EXAM;
+      examSel.addEventListener('change', e => {
+        const chosen = e.target.value;
+        if (chosen === ACTIVE_EXAM) return;
+        localStorage.setItem('thunderexam_active_exam', chosen);
+        location.reload();
+      });
+    }
+
+    // Reset progress button (per-exam reset)
+    const resetBtn = $('btn-reset-progress');
+    if (resetBtn) {
+      resetBtn.addEventListener('click', () => {
+        const name = (window.THUNDER_EXAM_META || {}).exam_name || ACTIVE_EXAM;
+        if (!confirm('[' + name + '] 의 모든 학습 기록을 초기화합니다. 계속하시겠습니까?')) return;
+        appState = Progress.reset(ACTIVE_EXAM);
+        renderHome();
+      });
+    }
   }
 
-  // ── Home screen ───────────────────────────────────────────────────────────
+  // ── Home / navigation ─────────────────────────────────────────────────────
+
+  function goHome() {
+    if (session.length > 0 && cursor < session.length && sessionLog.length > 0) {
+      if (!confirm('진행 중인 세션을 종료하고 홈으로 돌아가시겠습니까?')) return;
+    }
+    stopTimer();
+    $('mock-timer-bar').classList.add('hidden');
+    isMockExam = false;
+    session = [];
+    renderHome();
+    show('screen-home');
+  }
 
   function renderHome() {
     $('stat-answered').textContent = appState.totalAnswered;
@@ -131,6 +218,8 @@ const App = (function () {
     $('stat-bank').textContent = nQ + '문항';
 
     $('btn-wrong-drill').disabled = appState.wrongList.length === 0;
+
+    updateHomeCoverage();
   }
 
   // ── Session start ─────────────────────────────────────────────────────────
@@ -141,27 +230,60 @@ const App = (function () {
       subtopic:     $('sel-subtopic').value,
       count:        Math.min(96, Math.max(1, parseInt($('inp-count').value) || 10)),
       alpha:        parseFloat($('rng-alpha').value),
-      highYieldOnly: document.getElementById('chk-high-yield').checked
+      highYieldOnly: $('chk-high-yield').checked
     };
   }
 
   function startSession() {
     const { topic, subtopic, count, alpha, highYieldOnly } = getSettings();
-    session = QuizEngine.buildSession({
+    const filterKey = makeFilterKey(topic, subtopic);
+    const seenIds = Progress.getSeenForFilter(appState, filterKey);
+
+    let sess = QuizEngine.buildSession({
       topic, subtopic, count, alpha,
-      wrongOnly:   false,
+      wrongOnly: false,
       wrongList:   appState.wrongList,
       answeredMap: appState.answered,
-      highYieldOnly
+      highYieldOnly,
+      excludeIds: seenIds
     });
 
-    if (session.length === 0) {
+    let wasExhausted = false;
+
+    if (sess.length === 0) {
+      wasExhausted = true;
+      appState = Progress.resetSeenForFilter(appState, filterKey, ACTIVE_EXAM);
+      sess = QuizEngine.buildSession({
+        topic, subtopic, count, alpha,
+        wrongOnly:   false,
+        wrongList:   appState.wrongList,
+        answeredMap: appState.answered,
+        highYieldOnly,
+        excludeIds: null
+      });
+    }
+
+    if (sess.length === 0) {
       alert('해당 조건에 맞는 문제가 없습니다. 필터를 변경해 주세요.');
       return;
     }
 
+    currentFilterKey = filterKey;
+    currentTopic     = topic;
+    currentSubtopic  = subtopic;
+    currentHighYield = highYieldOnly;
+
+    session    = sess;
     cursor     = 0;
     sessionLog = [];
+
+    const toast = $('exhaustion-toast');
+    if (wasExhausted) {
+      toast.classList.remove('hidden');
+    } else {
+      toast.classList.add('hidden');
+    }
+
     show('screen-quiz');
     renderQuestion();
   }
@@ -171,17 +293,29 @@ const App = (function () {
   function startMockExam() {
     stopTimer();
     isMockExam = true;
+
+    currentFilterKey = makeFilterKey('전체', '전체');
+    currentTopic     = '전체';
+    currentSubtopic  = '전체';
+    currentHighYield = false;
+
     session = QuizEngine.buildSession({
       topic: '전체', subtopic: '전체', count: 70, alpha: 0.7,
       wrongOnly: false, wrongList: appState.wrongList, answeredMap: appState.answered,
       highYieldOnly: false
     });
+
     if (session.length === 0) { alert('문제 데이터를 로드할 수 없습니다.'); return; }
-    cursor = 0; sessionLog = [];
+
+    cursor = 0;
+    sessionLog = [];
     mockTimeLeft = 1800;
+
+    $('exhaustion-toast').classList.add('hidden');
     $('mock-timer-bar').classList.remove('hidden');
     updateTimerDisplay();
     mockTimerInterval = setInterval(tickTimer, 1000);
+
     show('screen-quiz');
     renderQuestion();
   }
@@ -196,7 +330,7 @@ const App = (function () {
     if (mockTimeLeft <= 0) {
       stopTimer();
       $('mock-timer-bar').classList.add('hidden');
-      renderEnd(true);   // timeExpired=true
+      renderEnd(true);
       show('screen-end');
     }
   }
@@ -215,9 +349,16 @@ const App = (function () {
   }
 
   function startWrongDrill() {
-    stopTimer(); isMockExam = false;
+    stopTimer();
+    isMockExam = false;
     $('mock-timer-bar').classList.add('hidden');
     if (appState.wrongList.length === 0) return;
+
+    currentFilterKey = 'wrongdrill';
+    currentTopic     = '전체';
+    currentSubtopic  = '전체';
+    currentHighYield = false;
+
     const { alpha } = getSettings();
     session = QuizEngine.buildSession({
       topic: '전체', subtopic: '전체',
@@ -235,6 +376,7 @@ const App = (function () {
 
     cursor     = 0;
     sessionLog = [];
+    $('exhaustion-toast').classList.add('hidden');
     show('screen-quiz');
     renderQuestion();
   }
@@ -244,22 +386,22 @@ const App = (function () {
   function renderQuestion() {
     const { question: q, shuffledOptions: opts } = session[cursor];
 
-    // Progress indicator
-    $('quiz-progress').textContent = (cursor + 1) + ' / ' + session.length;
     $('quiz-bar').style.width = (cursor / session.length * 100) + '%';
+    $('quiz-session-label').textContent = (cursor + 1) + ' / ' + session.length;
+    $('quiz-progress').textContent      = (cursor + 1) + ' / ' + session.length;
 
-    // Topic + subtopic badges
-    const topicLabel = (q.topic_path && q.topic_path[1]) || (q.topic_path && q.topic_path[0]) || '';
+    updateQuizCoverageBar();
+
+    const topicRaw   = (q.topic_path && q.topic_path[0]) || '';
+    const subtopicRaw = (q.topic_path && q.topic_path[1]) || '';
+    let topicLabel = topicRaw
+      ? topicRaw.replace(/(\d+과목)(\d+편)/, '$1 $2')
+      : '';
+    if (subtopicRaw) topicLabel = topicLabel + ' · ' + subtopicRaw;
     $('quiz-topic').textContent = topicLabel;
 
-    if (q.subtopic) {
-      $('quiz-subtopic').textContent = q.subtopic;
-      $('quiz-subtopic').classList.remove('hidden');
-    } else {
-      $('quiz-subtopic').classList.add('hidden');
-    }
+    $('quiz-subtopic').classList.add('hidden');
 
-    // Polarity badge
     const polMap = {
       positive:    '긍정형',
       negative:    '부정형',
@@ -270,11 +412,9 @@ const App = (function () {
     };
     $('quiz-polarity').textContent = polMap[q.stem_polarity] || q.stem_polarity || '';
 
-    // Year tags on stem
     const yearStr = (q.year_tags && q.year_tags.length) ? ' [' + q.year_tags.join(', ') + ']' : '';
     $('quiz-stem').textContent = formatStem(q.stem + yearStr);
 
-    // Render option buttons
     const container = $('quiz-options');
     container.innerHTML = '';
     opts.forEach(opt => {
@@ -288,7 +428,7 @@ const App = (function () {
 
       const textSpan = document.createElement('span');
       textSpan.className = 'opt-text';
-      textSpan.textContent = formatText(opt.text);   // verbatim + line-break formatting
+      textSpan.textContent = formatText(opt.text);
 
       btn.appendChild(markerSpan);
       btn.appendChild(textSpan);
@@ -296,7 +436,6 @@ const App = (function () {
       container.appendChild(btn);
     });
 
-    // Reset reveal area
     $('quiz-reveal').classList.add('hidden');
     $('btn-next').classList.add('hidden');
     $('btn-toggle-wrong').classList.add('hidden');
@@ -311,12 +450,10 @@ const App = (function () {
   function handleAnswer(chosenOrigKey) {
     const { question: q, shuffledOptions: opts } = session[cursor];
 
-    // Disable all buttons immediately
     document.querySelectorAll('.opt-btn').forEach(b => { b.disabled = true; });
 
     const correct = (chosenOrigKey === q.correct_marker);
 
-    // Colour the buttons
     document.querySelectorAll('.opt-btn').forEach(b => {
       if (b.dataset.origKey === q.correct_marker) {
         b.classList.add('opt-correct');
@@ -325,13 +462,16 @@ const App = (function () {
       }
     });
 
-    // Record in progress + session log
-    appState = Progress.recordAnswer(appState, q.question_id, correct);
+    appState = Progress.recordAnswer(appState, q.question_id, correct, ACTIVE_EXAM);
     sessionLog.push({ questionId: q.question_id, correct });
 
-    // Auto-add to wrong list on error (user can un-toggle later)
+    if (currentFilterKey && currentFilterKey !== 'wrongdrill') {
+      appState = Progress.recordSeenBatch(appState, currentFilterKey, [q.question_id], ACTIVE_EXAM);
+      updateQuizCoverageBar();
+    }
+
     if (!correct && !Progress.isWrong(appState, q.question_id)) {
-      appState = Progress.toggleWrong(appState, q.question_id);
+      appState = Progress.toggleWrong(appState, q.question_id, ACTIVE_EXAM);
     }
 
     renderReveal(q, opts, chosenOrigKey);
@@ -347,7 +487,6 @@ const App = (function () {
   function renderReveal(q, shuffledOptions, chosenOrigKey) {
     const correct = (chosenOrigKey === q.correct_marker);
 
-    // Verdict banner
     const banner = $('reveal-verdict');
     if (correct) {
       banner.textContent = '✓ 정답';
@@ -357,19 +496,17 @@ const App = (function () {
       banner.className   = 'reveal-verdict verdict-wrong';
     }
 
-    // Per-option breakdown
     const detailEl = $('reveal-options');
     detailEl.innerHTML = '';
 
     shuffledOptions.forEach(opt => {
-      const stmt       = opt.statement_id ? QuizEngine.getStatement(opt.statement_id) : null;
-      const isAnswer   = (opt.origKey === q.correct_marker);
-      const isChosen   = (opt.origKey === chosenOrigKey);
+      const stmt     = opt.statement_id ? QuizEngine.getStatement(opt.statement_id) : null;
+      const isAnswer = (opt.origKey === q.correct_marker);
+      const isChosen = (opt.origKey === chosenOrigKey);
 
       const row = document.createElement('div');
       row.className = 'reveal-row' + (isAnswer ? ' reveal-row-answer' : '');
 
-      // O/X badge
       let tvHtml = '';
       if (stmt) {
         if      (stmt.truth_value === 'O') tvHtml = '<span class="badge-o">O</span>';
@@ -377,15 +514,8 @@ const App = (function () {
         else                               tvHtml = '<span class="badge-q">?</span>';
       }
 
-      // Flags
-      const chosenFlag = isChosen  ? '<span class="flag-chosen">◀ 선택</span>' : '';
-      const answerFlag = isAnswer  ? '<span class="flag-answer">★ 정답</span>' : '';
-
-      // Option text (verbatim — use textContent trick via DOM)
-      const textNode = document.createTextNode(opt.text);
-      const textTemp = document.createElement('span');
-      textTemp.className = 'reveal-opt-text';
-      textTemp.appendChild(textNode);
+      const chosenFlag = isChosen ? '<span class="flag-chosen">◀ 선택</span>' : '';
+      const answerFlag = isAnswer ? '<span class="flag-answer">★ 정답</span>' : '';
 
       row.innerHTML =
         '<span class="opt-marker">' + esc(opt.displayKey) + '</span>' +
@@ -396,23 +526,20 @@ const App = (function () {
       detailEl.appendChild(row);
     });
 
-    // Full explanation (verbatim) — shown once for the whole question
     const explEl = $('reveal-explanation');
     explEl.textContent = (q.explanation && q.explanation.trim()) ? formatText(q.explanation) : '해설 없음';
 
-    // Source citation
-    const yearStr = (q.year_tags && q.year_tags.length) ? q.year_tags.join(', ') : '';
+    const yearStr  = (q.year_tags && q.year_tags.length) ? q.year_tags.join(', ') : '';
     const pdfShort = (q.source_pdf || '')
-      .replace(/^\[.*?\]\s*/, '')   // strip [44회 기출풀복원특강] prefix
+      .replace(/^\[.*?\]\s*/, '')
       .replace(/\.pdf$/i, '');
     const parts = [
       '출처: ' + pdfShort,
-      yearStr   ? '기출: ' + yearStr : null,
+      yearStr           ? '기출: ' + yearStr       : null,
       q.source_q_no != null ? '문번: ' + q.source_q_no : null
     ].filter(Boolean);
     $('reveal-source').textContent = parts.join('  │  ');
 
-    // Notes — find titled notes in the same topic
     const topicKey = (q.topic_path && q.topic_path[0]) || '';
     const notes    = QuizEngine.getNotesForTopic(topicKey).filter(n => n.title && n.title.trim());
 
@@ -425,7 +552,6 @@ const App = (function () {
       notesBtn.classList.remove('hidden');
       notesContent.innerHTML = '';
 
-      // Prefer a note whose title mentions the current subtopic; otherwise show first
       let targetNote = notes[0];
       if (q.subtopic) {
         const match = notes.find(n => n.title.includes(q.subtopic));
@@ -438,7 +564,120 @@ const App = (function () {
 
       const bodyEl = document.createElement('pre');
       bodyEl.className = 'note-body';
-      bodyEl.textContent = targetNote.body;  // verbatim
+      bodyEl.textContent = targetNote.body;
 
       notesContent.appendChild(titleEl);
-      notesC
+      notesContent.appendChild(bodyEl);
+    }
+  }
+
+  // ── Wrong-answer toggle ────────────────────────────────────────────────────
+
+  function updateWrongBtn() {
+    if (!session[cursor]) return;
+    const qId   = session[cursor].question.question_id;
+    const wrong = Progress.isWrong(appState, qId);
+    const btn   = $('btn-toggle-wrong');
+    btn.textContent = wrong ? '✓ 오답 등록됨' : '+ 오답 등록';
+    btn.classList.toggle('wrong-active', wrong);
+  }
+
+  function toggleCurrentWrong() {
+    if (!session[cursor]) return;
+    const qId = session[cursor].question.question_id;
+    appState  = Progress.toggleWrong(appState, qId, ACTIVE_EXAM);
+    updateWrongBtn();
+  }
+
+  // ── Next question / session end ───────────────────────────────────────────
+
+  function nextQuestion() {
+    cursor++;
+    if (cursor >= session.length) {
+      stopTimer();
+      $('mock-timer-bar').classList.add('hidden');
+      renderEnd(false);
+      show('screen-end');
+    } else {
+      if (isMockExam) updateTimerDisplay();
+      renderQuestion();
+    }
+  }
+
+  function renderEnd(timeExpired = false) {
+    const sessionCorrect = sessionLog.filter(r => r.correct).length;
+    const sessionTotal   = sessionLog.length;
+    const sessionPct     = sessionTotal ? Math.round(sessionCorrect / sessionTotal * 100) : 0;
+
+    $('end-total').textContent             = sessionTotal;
+    $('end-correct').textContent           = sessionCorrect;
+    $('end-session-accuracy').textContent  = sessionPct + '%';
+    $('end-global-accuracy').textContent   = Progress.getAccuracy(appState) + '%';
+    $('end-global-answered').textContent   = appState.totalAnswered;
+    $('end-wrong-count').textContent       = appState.wrongList.length;
+
+    let msg = '';
+    if      (sessionPct >= 90) msg = '완벽합니다! 🎉';
+    else if (sessionPct >= 80) msg = '합격권입니다! 계속 유지하세요.';
+    else if (sessionPct >= 60) msg = '조금 더 힘내세요. 오답 복습을 추천합니다.';
+    else                       msg = '오답 집중 드릴로 복습해 보세요.';
+    $('end-message').textContent = msg;
+
+    const mockEl = $('mock-pass-fail');
+    if (isMockExam) {
+      const passed = sessionPct >= 80;
+      const label  = timeExpired ? ' (시간 종료)' : '';
+      mockEl.style.color = passed ? 'var(--green)' : 'var(--red)';
+      mockEl.textContent = (passed ? '✓ 합격권' : '✗ 불합격권') + label + ' — 합격선 80%';
+      mockEl.classList.remove('hidden');
+    } else {
+      mockEl.classList.add('hidden');
+    }
+
+    $('btn-end-wrong').disabled = appState.wrongList.length === 0;
+  }
+
+  // ── Reset handlers ────────────────────────────────────────────────────────
+
+  function resetStats() {
+    if (!confirm('정답률·오답 목록을 초기화합니다. 커버리지(편별 진도)는 유지됩니다. 계속하시겠습니까?')) return;
+    appState = Progress.resetStats(appState, ACTIVE_EXAM);
+    renderHome();
+  }
+
+  function resetCoverage() {
+    if (!confirm('편별 커버리지(진도)를 초기화합니다. 정답률·오답 목록은 유지됩니다. 계속하시겠습니까?')) return;
+    appState = Progress.resetCoverage(appState, ACTIVE_EXAM);
+    renderHome();
+  }
+
+  function resetAll() {
+    if (!confirm('모든 학습 기록(정답률, 오답 목록, 커버리지)을 초기화합니다. 계속하시겠습니까?')) return;
+    appState = Progress.reset(ACTIVE_EXAM);
+    renderHome();
+  }
+
+  return { init };
+})();
+
+// ── Dynamic data loader ───────────────────────────────────────────────────────
+// Injects data/<examId>/data.js as a <script> tag, then boots the app.
+(function () {
+  const examId = ACTIVE_EXAM;
+  const script = document.createElement('script');
+  script.src = 'data/' + examId + '/data.js';
+  script.onload = function () {
+    window.addEventListener('DOMContentLoaded', function () { App.init(); });
+    // If DOM is already ready (script injected after DOMContentLoaded fired):
+    if (document.readyState !== 'loading') App.init();
+  };
+  script.onerror = function () {
+    document.body.innerHTML =
+      '<div style="padding:2rem;font-family:sans-serif;color:#dc2626">' +
+      '<h2>데이터 로드 실패</h2>' +
+      '<p>data/' + examId + '/data.js 를 찾을 수 없습니다.</p>' +
+      '<p>switch_exam.py 를 실행해 데이터를 배포하세요.</p>' +
+      '</div>';
+  };
+  document.head.appendChild(script);
+})();
