@@ -4,8 +4,30 @@
 const QuizEngine = (function () {
   const MARKERS = ['①', '②', '③', '④'];
 
+  // ── Exam question allocation (44회 기준, 100문항 합계) ─────────────────────
+  // 각 과목·편에 배정된 실제 출제 문항 수 (데이터 뱅크 크기가 아님).
+  // 드롭다운 "(N문항)" 표시에 사용 — 시험 출제 비중을 직관적으로 파악하기 위함.
+  const EXAM_ALLOC = {
+    '1과목1편':  7,
+    '1과목2편':  8,
+    '1과목3편':  5,
+    '2과목1편':  5,
+    '2과목2편':  5,
+    '2과목3편': 12,
+    '2과목4편':  8,
+    '3과목1편':  5,
+    '3과목2편': 11,
+    '3과목3편':  3,
+    '3과목4편':  6,
+    '3과목5편':  6,
+    '3과목6편':  6,
+    '3과목7편':  4,
+    '3과목8편':  4,
+    '3과목9편':  5
+  };  // sum = 100
+
   let stmtMap    = {};   // statement_id  → statement object
-  let qBank      = [];   // all questions
+  let qBank      = [];   // all questions (correct_marker != null)
   let notesByTopicKey = {}; // topic_path[0] → notes[]
 
   // ── Init ──────────────────────────────────────────────────────────────────
@@ -24,15 +46,60 @@ const QuizEngine = (function () {
     });
   }
 
-  // ── Filters ───────────────────────────────────────────────────────────────
+  // ── Topic key formatting ──────────────────────────────────────────────────
 
-  // Returns ['전체', '3과목1편 · 직무윤리', ...]
-  function getTopics() {
-    const seen = new Set();
+  // '3과목1편' → '3과목 1편'
+  function formatTopicKey(key) {
+    return key.replace(/(\d+과목)(\d+편)/, '$1 $2');
+  }
+
+  // Numeric sort order for keys like '1과목1편', '2과목3편', etc.
+  function topicKeyOrder(key) {
+    const m = key.match(/(\d+)과목(\d+)편/);
+    if (!m) return [999, 999];
+    return [parseInt(m[1], 10), parseInt(m[2], 10)];
+  }
+
+  // ── Topic / Subtopic selectors ────────────────────────────────────────────
+
+  // Returns [{key, label, examAlloc, bankCount}, ...] sorted by 과목 → 편 order.
+  // label format: '3과목 1편 - 직무윤리 (5문항)' — 문항수는 44회 실제 출제 배정 수
+  function getTopicsWithMeta() {
+    const metaMap = {}; // key → {title, bankCount}
     qBank.forEach(q => {
-      if (q.topic_path && q.topic_path[0]) seen.add(q.topic_path[0]);
+      const k = q.topic_path && q.topic_path[0];
+      const t = q.topic_path && q.topic_path[1];
+      if (!k) return;
+      if (!metaMap[k]) metaMap[k] = { title: '', bankCount: 0 };
+      if (t && !metaMap[k].title) metaMap[k].title = t;
+      metaMap[k].bankCount++;
     });
-    return ['전체', ...Array.from(seen)];
+
+    const keys = Object.keys(metaMap).sort((a, b) => {
+      const [a1, a2] = topicKeyOrder(a);
+      const [b1, b2] = topicKeyOrder(b);
+      return a1 !== b1 ? a1 - b1 : a2 - b2;
+    });
+
+    const items = keys.map(k => {
+      const { title, bankCount } = metaMap[k];
+      const formatted  = formatTopicKey(k);
+      // Show exam allocation (44회) when available; fall back to bank count
+      const examAlloc  = EXAM_ALLOC[k] || null;
+      const displayNum = examAlloc !== null ? examAlloc : bankCount;
+      const label = title
+        ? `${formatted} - ${title} (${displayNum}문항)`
+        : `${formatted} (${displayNum}문항)`;
+      return { key: k, label, examAlloc, bankCount };
+    });
+
+    const totalAlloc = Object.values(EXAM_ALLOC).reduce((s, v) => s + v, 0);
+    return [{ key: '전체', label: `전체 (${totalAlloc}문항)`, examAlloc: totalAlloc, bankCount: qBank.length }, ...items];
+  }
+
+  // Legacy: plain string list for compatibility (unused internally but kept for safety)
+  function getTopics() {
+    return getTopicsWithMeta().map(m => m.key);
   }
 
   // Returns subtopics for the given topic (or all if '전체')
@@ -43,6 +110,38 @@ const QuizEngine = (function () {
     const seen = new Set();
     pool.forEach(q => { if (q.topic_path && q.topic_path[1]) seen.add(q.topic_path[1]); });
     return ['전체', ...Array.from(seen).sort()];
+  }
+
+  // ── Pool size & coverage helpers ──────────────────────────────────────────
+
+  // Returns total number of questions matching the given filter (before sampling).
+  // Used as the denominator for coverage bars.
+  function getPoolSize(topic, subtopic, highYieldOnly) {
+    let pool = [...qBank];
+    if (topic && topic !== '전체') {
+      pool = pool.filter(q => q.topic_path && q.topic_path[0] === topic);
+    }
+    if (subtopic && subtopic !== '전체') {
+      pool = pool.filter(q => q.topic_path && q.topic_path[1] === subtopic);
+    }
+    if (highYieldOnly) {
+      pool = pool.filter(q => questionMaxFreq(q) >= 3);
+    }
+    return pool.length;
+  }
+
+  // Returns {seen, total} for a filter based on the answeredMap (historical coverage).
+  // Used for the home-screen "학습 커버리지" bar.
+  function getCoverageForFilter(topic, subtopic, answeredMap) {
+    let pool = [...qBank];
+    if (topic && topic !== '전체') {
+      pool = pool.filter(q => q.topic_path && q.topic_path[0] === topic);
+    }
+    if (subtopic && subtopic !== '전체') {
+      pool = pool.filter(q => q.topic_path && q.topic_path[1] === subtopic);
+    }
+    const seen = pool.filter(q => answeredMap && answeredMap[q.question_id]).length;
+    return { seen, total: pool.length };
   }
 
   // ── Weighting ─────────────────────────────────────────────────────────────
@@ -63,7 +162,6 @@ const QuizEngine = (function () {
   // ── Weighted random sample without replacement ─────────────────────────────
 
   function weightedSample(pool, count, alpha, answeredMap) {
-    // Build weight vector — boost unseen and previously-wrong questions
     const items = pool.map(q => {
       let w = questionFreqWeight(q, alpha);
       const rec = answeredMap[q.question_id];
@@ -101,8 +199,6 @@ const QuizEngine = (function () {
 
   // ── Option shuffling ──────────────────────────────────────────────────────
 
-  // Returns array of {origKey, displayKey, text, statement_id}
-  // origKey = '①'…'④' from the JSON; displayKey = randomly reassigned '①'…'④'
   function shuffleOptions(q) {
     const entries = Object.entries(q.options).map(([k, v]) => ({
       origKey:      k,
@@ -119,32 +215,90 @@ const QuizEngine = (function () {
     return entries.map((e, i) => ({ ...e, displayKey: MARKERS[i] }));
   }
 
+  // ── Proportional sampler (전체 선택 시) ──────────────────────────────────
+  //
+  // EXAM_ALLOC 비율에 따라 각 과목·편에서 targetCount를 할당하고,
+  // 각 버킷에서 weightedSample을 실행한 뒤 셔플해서 합칩니다.
+  // → "전체" 세션이 실제 시험 출제 비중을 반영하게 됩니다.
+  //
+  function proportionalSample(totalCount, alpha, answeredMap, excludeIds, highYieldOnly) {
+    const totalAlloc = Object.values(EXAM_ALLOC).reduce((s, v) => s + v, 0); // 100
+
+    // 각 과목·편에 할당할 문항 수 계산 (Largest Remainder Method)
+    const buckets = Object.keys(EXAM_ALLOC).map(key => ({
+      key,
+      raw:       totalCount * EXAM_ALLOC[key] / totalAlloc,
+      floor:     0,
+      remainder: 0
+    }));
+    buckets.forEach(b => {
+      b.floor     = Math.floor(b.raw);
+      b.remainder = b.raw - b.floor;
+    });
+    let spare = totalCount - buckets.reduce((s, b) => s + b.floor, 0);
+    buckets.sort((a, b) => b.remainder - a.remainder);
+    for (let i = 0; i < spare; i++) buckets[i].floor++;
+
+    // 각 버킷에서 샘플링
+    const result = [];
+    for (const { key, floor: target } of buckets) {
+      if (target === 0) continue;
+      let pool = qBank.filter(q => q.topic_path && q.topic_path[0] === key);
+      if (highYieldOnly) pool = pool.filter(q => questionMaxFreq(q) >= 3);
+      if (excludeIds && excludeIds.size > 0) pool = pool.filter(q => !excludeIds.has(q.question_id));
+      const sampled = weightedSample(pool, target, alpha, answeredMap);
+      result.push(...sampled);
+    }
+
+    // 과목 순서 노출 방지를 위해 결과 셔플
+    for (let i = result.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [result[i], result[j]] = [result[j], result[i]];
+    }
+    return result;
+  }
+
   // ── Session builder ───────────────────────────────────────────────────────
 
-  // options: { topic, subtopic, count, alpha, wrongOnly, wrongList, answeredMap, highYieldOnly }
+  // options: { topic, subtopic, count, alpha, wrongOnly, wrongList, answeredMap,
+  //            highYieldOnly, excludeIds }
+  // excludeIds: Set<questionId> — questions to exclude (already-seen in this filter series).
+  //             Pass null/undefined to disable exclusion.
   // Returns [{question, shuffledOptions}]
   function buildSession(options) {
-    const { topic, subtopic, count, alpha, wrongOnly, wrongList = [], answeredMap = {}, highYieldOnly = false } = options;
+    const {
+      topic, subtopic, count, alpha,
+      wrongOnly, wrongList = [], answeredMap = {},
+      highYieldOnly = false,
+      excludeIds = null
+    } = options;
 
-    let pool = [...qBank];
+    let sampled;
 
     if (wrongOnly) {
+      // 오답 드릴: 오답 목록에서만 샘플링
       const wSet = new Set(wrongList);
-      pool = pool.filter(q => wSet.has(q.question_id));
+      let pool = qBank.filter(q => wSet.has(q.question_id));
+      if (excludeIds && excludeIds.size > 0) pool = pool.filter(q => !excludeIds.has(q.question_id));
+      sampled = weightedSample(pool, count, alpha, answeredMap);
+
+    } else if (topic === '전체' && (!subtopic || subtopic === '전체')) {
+      // 전체 선택: EXAM_ALLOC 비율에 따른 비중 샘플링
+      sampled = proportionalSample(count, alpha, answeredMap, excludeIds, highYieldOnly);
+
     } else {
+      // 특정 과목·편 또는 주제 선택: 기존 방식
+      let pool = [...qBank];
       if (topic && topic !== '전체') {
         pool = pool.filter(q => q.topic_path && q.topic_path[0] === topic);
       }
       if (subtopic && subtopic !== '전체') {
         pool = pool.filter(q => q.topic_path && q.topic_path[1] === subtopic);
       }
+      if (highYieldOnly) pool = pool.filter(q => questionMaxFreq(q) >= 3);
+      if (excludeIds && excludeIds.size > 0) pool = pool.filter(q => !excludeIds.has(q.question_id));
+      sampled = weightedSample(pool, count, alpha, answeredMap);
     }
-
-    if (highYieldOnly) {
-      pool = pool.filter(q => questionMaxFreq(q) >= 3);
-    }
-
-    const sampled = weightedSample(pool, count, alpha, answeredMap);
 
     return sampled.map(q => ({
       question:        q,
@@ -158,6 +312,21 @@ const QuizEngine = (function () {
     return stmtMap[id] || null;
   }
 
-  // Returns notes[] for the given topic_path[0] key
   function getNotesForTopic(topicKey) {
-    return notesByTopicKey[topicKey] || 
+    return notesByTopicKey[topicKey] || [];
+  }
+
+  // ── Public API ────────────────────────────────────────────────────────────
+
+  return {
+    init,
+    getTopics,
+    getTopicsWithMeta,
+    getSubtopics,
+    getPoolSize,
+    getCoverageForFilter,
+    buildSession,
+    getStatement,
+    getNotesForTopic
+  };
+})();
