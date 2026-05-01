@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ThunderExam — 기출 퀴즈</title>
+  <style>
+    /* ── Reset & base ─────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #f5f6f8;
+      --surface:  #ffffff;
+      --border:   #dde1e7;
+      --text:     #1a1d23;
+      --muted:    #5a6272;
+      --accent:   #2563eb;
+      --accent-lt:#eff4ff;
+      --green:    #16a34a;
+      --green-lt: #f0fdf4;
+      --red:      #dc2626;
+      --red-lt:   #fef2f2;
+      --yellow:   #d97706;
+      --yellow-lt:#fffbeb;
+      --radius:   8px;
+      --shadow:   0 1px 4px rgba(0,0,0,.08);
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', '맑은 고딕', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 0 0 64px;
+    }
+
+    /* ── Layout ──────────────────────────────────────────────────────── */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .screen { padding-top: 24px; }
+    .hidden { display: none !important; }
+
+    /* ── Header bar ──────────────────────────────────────────────────── */
+    .app-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .app-header .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .app-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -.3px;
+    }
+    .app-subtitle { font-size: .75rem; color: var(--muted); margin-top: 1px; }
+
+    /* ── Card ────────────────────────────────────────────────────────── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .card-title {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-bottom: 12px;
+    }
+
+    /* ── Stat row ────────────────────────────────────────────────────── */
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .stat-item { text-align: center; }
+    .stat-value {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1.1;
+    }
+    .stat-label { font-size: .72rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── Form controls ───────────────────────────────────────────────── */
+    .form-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .form-row label { font-size: .85rem; color: var(--muted); white-space: nowrap; min-width: 64px; }
+
+    select, input[type="number"] {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 10px;
+      font-size: .9rem;
+      font-family: inherit;
+      background: #fff;
+      color: var(--text);
+      outline: none;
+    }
+    select:focus, input:focus { border-color: var(--accent); }
+    select { flex: 1; min-width: 120px; }
+    input[type="number"] { width: 72px; }
+    input[type="range"]  { flex: 1; accent-color: var(--accent); }
+
+    .alpha-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .alpha-val { font-size: .85rem; font-weight: 700; color: var(--accent); min-width: 24px; }
+
+    /* ── Buttons ─────────────────────────────────────────────────────── */
+    .btn {
+      display: inline-block;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: .9rem;
+      font-weight: 600;
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      transition: opacity .15s, transform .08s;
+    }
+    .btn:active { transform: scale(.97); }
+    .btn:disabled { opacity: .4; cursor: default; }
+
+    .btn-primary   { background: var(--accent); color: #fff; }
+    .btn-secondary { background: var(--surface); color: var(--accent); border: 1.5px solid var(--accent); }
+    .btn-danger    { background: var(--red-lt); color: var(--red); border: 1.5px solid #fca5a5; }
+    .btn-sm        { padding: 6px 14px; font-size: .82rem; }
+    .btn-full      { width: 100%; text-align: center; }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* ── Progress bar ────────────────────────────────────────────────── */
+    .progress-bar-wrap {
+      height: 5px;
+      background: var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+      margin-bottom: 14px;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      background: var(--accent);
+      border-radius: 3px;
+      transition: width .3s ease;
+    }
+
+    /* ── Quiz meta ───────────────────────────────────────────────────── */
+    .quiz-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 20px;
+      font-size: .72rem;
+      font-weight: 600;
+    }
+    .badge-topic    { background: var(--accent-lt); color: var(--accent); }
+    .badge-subtopic { background: #f0f0f5; color: #5040a0; }
+    .badge-polarity { background: var(--yellow-lt); color: var(--yellow); }
+
+    .quiz-counter {
+      margin-left: auto;
+      font-size: .8rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* ── Stem ────────────────────────────────────────────────────────── */
+    .quiz-stem {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--text);
+      white-space: pre-wrap;
+      word-break: keep-all;
+      margin-bottom: 18px;
+    }
+
+    /* ── Option buttons ──────────────────────────────────────────────── */
+    .opt-btn {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 8px;
+      background: var(--surface);
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      font-size: .92rem;
+      font-family: inherit;
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+      line-height: 1.55;
+      word-break: keep-all;
+      transition: background .12s, border-color .12s;
+    }
+    .opt-btn:not(:disabled):hover { background: var(--accent-lt); border-color: var(--accent); }
+    .opt-btn:disabled { cursor: default; }
+    .opt-btn.opt-correct { background: var(--green-lt); border-color: var(--green); color: var(--green); }
+    .opt-btn.opt-wrong   { background: var(--red-lt);   border-color: var(--red);   color: var(--red);   }
+
+    .opt-marker {
+      font-weight: 700;
+      min-width: 22px;
+      flex-shrink: 0;
+      color: var(--accent);
+    }
+    .opt-btn.opt-correct .opt-marker { color: var(--green); }
+    .opt-btn.opt-wrong   .opt-marker { color: var(--red); }
+
+    /* ── Reveal panel ────────────────────────────────────────────────── */
+    #quiz-reveal {
+      margin-top: 18px;
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+    }
+
+    .reveal-verdict {
+      font-size: 1.1rem;
+      font-weight: 700;
+      padding: 10px 16px;
+      border-radius: 8px;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+    .verdict-correct { background: var(--green-lt); color: var(--green); }
+    .verdict-wrong   { background: var(--red-lt);   color: var(--red);   }
+
+    /* Per-option rows in reveal */
+    .reveal-row {
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 8px 10px;
+      border-radius: 6px;
+      margin-bottom: 6px;
+      font-size: .88rem;
+      line-height: 1.5;
+      background: #fafbfc;
+      border: 1px solid var(--border);
+      word-break: keep-all;
+    }
+    .reveal-row.reveal-row-answer {
+      background: var(--green-lt);
+      border-color: #86efac;
+    }
+    .reveal-row .opt-marker { color: var(--accent); font-weight: 700; min-width: 22px; }
+    .reveal-row.reveal-row-answer .opt-marker { color: var(--green); }
+    .reveal-opt-text { flex: 1; }
+
+    .badge-o { background: var(--green-lt); color: var(--green); border: 1px solid #86efac; border-radius: 4px; padding: 0 5px; font-size: .75rem; font-weight: 700; }
+    .badge-x { background: var(--red-lt);   color: var(--red);   border: 1px solid #fca5a5; border-radius: 4px; padding: 0 5px; font-size: .75rem; font-weight: 700; }
+    .badge-q { background: #f3f4f6; color: var(--muted); border: 1px solid var(--border); border-radius: 4px; padding: 0 5px; font-size: .75rem; font-weight: 700; }
+
+    .flag-chosen { font-size: .72rem; color: var(--red); font-weight: 600; }
+    .flag-answer { font-size: .72rem; color: var(--green); font-weight: 600; }
+
+    /* Explanation block */
+    .reveal-section-label {
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin: 14px 0 6px;
+    }
+
+    #reveal-explanation {
+      font-size: .88rem;
+      line-height: 1.7;
+      color: var(--text);
+      white-space: pre-wrap;
+      word-break: keep-all;
+      background: #fffdf0;
+      border: 1px solid #fde68a;
+      border-radius: 6px;
+      padding: 10px 12px;
+    }
+
+    #reveal-source {
+      font-size: .72rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* Notes section */
+    #btn-show-notes {
+      font-size: .8rem;
+      color: var(--accent);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px 0;
+      font-family: inherit;
+      font-weight: 600;
+    }
+    #btn-show-notes.hidden { display: none; }
+
+    .note-title {
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .note-body {
+      font-size: .8rem;
+      line-height: 1.65;
+      color: var(--text);
+      white-space: pre-wrap;
+      word-break: keep-all;
+      font-family: inherit;
+      background: #f8f9fc;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 10px 12px;
+      max-height: 320px;
+      overflow-y: auto;
+    }
+
+    /* ── Action bar below quiz ───────────────────────────────────────── */
+    .quiz-action-bar {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    #btn-toggle-wrong.wrong-active {
+      background: var(--yellow-lt);
+      color: var(--yellow);
+      border-color: #fcd34d;
+    }
+
+    /* ── End screen ──────────────────────────────────────────────────── */
+    .end-score-box {
+      text-align: center;
+      padding: 24px;
+    }
+    .end-score-pct {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .end-score-label { font-size: .85rem; color: var(--muted); margin-top: 4px; }
+    .end-message { font-size: 1rem; font-weight: 600; color: var(--text); margin-top: 14px; }
+
+    .end-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .end-stat { text-align: center; }
+    .end-stat-val { font-size: 1.4rem; font-weight: 700; color: var(--text); }
+    .end-stat-lbl { font-size: .72rem; color: var(--muted); margin-top: 2px; }
+
+    /* ── Mock exam timer ──────────────────────────────────────────────────── */
+    .mock-timer-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 8px 14px; margin-bottom: 10px;
+    }
+    .mock-timer-label { color: var(--muted); font-size: .8rem; }
+    .mock-timer-display {
+      font-size: 1.2rem; font-weight: 700; color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+    .mock-timer-display.timer-warn   { color: var(--yellow); }
+    .mock-timer-display.timer-danger { color: var(--red); }
+
+    /* ── Responsive ──────────────────────────────────────────────────── */
+    @media (max-width: 480px) {
+      .stat-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-value { font-size: 1.3rem; }
+      .btn-group { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── App Header ──────────────────────────────────────────────────────── -->
+<header class="app-header">
+  <div class="container">
+    <div>
+      <div class="app-title">⚡ ThunderExam</div>
+      <div class="app-subtitle">7일 만에 80점 달성 — 기출 퀴즈</div>
+    </div>
+  </div>
+</header>
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<!-- SCREEN: Home                                                         -->
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<div id="screen-home" class="screen hidden">
+  <div class="container">
+
+    <!-- Stats -->
+    <div class="card">
+      <div class="card-title">학습 현황</div>
+      <div class="stat-grid">
+        <div class="stat-item">
+          <div class="stat-value" id="stat-answered">0</div>
+          <div class="stat-label">총 풀이</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="stat-accuracy">0%</div>
+          <div class="stat-label">정답률</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-value" id="stat-wrong">0</div>
+          <div class="stat-label">오답 등록</div>
+        </div>
+      </div>
+      <div style="margin-top:10px; font-size:.75rem; color:var(--muted); text-align:right;">
+        문제 뱅크: <strong id="stat-bank">—</strong>
+      </div>
+    </div>
+
+    <!-- Settings -->
+    <div class="card">
+      <div class="card-title">세션 설정</div>
+
+      <div class="form-row">
+        <label>과목</label>
+        <select id="sel-topic"></select>
+      </div>
+      <div class="form-row">
+        <label>주제</label>
+        <select id="sel-subtopic"></select>
+      </div>
+      <div class="form-row">
+        <label>문항 수</label>
+        <input type="number" id="inp-count" value="10" min="1" max="96">
+      </div>
+      <div class="form-row">
+        <label>빈도 가중</label>
+        <div class="alpha-row" style="flex:1">
+          <input type="range" id="rng-alpha" min="0" max="1" step="0.1" value="0.7">
+          <span class="alpha-val" id="lbl-alpha">0.7</span>
+        </div>
+      </div>
+      <div style="font-size:.72rem; color:var(--muted); margin-bottom:14px;">
+        빈도 가중치: 0 = 균등 샘플링, 1 = 고빈도 우선. 기본값 0.7 권장.
+      </div>
+
+      <div class="form-row">
+        <label>고빈출만</label>
+        <label style="display:flex;align-items:center;gap:6px;flex:1;cursor:pointer;">
+          <input type="checkbox" id="chk-high-yield" style="width:16px;height:16px;">
+          <span style="font-size:.82rem;color:var(--muted);">3회 이상 출제 문항만 (고빈출 집중 학습)</span>
+        </label>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-primary" id="btn-start">▶ 퀴즈 시작</button>
+        <button class="btn btn-secondary" id="btn-wrong-drill" disabled>오답 드릴</button>
+        <button class="btn btn-secondary btn-full" id="btn-mock-exam">📋 모의고사 (70문제 / 30분)</button>
+      </div>
+    </div>
+
+    <!-- Reset -->
+    <div style="text-align:right; margin-top:4px;">
+      <button class="btn btn-danger btn-sm" id="btn-reset">기록 초기화</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<!-- SCREEN: Quiz                                                         -->
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<div id="screen-quiz" class="screen hidden">
+  <div class="container">
+
+    <!-- Progress -->
+    <div class="progress-bar-wrap" style="margin-top:8px;">
+      <div class="progress-bar-fill" id="quiz-bar" style="width:0%"></div>
+    </div>
+
+    <!-- Mock exam timer bar -->
+    <div id="mock-timer-bar" class="mock-timer-bar hidden">
+      <span class="mock-timer-label">⏱ 모의고사</span>
+      <span id="mock-timer-display" class="mock-timer-display">30:00</span>
+      <span class="mock-timer-label" id="mock-timer-qcount"></span>
+    </div>
+
+    <!-- Question card -->
+    <div class="card">
+      <!-- Meta row -->
+      <div class="quiz-meta">
+        <span class="badge badge-topic" id="quiz-topic"></span>
+        <span class="badge badge-subtopic hidden" id="quiz-subtopic"></span>
+        <span class="badge badge-polarity" id="quiz-polarity"></span>
+        <span class="quiz-counter" id="quiz-progress"></span>
+      </div>
+
+      <!-- Stem -->
+      <div class="quiz-stem" id="quiz-stem"></div>
+
+      <!-- Options -->
+      <div id="quiz-options"></div>
+
+      <!-- ── Reveal panel (hidden until answer picked) ── -->
+      <div id="quiz-reveal" class="hidden">
+
+        <!-- Verdict -->
+        <div class="reveal-verdict" id="reveal-verdict"></div>
+
+        <!-- Per-option O/X breakdown -->
+        <div id="reveal-options"></div>
+
+        <!-- Explanation -->
+        <div class="reveal-section-label">해설</div>
+        <div id="reveal-explanation"></div>
+        <div id="reveal-source"></div>
+
+        <!-- Notes (lazy reveal) -->
+        <div style="margin-top:10px;">
+          <button id="btn-show-notes" class="hidden">보충설명 보기 ▼</button>
+          <div id="reveal-notes-content" class="hidden" style="margin-top:8px;"></div>
+        </div>
+
+      </div>
+      <!-- /reveal -->
+
+      <!-- Action bar -->
+      <div class="quiz-action-bar">
+        <button class="btn btn-primary hidden" id="btn-next">다음 문제 →</button>
+        <button class="btn btn-secondary btn-sm hidden" id="btn-toggle-wrong">+ 오답 등록</button>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<!-- SCREEN: Session End                                                  -->
+<!-- ════════════════════════════════════════════════════════════════════ -->
+<div id="screen-end" class="screen hidden">
+  <div class="container">
+
+    <div class="card">
+      <div class="end-score-box">
+        <div class="end-score-pct" id="end-session-accuracy">—</div>
+        <div class="end-score-pct" id="end-session-accuracy">—</div>
+        <div class="end-score-label">이번 세션 정답률</div>
+        <div class="end-message" id="end-message"></div>
+        <div id="mock-pass-fail" class="hidden" style="margin-top:10px;font-size:1rem;font-weight:700;"></div>
+      </div>
+
+      <div class="end-stats-grid">
+        <div class="end-stat">
+          <div class="end-stat-val"><span id="end-correct">—</span> / <span id="end-total">—</span></div>
+          <div class="end-stat-lbl">이번 세션 정오</div>
+        </div>
+        <div class="end-stat">
+          <div class="end-stat-val" id="end-global-accuracy">—</div>
+          <div class="end-stat-lbl">누적 정답률</div>
+        </div>
+        <div class="end-stat">
+          <div class="end-stat-val" id="end-global-answered">—</div>
+          <div class="end-stat-lbl">누적 풀이 수</div>
+        </div>
+        <div class="end-stat">
+          <div class="end-stat-val" id="end-wrong-count">—</div>
+          <div class="end-stat-lbl">오답 등록 수</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-group" style="justify-content:center; margin-top:4px;">
+      <button class="btn btn-primary"   id="btn-end-home">홈으로</button>
+      <button class="btn btn-secondary" id="btn-end-wrong" disabled>오답 드릴</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Scripts (order matters) ─────────────────────────────────────────── -->
+<!-- 1. Data (sets window.THUNDER_*) -->
+<script src="data/data.js"></script>
+<!-- 2. Modules -->
+<script src="progress.js"></script>
+<script src="quiz_engine.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
