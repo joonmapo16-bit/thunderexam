@@ -82,6 +82,23 @@ const App = (function () {
 
     buildTopicSelector();
     bindEvents();
+    // exam_C (calc mode): hide frequency/count/high-yield settings
+    if ((window.THUNDER_EXAM_META || {}).exam_id === 'exam_C') {
+      ['inp-count', 'rng-alpha', 'chk-high-yield'].forEach(function(id) {
+        const el = document.getElementById(id);
+        if (!el) return;
+        const row = el.closest('.form-row');
+        if (row) row.style.display = 'none';
+      });
+      // Hide the "빈도 가중치: 0 = ..." hint text
+      const alphaEl = document.getElementById('rng-alpha');
+      if (alphaEl) {
+        const alphaRow = alphaEl.closest('.form-row');
+        if (alphaRow && alphaRow.nextElementSibling) {
+          alphaRow.nextElementSibling.style.display = 'none';
+        }
+      }
+    }
     renderHome();
     show('screen-home');
   }
@@ -508,7 +525,12 @@ const App = (function () {
       row.className = 'reveal-row' + (isAnswer ? ' reveal-row-answer' : '');
 
       let tvHtml = '';
-      if (stmt) {
+      if (q.question_format === 'calc' && q.correct_marker) {
+        // calc mode: synthesize O/X — no per-option truth values in PDF
+        tvHtml = isAnswer
+          ? '<span class="badge-o">O</span>'
+          : '<span class="badge-x">X</span>';
+      } else if (stmt) {
         if      (stmt.truth_value === 'O') tvHtml = '<span class="badge-o">O</span>';
         else if (stmt.truth_value === 'X') tvHtml = '<span class="badge-x">X</span>';
         else                               tvHtml = '<span class="badge-q">?</span>';
@@ -536,7 +558,7 @@ const App = (function () {
     const parts = [
       '출처: ' + pdfShort,
       yearStr           ? '기출: ' + yearStr       : null,
-      q.source_q_no != null ? '문번: ' + q.source_q_no : null
+      (q.q_no != null ? '문번: Q' + q.q_no : q.source_q_no != null ? '문번: ' + q.source_q_no : null)
     ].filter(Boolean);
     $('reveal-source').textContent = parts.join('  │  ');
 
