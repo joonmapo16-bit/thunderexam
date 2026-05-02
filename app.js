@@ -54,9 +54,24 @@ const App = (function () {
     const cleaned = stem
       .replace(/\s*\d{4}\.\d{2}\s*/g, ' ')
       .replace(/\s*기출복원\s*/g, ' ')
+      // 2026-05-02: parser-leaked 회차 metadata. Bounded patterns:
+      //   - "37회, 40회동일기출"
+      //   - "(30회, 33회, 37회, 44회)"
+      //   - "39회, 44회 " (>=2 numbers comma-joined)
+      .replace(/\d{1,2}회(?:\s*,\s*\d{1,2}회)*\s*동일기출/g, ' ')
+      .replace(/\(\s*\d{1,2}회(?:\s*,\s*\d{1,2}회)+\s*\)/g, ' ')
+      .replace(/\d{1,2}회(?:\s*,\s*\d{1,2}회)+/g, ' ')
       .replace(/\s+/g, ' ')
       .trim();
     return { cleaned, year: dates.join(', ') };
+  }
+
+  // 2026-05-02 — parser leaves trailing page numbers on explanation text
+  // (e.g., "...익일결제방식이다. 40"). Strip a trailing space-prefixed
+  // 1–3 digit number that's not part of a Korean word.
+  function cleanExplanation(expl) {
+    if (!expl) return '';
+    return expl.replace(/\s+\d{1,3}\s*$/, '').trim();
   }
 
   function show(screenId) {
@@ -574,7 +589,8 @@ const App = (function () {
     });
 
     const explEl = $('reveal-explanation');
-    explEl.textContent = (q.explanation && q.explanation.trim()) ? formatText(q.explanation) : '해설 없음';
+    const explClean = cleanExplanation(q.explanation || '');
+    explEl.textContent = explClean ? formatText(explClean) : '해설 없음';
 
     const stemMetaForSource = extractStemMeta(q.stem);
     const yearStr  = (q.year_tags && q.year_tags.length)
