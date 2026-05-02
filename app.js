@@ -45,6 +45,20 @@ const App = (function () {
 
   const formatStem = formatText;
 
+  // 2026-05-02 — extract noisy YYYY.MM stamps and "기출복원" tags that the
+  // parser embedded mid-stem. Returns {cleaned, year} so callers can render
+  // the year in the proper bracket position instead of inline mid-sentence.
+  function extractStemMeta(stem) {
+    if (!stem) return { cleaned: '', year: '' };
+    const dates = stem.match(/\d{4}\.\d{2}/g) || [];
+    const cleaned = stem
+      .replace(/\s*\d{4}\.\d{2}\s*/g, ' ')
+      .replace(/\s*기출복원\s*/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    return { cleaned, year: dates.join(', ') };
+  }
+
   function show(screenId) {
     document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
     document.getElementById(screenId).classList.remove('hidden');
@@ -430,8 +444,12 @@ const App = (function () {
     };
     $('quiz-polarity').textContent = polMap[q.stem_polarity] || q.stem_polarity || '';
 
-    const yearStr = (q.year_tags && q.year_tags.length) ? ' [' + q.year_tags.join(', ') + ']' : '';
-    $('quiz-stem').textContent = formatStem(q.stem + yearStr);
+    const stemMeta = extractStemMeta(q.stem);
+    const yearList = (q.year_tags && q.year_tags.length)
+      ? q.year_tags
+      : (stemMeta.year ? [stemMeta.year] : []);
+    const yearStr = yearList.length ? ' [' + yearList.join(', ') + ']' : '';
+    $('quiz-stem').textContent = formatStem(stemMeta.cleaned + yearStr);
 
     const container = $('quiz-options');
     container.innerHTML = '';
@@ -505,12 +523,18 @@ const App = (function () {
   function renderReveal(q, shuffledOptions, chosenOrigKey) {
     const correct = (chosenOrigKey === q.correct_marker);
 
+    // Resolve the visible (display) marker for the answer so the verdict text
+    // matches the row that shows ★정답. With shuffle disabled this equals
+    // q.correct_marker, but we still resolve dynamically as a safety net.
+    const correctOpt = shuffledOptions.find(o => o.origKey === q.correct_marker);
+    const correctDisplayMarker = correctOpt ? correctOpt.displayKey : q.correct_marker;
+
     const banner = $('reveal-verdict');
     if (correct) {
       banner.textContent = '✓ 정답';
       banner.className   = 'reveal-verdict verdict-correct';
     } else {
-      banner.textContent = '✗ 오답  —  정답: ' + q.correct_marker;
+      banner.textContent = '✗ 오답  —  정답: ' + correctDisplayMarker;
       banner.className   = 'reveal-verdict verdict-wrong';
     }
 
@@ -552,7 +576,10 @@ const App = (function () {
     const explEl = $('reveal-explanation');
     explEl.textContent = (q.explanation && q.explanation.trim()) ? formatText(q.explanation) : '해설 없음';
 
-    const yearStr  = (q.year_tags && q.year_tags.length) ? q.year_tags.join(', ') : '';
+    const stemMetaForSource = extractStemMeta(q.stem);
+    const yearStr  = (q.year_tags && q.year_tags.length)
+      ? q.year_tags.join(', ')
+      : (stemMetaForSource.year || '');
     const pdfShort = (q.source_pdf || '')
       .replace(/^\[.*?\]\s*/, '')
       .replace(/\.pdf$/i, '');

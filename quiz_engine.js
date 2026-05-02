@@ -152,11 +152,16 @@ const QuizEngine = (function () {
     return Math.pow(questionMaxFreq(q), alpha);
   }
 
-  // ── Option shuffling ──────────────────────────────────────────────────────
+  // ── Option ordering ───────────────────────────────────────────────────────
+  //
+  // 2026-05-02 — Fisher-Yates shuffle disabled.
+  // Reason: explanation text and OX badges reference original PDF markers
+  // (origKey). Shuffling caused ★정답 visual position, verdict text, and the
+  // explanation's "②/③/④" mentions to point at three different visible
+  // options. We now always preserve original order so origKey === displayKey
+  // and every reference stays internally consistent.
 
   function shuffleOptions(q) {
-    const isCalc = (q.question_format === 'calc');
-
     // Build entries depending on options format
     let entries;
     if (Array.isArray(q.options)) {
@@ -175,15 +180,15 @@ const QuizEngine = (function () {
       }));
     }
 
-    // calc mode: keep original order; standard mode: Fisher-Yates shuffle
-    if (!isCalc) {
-      for (let i = entries.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [entries[i], entries[j]] = [entries[j], entries[i]];
-      }
-    }
+    // Sort by canonical marker order so displayKey aligns with origKey.
+    const markerOrder = { '①': 0, '②': 1, '③': 2, '④': 3, '⑤': 4 };
+    entries.sort((a, b) => {
+      const av = markerOrder[a.origKey];
+      const bv = markerOrder[b.origKey];
+      return (av == null ? 99 : av) - (bv == null ? 99 : bv);
+    });
 
-    return entries.map((e, i) => ({ ...e, displayKey: MARKERS[i] }));
+    return entries.map((e, i) => ({ ...e, displayKey: MARKERS[i] || e.origKey }));
   }
 
   // ── Calc-drill session builder ────────────────────────────────────────────
