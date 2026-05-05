@@ -21131,19 +21131,19 @@
     "explanation": "",
     "options": {
       "①": {
-        "text": "금액가중: 가, 나 / 시간가중: 다",
+        "text": "가, 나",
         "statement_id": null
       },
       "②": {
-        "text": "금액가중: 가 / 시간가중: 나, 다",
+        "text": "다 가",
         "statement_id": null
       },
       "③": {
-        "text": "금액가중: 가, 다 / 시간가중: 나",
+        "text": "나, 다 가, 다",
         "statement_id": null
       },
       "④": {
-        "text": "금액가중: 나 / 시간가중: 가, 다",
+        "text": "나 나 가, 다",
         "statement_id": null
       }
     },

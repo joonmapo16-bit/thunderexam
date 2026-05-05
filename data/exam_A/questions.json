@@ -2505,18 +2505,15 @@
     "stem_polarity": "unknown",
     "options": {
       "①": {
-        "text": "금액가중: 가, 나 / 시간가중: 다",
+        "text": "가, 나",
         "statement_id": "stmt_9dd3032db6"
       },
       "②": {
-        "text": "금액가중: 가 / 시간가중: 나, 다",
+        "text": "다 가",
         "statement_id": "stmt_cda364ee42"
       },
-      "③": {
-        "text": "금액가중: 가, 다 / 시간가중: 나"
-      },
       "④": {
-        "text": "금액가중: 나 / 시간가중: 가, 다",
+        "text": "나 나 가, 다",
         "statement_id": "stmt_0e1b2dd8bf"
       }
     },
@@ -12818,18 +12815,15 @@
     "stem_polarity": "unknown",
     "options": {
       "①": {
-        "text": "금액가중: 가, 나 / 시간가중: 다",
+        "text": "가, 나",
         "statement_id": "stmt_9dd3032db6"
       },
       "②": {
-        "text": "금액가중: 가 / 시간가중: 나, 다",
+        "text": "다 가",
         "statement_id": "stmt_cda364ee42"
       },
-      "③": {
-        "text": "금액가중: 가, 다 / 시간가중: 나"
-      },
       "④": {
-        "text": "금액가중: 나 / 시간가중: 가, 다",
+        "text": "나 나 가, 다",
         "statement_id": "stmt_0e1b2dd8bf"
       }
     },
@@ -23275,18 +23269,15 @@
     "stem_polarity": "unknown",
     "options": {
       "①": {
-        "text": "금액가중: 가, 나 / 시간가중: 다",
+        "text": "가, 나",
         "statement_id": "stmt_9dd3032db6"
       },
       "②": {
-        "text": "금액가중: 가 / 시간가중: 나, 다",
+        "text": "다 가",
         "statement_id": "stmt_cda364ee42"
       },
-      "③": {
-        "text": "금액가중: 가, 다 / 시간가중: 나"
-      },
       "④": {
-        "text": "금액가중: 나 / 시간가중: 가, 다",
+        "text": "나 나 가, 다",
         "statement_id": "stmt_0e1b2dd8bf"
       }
     },
@@ -28677,18 +28668,15 @@
     "stem_polarity": "unknown",
     "options": {
       "①": {
-        "text": "금액가중: 가, 나 / 시간가중: 다",
+        "text": "가, 나",
         "statement_id": "stmt_9dd3032db6"
       },
       "②": {
-        "text": "금액가중: 가 / 시간가중: 나, 다",
+        "text": "다 가",
         "statement_id": "stmt_cda364ee42"
       },
-      "③": {
-        "text": "금액가중: 가, 다 / 시간가중: 나"
-      },
       "④": {
-        "text": "금액가중: 나 / 시간가중: 가, 다",
+        "text": "나 나 가, 다",
         "statement_id": "stmt_0e1b2dd8bf"
       }
     },
@@ -28721,9 +28709,6 @@
       "③": {
         "text": "추적오차",
         "statement_id": "stmt_0154f17dca"
-      },
-      "④": {
-        "text": "베타"
       }
     },
     "correct_marker": "①",
@@ -28755,9 +28740,6 @@
       "③": {
         "text": "잔차위험",
         "statement_id": "stmt_ee32fa30e2"
-      },
-      "④": {
-        "text": "상대VaR"
       }
     },
     "correct_marker": "①",
@@ -29260,9 +29242,7 @@
     "topic_path": [
       "3과목9편",
       "분산투자이론"
-    ],
-    "image_url": "images/q_0604_39_t.png",
-    "image_caption": "분산투자 상관계수 행렬 (A=1.0/0.8/0.1, B=0.8/1.0/-0.3, C=0.1/-0.3/1.0)"
+    ]
   },
   {
     "question_id": "q_0605_39_b",
@@ -31961,8 +31941,7 @@
     "topic_path": [
       "2과목1편",
       "대안투자"
-    ],
-    "_exclude": true
+    ]
   },
   {
     "question_id": "q_0681_10_b",

@@ -263,6 +263,16 @@
       margin-bottom: 18px;
     }
 
+    /* ── Question image (PDF table / formula captures) ──────────────── */
+    .quiz-image {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 6px 0 16px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+    }
+
     /* ── Option buttons ──────────────────────────────────────────────── */
     .opt-btn {
       display: flex;
@@ -674,6 +684,9 @@
       <!-- Stem -->
       <div class="quiz-stem" id="quiz-stem"></div>
 
+      <!-- Question image (shown only when question has image_url) -->
+      <div id="quiz-image-wrap"></div>
+
       <!-- Options -->
       <div id="quiz-options"></div>
 
@@ -757,38 +770,10 @@
   </div>
 </div>
 
-<!-- ── Scripts (order matters) ─────────────────────────────────────────── -->
-<!-- Data (data/<examId>/data.js) is loaded dynamically by app.js -->
-<script src="data/pdf_paths.js"></script>
+<!-- ── Scripts (order matters) ─────────────────────────────────────────────────── -->
 <script src="progress.js"></script>
 <script src="quiz_engine.js"></script>
+<script src="pdf_paths.js"></script>
 <script src="app.js"></script>
-<!-- app.js boot: injects data/<examId>/data.js then calls App.init() -->
-
-</body>
-</html>
-        <div class="end-stat">
-          <div class="end-stat-val" id="end-wrong-count">—</div>
-          <div class="end-stat-lbl">오답 등록 수</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="btn-group" style="justify-content:center; margin-top:4px;">
-      <button class="btn btn-primary"   id="btn-end-home">홈으로</button>
-      <button class="btn btn-secondary" id="btn-end-wrong" disabled>오답 드릴</button>
-    </div>
-
-  </div>
-</div>
-
-<!-- ── Scripts (order matters) ─────────────────────────────────────────── -->
-<!-- Data (data/<examId>/data.js) is loaded dynamically by app.js -->
-<script src="data/pdf_paths.js"></script>
-<script src="progress.js"></script>
-<script src="quiz_engine.js"></script>
-<script src="app.js"></script>
-<!-- app.js boot: injects data/<examId>/data.js then calls App.init() -->
-
 </body>
 </html>
