@@ -153,4 +153,13 @@ if not errors:
 else:
     print(f"  {FAIL}  {len(errors)}개 항목 실패:")
     for e in errors:
-        pr
+        print(f"       - {e}")
+    print("\n  위 항목을 해결 후 다시 실행하세요.")
+
+if warnings:
+    print(f"\n  {WARN}  주의 {len(warnings)}개:")
+    for w in warnings:
+        print(f"       - {w}")
+
+print("=" * 50 + "\n")
+sys.exit(0 if not errors else 1)
