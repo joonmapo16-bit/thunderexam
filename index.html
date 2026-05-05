@@ -372,6 +372,37 @@
       margin-top: 8px;
     }
 
+    .reveal-pdf-box {
+      margin-top: 10px;
+      padding: 10px 12px;
+      background: #eff6ff;
+      border: 1px solid #93c5fd;
+      border-left: 4px solid #2563eb;
+      border-radius: 6px;
+      font-size: .82rem;
+      line-height: 1.55;
+      color: #1e3a8a;
+    }
+    .reveal-pdf-box .pdf-link {
+      display: inline-block;
+      margin-top: 4px;
+      color: #1d4ed8;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      cursor: pointer;
+      word-break: break-all;
+    }
+    .reveal-pdf-box .pdf-link:hover,
+    .reveal-pdf-box .pdf-link:focus {
+      color: #1e40af;
+      background: #dbeafe;
+      outline: none;
+    }
+    .reveal-pdf-box .pdf-label {
+      font-weight: 600;
+      color: #1e3a8a;
+    }
+
     #btn-show-notes {
       font-size: .8rem;
       color: var(--accent);
@@ -490,10 +521,6 @@
     <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
       <!-- Exam selector -->
       <select id="exam-selector" style="font-size:0.78rem;padding:4px 8px;border-radius:6px;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer">
-        <option value="exam_A">투운사기출</option>
-        <option value="exam_B">투운사실마특</option>
-        <option value="exam_C">투운사계산특강</option>
-        <option value="exam_C_var">투운사계산변형</option>
       </select>
       <!-- Per-exam progress reset -->
       <button class="btn btn-secondary btn-sm" id="btn-reset-progress" title="이 시험의 학습 기록 초기화">초기화</button>
@@ -637,6 +664,7 @@
     <!-- Question card -->
     <div class="card">
       <!-- Meta row -->
+      <div class="quiz-meta">
         <span class="badge badge-topic" id="quiz-topic"></span>
         <span class="badge badge-subtopic hidden" id="quiz-subtopic"></span>
         <span class="badge badge-polarity" id="quiz-polarity"></span>
@@ -661,6 +689,10 @@
         <!-- Explanation -->
         <div class="reveal-section-label">해설</div>
         <div id="reveal-explanation"></div>
+
+        <!-- PDF locator (highlighted box, populated by app.js renderReveal) -->
+        <div id="reveal-pdf-locator" class="reveal-pdf-box hidden"></div>
+
         <div id="reveal-source"></div>
 
         <!-- Notes (lazy reveal) -->
@@ -727,6 +759,32 @@
 
 <!-- ── Scripts (order matters) ─────────────────────────────────────────── -->
 <!-- Data (data/<examId>/data.js) is loaded dynamically by app.js -->
+<script src="data/pdf_paths.js"></script>
+<script src="progress.js"></script>
+<script src="quiz_engine.js"></script>
+<script src="app.js"></script>
+<!-- app.js boot: injects data/<examId>/data.js then calls App.init() -->
+
+</body>
+</html>
+        <div class="end-stat">
+          <div class="end-stat-val" id="end-wrong-count">—</div>
+          <div class="end-stat-lbl">오답 등록 수</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-group" style="justify-content:center; margin-top:4px;">
+      <button class="btn btn-primary"   id="btn-end-home">홈으로</button>
+      <button class="btn btn-secondary" id="btn-end-wrong" disabled>오답 드릴</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ── Scripts (order matters) ─────────────────────────────────────────── -->
+<!-- Data (data/<examId>/data.js) is loaded dynamically by app.js -->
+<script src="data/pdf_paths.js"></script>
 <script src="progress.js"></script>
 <script src="quiz_engine.js"></script>
 <script src="app.js"></script>

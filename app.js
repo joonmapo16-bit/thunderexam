@@ -2,9 +2,8 @@
 'use strict';
 
 // ── Active exam (persisted in localStorage across page loads) ─────────────
-const ACTIVE_EXAM = (function () {
-  return localStorage.getItem('thunderexam_active_exam') || 'exam_A';
-})();
+// Initialised here as fallback; overwritten by the manifest boot loader below.
+let ACTIVE_EXAM = localStorage.getItem('thunderexam_active_exam') || 'exam_A';
 
 const App = (function () {
 
@@ -111,9 +110,8 @@ const App = (function () {
 
     buildTopicSelector();
     bindEvents();
-    // calc-mode (exam_C, exam_C_var, ...): hide frequency/count/high-yield settings
-    const examIdForUi = (window.THUNDER_EXAM_META || {}).exam_id || '';
-    if (examIdForUi === 'exam_C' || examIdForUi.startsWith('exam_C_')) {
+    // calc-mode: hide frequency/count/high-yield settings
+    if (QuizEngine.isCalcMode()) {
       ['inp-count', 'rng-alpha', 'chk-high-yield'].forEach(function(id) {
         const el = document.getElementById(id);
         if (!el) return;
@@ -606,6 +604,47 @@ const App = (function () {
     ].filter(Boolean);
     $('reveal-source').textContent = parts.join('  │  ');
 
+    // ── PDF locator (highlighted box) ──────────────────────────────────
+    // Schema-tolerant: exam_A/B use flat q.source_pdf/q.pdf_page/q.slide_pos;
+    // exam_C uses nested q.source = { pdf, pdf_page, slide_pos }.
+    // Click opens the PDF at the right page in a fixed-name window so
+    // repeated clicks reuse the same window instead of stacking tabs.
+    const pdfBox  = $('reveal-pdf-locator');
+    if (pdfBox) {
+      const pdfName  = q.source_pdf || (q.source && q.source.pdf) || '';
+      const pdfPage  = (q.pdf_page != null) ? q.pdf_page : (q.source && q.source.pdf_page);
+      const slidePos = q.slide_pos || (q.source && q.source.slide_pos) || '';
+
+      if (!pdfName || pdfPage == null) {
+        pdfBox.classList.add('hidden');
+        pdfBox.innerHTML = '';
+      } else {
+        const pathMap = (typeof window !== 'undefined' && window.THUNDER_PDF_PATHS) || {};
+        const relPath = pathMap[pdfName] || ('../raw_pdfs/' + pdfName);
+        const href    = encodeURI(relPath) + '#page=' + pdfPage;
+        const posLbl  = slidePos === 'top'    ? ' (상단)'
+                      : slidePos === 'bottom' ? ' (하단)'
+                      : '';
+        const linkText = pdfName + ' — p.' + pdfPage + posLbl;
+        pdfBox.innerHTML =
+          '<span class="pdf-label">📄 PDF에서 직접 확인:</span><br>' +
+          '<span class="pdf-link" role="button" tabindex="0">' + esc(linkText) + '</span>';
+        const linkEl = pdfBox.querySelector('.pdf-link');
+        const openPdf = function () {
+          window.open(
+            href,
+            'thunder_pdf_window',
+            'width=1100,height=900,resizable=yes,scrollbars=yes'
+          );
+        };
+        linkEl.addEventListener('click', openPdf);
+        linkEl.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openPdf(); }
+        });
+        pdfBox.classList.remove('hidden');
+      }
+    }
+
     const topicKey = (q.topic_path && q.topic_path[0]) || '';
     const notes    = QuizEngine.getNotesForTopic(topicKey).filter(n => n.title && n.title.trim());
 
@@ -727,23 +766,65 @@ const App = (function () {
 })();
 
 // ── Dynamic data loader ───────────────────────────────────────────────────────
-// Injects data/<examId>/data.js as a <script> tag, then boots the app.
+// Fetches data/manifest.json, populates exam-selector, then boots the app.
 (function () {
-  const examId = ACTIVE_EXAM;
-  const script = document.createElement('script');
-  script.src = 'data/' + examId + '/data.js';
-  script.onload = function () {
-    window.addEventListener('DOMContentLoaded', function () { App.init(); });
-    // If DOM is already ready (script injected after DOMContentLoaded fired):
-    if (document.readyState !== 'loading') App.init();
-  };
-  script.onerror = function () {
-    document.body.innerHTML =
-      '<div style="padding:2rem;font-family:sans-serif;color:#dc2626">' +
-      '<h2>데이터 로드 실패</h2>' +
-      '<p>data/' + examId + '/data.js 를 찾을 수 없습니다.</p>' +
-      '<p>switch_exam.py 를 실행해 데이터를 배포하세요.</p>' +
-      '</div>';
-  };
-  document.head.appendChild(script);
+  function loadExam(examId) {
+    var script = document.createElement('script');
+    script.src = 'data/' + examId + '/data.js';
+    script.onload = function () {
+      window.addEventListener('DOMContentLoaded', function () { App.init(); });
+      if (document.readyState !== 'loading') App.init();
+    };
+    script.onerror = function () {
+      document.body.innerHTML =
+        '<div style="padding:2rem;font-family:sans-serif;color:#dc2626">' +
+        '<h2>데이터 로드 실패</h2>' +
+        '<p>data/' + examId + '/data.js 를 찾을 수 없습니다.</p>' +
+        '<p>switch_exam.py 를 실행해 데이터를 배포하세요.</p>' +
+        '</div>';
+    };
+    document.head.appendChild(script);
+  }
+
+  fetch('data/manifest.json')
+    .then(function (r) {
+      if (!r.ok) throw new Error('manifest 파일을 불러오지 못했습니다 (HTTP ' + r.status + ')');
+      return r.json();
+    })
+    .then(function (manifest) {
+      var exams = manifest.exams || [];
+      var sel = document.getElementById('exam-selector');
+      exams.forEach(function (e) {
+        var opt = document.createElement('option');
+        opt.value = e.id;
+        opt.textContent = e.name;
+        sel.appendChild(opt);
+      });
+      var stored = localStorage.getItem('thunderexam_active_exam');
+      var valid = exams.some(function (e) { return e.id === stored; });
+      ACTIVE_EXAM = valid ? stored : (exams.length ? exams[0].id : ACTIVE_EXAM);
+      sel.value = ACTIVE_EXAM;
+      loadExam(ACTIVE_EXAM);
+    })
+    .catch(function () {
+      // file:// 환경에서는 fetch 가 CORS 로 차단됨 — manifest.json 과 동일한 인라인 폴백 사용
+      var fallback = [
+        { id: 'exam_A',     name: '투운사기출' },
+        { id: 'exam_B',     name: '투운사실마특' },
+        { id: 'exam_C',     name: '투운사계산특강' },
+        { id: 'exam_C_var', name: '투운사계산변형' }
+      ];
+      var sel = document.getElementById('exam-selector');
+      fallback.forEach(function (e) {
+        var opt = document.createElement('option');
+        opt.value = e.id;
+        opt.textContent = e.name;
+        sel.appendChild(opt);
+      });
+      var stored = localStorage.getItem('thunderexam_active_exam');
+      var valid = fallback.some(function (e) { return e.id === stored; });
+      ACTIVE_EXAM = valid ? stored : fallback[0].id;
+      sel.value = ACTIVE_EXAM;
+      loadExam(ACTIVE_EXAM);
+    });
 })();

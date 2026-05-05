@@ -1,0 +1,8 @@
+{
+  "exams": [
+    { "id": "exam_A",     "name": "투운사기출",     "mode": "mcq" },
+    { "id": "exam_B",     "name": "투운사실마특",   "mode": "mcq" },
+    { "id": "exam_C",     "name": "투운사계산특강", "mode": "calc" },
+    { "id": "exam_C_var", "name": "투운사계산변형", "mode": "calc" }
+  ]
+}

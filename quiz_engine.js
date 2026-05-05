@@ -19,7 +19,9 @@ const QuizEngine = (function () {
       statements.forEach(s => { if (s && s.statement_id) stmtMap[s.statement_id] = s; });
     }
 
-    qBank = (questions || []).filter(q => q.correct_marker != null);
+    qBank = (questions || [])
+      .filter(q => q.correct_marker != null)
+      .map(normalizeQuestion);
 
     notesByTopicKey = Object.create(null);
     (notes || []).forEach(n => {
@@ -136,20 +138,53 @@ const QuizEngine = (function () {
   // ── Weighting ─────────────────────────────────────────────────────────────
 
   function questionMaxFreq(q) {
-    // exam_C: use q.frequency directly
-    if (q.frequency != null) return q.frequency;
-    // exam_A/B: derive from linked statements
-    const opts = q.options;
-    const ids = Array.isArray(opts)
-      ? opts.map(o => null).filter(Boolean)        // array format has no statement_id
-      : Object.values(opts).map(o => o && o.statement_id).filter(Boolean);
-    if (ids.length === 0) return 1;
-    return Math.max(...ids.map(id => (stmtMap[id] ? stmtMap[id].frequency : 1)));
+    // After normalizeQuestion(), q.frequency is always set.
+    return q.frequency;
   }
 
   function questionFreqWeight(q, alpha) {
     if (alpha === 0) return 1;
     return Math.pow(questionMaxFreq(q), alpha);
+  }
+
+  // ── Canonical normalizer ─────────────────────────────────────────────────
+  //
+  // Called in init() on every question before it enters qBank.
+  // Ensures all downstream code sees a single, stable schema:
+  //   q.options   → [{origKey, text, statement_id}]  (always array)
+  //   q.frequency → number (always set)
+  //   q.q_no      → string | null
+
+  function normalizeQuestion(q) {
+    // Options: unify object-format (exam_A/B) and array-format (exam_C)
+    let opts;
+    if (Array.isArray(q.options)) {
+      opts = q.options.map(o => ({
+        origKey:      o.marker,
+        text:         o.text || '',
+        statement_id: null,
+      }));
+    } else {
+      opts = Object.entries(q.options || {}).map(([k, v]) => ({
+        origKey:      k,
+        text:         (v && typeof v === 'object') ? (v.text || '') : String(v || ''),
+        statement_id: (v && v.statement_id) || null,
+      }));
+    }
+
+    // Frequency: use q.frequency if already set, else derive from statements
+    let frequency = q.frequency;
+    if (frequency == null) {
+      const ids = opts.map(o => o.statement_id).filter(Boolean);
+      frequency = ids.length > 0
+        ? Math.max(...ids.map(id => (stmtMap[id] ? stmtMap[id].frequency : 1)))
+        : 1;
+    }
+
+    // q_no: coerce to string
+    const q_no = q.q_no != null ? String(q.q_no) : null;
+
+    return { ...q, options: opts, frequency, q_no };
   }
 
   // ── Option ordering ───────────────────────────────────────────────────────
@@ -161,33 +196,15 @@ const QuizEngine = (function () {
   // options. We now always preserve original order so origKey === displayKey
   // and every reference stays internally consistent.
 
-  function shuffleOptions(q) {
-    // Build entries depending on options format
-    let entries;
-    if (Array.isArray(q.options)) {
-      // exam_C: [{marker:"①", text:"..."}]
-      entries = q.options.map(o => ({
-        origKey:      o.marker,
-        text:         o.text || '',
-        statement_id: null,
-      }));
-    } else {
-      // exam_A/B: {"①": {text:"...", statement_id:"..."}}
-      entries = Object.entries(q.options).map(([k, v]) => ({
-        origKey:      k,
-        text:         (v && typeof v === 'object') ? (v.text || '') : String(v || ''),
-        statement_id: (v && v.statement_id) || null,
-      }));
-    }
-
-    // Sort by canonical marker order so displayKey aligns with origKey.
+  function orderOptions(q) {
+    // q.options is already normalized to [{origKey, text, statement_id}].
     const markerOrder = { '①': 0, '②': 1, '③': 2, '④': 3, '⑤': 4 };
+    const entries = [...q.options];
     entries.sort((a, b) => {
       const av = markerOrder[a.origKey];
       const bv = markerOrder[b.origKey];
       return (av == null ? 99 : av) - (bv == null ? 99 : bv);
     });
-
     return entries.map((e, i) => ({ ...e, displayKey: MARKERS[i] || e.origKey }));
   }
 
@@ -214,7 +231,7 @@ const QuizEngine = (function () {
       return parseQno(a) - parseQno(b);
     });
 
-    return pool.map(q => ({ question: q, shuffledOptions: shuffleOptions(q) }));
+    return pool.map(q => ({ question: q, shuffledOptions: orderOptions(q) }));
   }
 
   // ── Weighted random sample ─────────────────────────────────────────────────
@@ -310,7 +327,7 @@ const QuizEngine = (function () {
       sampled = weightedSample(pool, count, alpha, answeredMap);
     }
 
-    return sampled.map(q => ({ question: q, shuffledOptions: shuffleOptions(q) }));
+    return sampled.map(q => ({ question: q, shuffledOptions: orderOptions(q) }));
   }
 
   // ── Lookups ───────────────────────────────────────────────────────────────
