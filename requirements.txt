@@ -1,0 +1,33 @@
+# ThunderExam — Python dependencies
+# Python 3.10+ 권장 (개발 환경: 3.10.12)
+#
+# 설치:
+#   pip install -r requirements.txt
+#
+# 외부 바이너리 (별도 설치 필요 → README.md 참고):
+#   - Tesseract OCR
+#   - Poppler (pdftoppm)
+
+# ── 핵심 패키지 (버전 핀) ──────────────────────────────
+# PDF 파싱 (fitz)
+PyMuPDF>=1.23.0,<2.0.0
+
+# 퍼지 문자열 매칭
+rapidfuzz>=3.0.0,<4.0.0
+
+# ── 이미지 처리 ───────────────────────────────────────
+# PDF → 이미지 변환 (Poppler 필요)
+pdf2image>=1.16.0
+
+# OpenCV (원 검출 등)
+# Windows: opencv-python / Linux 서버: opencv-python-headless
+opencv-python>=4.8.0
+
+# Pillow (pdf2image 의존)
+Pillow>=10.0.0
+
+# NumPy (OpenCV 의존)
+numpy>=1.24.0
+
+# ── 설정/직렬화 ───────────────────────────────────────
+PyYAML>=6.0.0
