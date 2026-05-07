@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ThunderExam Parser v2 — Session 4 Spot-check</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Apple SD Gothic Neo",
+                 "Malgun Gothic", "Noto Sans KR", sans-serif;
+    background: #f7f8fa;
+    color: #1f2937;
+    line-height: 1.6;
+  }
+  header {
+    background: #1f2937;
+    color: #f9fafb;
+    padding: 20px 28px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  header h1 { margin: 0 0 6px 0; font-size: 18px; }
+  header .meta { font-size: 13px; color: #d1d5db; }
+  nav {
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 12px 28px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    position: sticky;
+    top: 64px;
+    z-index: 99;
+  }
+  nav a {
+    color: #2563eb;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 4px 10px;
+    border: 1px solid #dbeafe;
+    border-radius: 6px;
+    background: #eff6ff;
+  }
+  nav a:hover { background: #dbeafe; }
+  main { max-width: 980px; margin: 0 auto; padding: 24px 28px 80px; }
+  section { margin: 32px 0 8px; }
+  section h2 {
+    font-size: 17px;
+    color: #1f2937;
+    border-bottom: 2px solid #1f2937;
+    padding-bottom: 6px;
+    margin-bottom: 16px;
+  }
+  section .desc {
+    background: #fffbeb;
+    border-left: 3px solid #f59e0b;
+    padding: 10px 14px;
+    font-size: 13px;
+    margin-bottom: 16px;
+    border-radius: 4px;
+  }
+  .card {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 14px 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .card-head {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f3f4f6;
+  }
+  .qid {
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
+    font-weight: 600;
+    color: #2563eb;
+    font-size: 14px;
+  }
+  .badge {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+  .b-m1 { background: #fee2e2; color: #991b1b; }
+  .b-m2 { background: #fed7aa; color: #9a3412; }
+  .b-m3 { background: #dbeafe; color: #1e40af; }
+  .b-m4 { background: #d1fae5; color: #065f46; }
+  .b-skip { background: #f3f4f6; color: #6b7280; }
+  .b-untouched { background: #ecfeff; color: #155e75; }
+  .b-fallback { background: #fef3c7; color: #92400e; }
+  .src-meta { font-size: 12px; color: #6b7280; }
+  .stem {
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 8px 0 12px;
+    color: #1f2937;
+  }
+  .opts { margin: 0; padding: 0; list-style: none; }
+  .opt {
+    margin: 6px 0;
+    padding: 8px 12px;
+    background: #f9fafb;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  .opt-correct { background: #d1fae5; border-left: 3px solid #10b981; }
+  .opt-marker {
+    font-weight: 600;
+    margin-right: 6px;
+    color: #4b5563;
+  }
+  .expl {
+    margin-top: 12px;
+    padding: 10px 14px;
+    background: #f0f9ff;
+    border-left: 3px solid #0284c7;
+    font-size: 13px;
+    color: #075985;
+    border-radius: 4px;
+    white-space: pre-wrap;
+  }
+  .fig-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 8px 0;
+    border: 1px dashed #d1d5db;
+    border-radius: 4px;
+  }
+  .compare-hint {
+    font-size: 11px;
+    color: #6b7280;
+    background: #f9fafb;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-top: 8px;
+    border: 1px dashed #e5e7eb;
+  }
+  .legend {
+    background: #f3f4f6;
+    padding: 12px 16px;
+    border-radius: 6px;
+    margin: 12px 0 24px;
+    font-size: 13px;
+  }
+  .legend h3 { margin: 0 0 8px; font-size: 14px; }
+  .legend ul { margin: 0; padding-left: 20px; }
+  .footer-note {
+    margin: 40px 0 0;
+    padding: 16px;
+    background: #fef3c7;
+    border-radius: 6px;
+    font-size: 13px;
+    color: #92400e;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>ThunderExam exam_B — Parser v2 Session 4 결과 시각 검증</h1>
+  <div class="meta">
+    27건 표본 (결함 카테고리별 대표 + needs_review 4 + 정상 5) ·
+    비교 대상: <code>TE_export.pdf</code> 위/아래 슬라이드 (원본 PDF 캡처)
+  </div>
+</header>
+<nav>
+  <a href="#legend">범례</a>
+  <a href="#overlap">중첩 4건 (M1/M2 ∩ M3)</a>
+  <a href="#m1only">M1 only (3)</a>
+  <a href="#m2only">M2 only (3)</a>
+  <a href="#fallback">Lazy fallback (1)</a>
+  <a href="#stemfig">Stem fig (1)</a>
+  <a href="#explfig">Explanation fig (2)</a>
+  <a href="#choicefig">Choice_N fig (3)</a>
+  <a href="#unknown">Unknown placement (1)</a>
+  <a href="#needsreview">needs_review skip (4)</a>
+  <a href="#untouched">정상 untouched (5)</a>
+</nav>
+<main>
+  <section id="legend" class="legend">
+    <h3>읽는 법</h3>
+    <ul>
+      <li><span class="badge b-m1">M1</span> 해설 박스가 옵션 아래로 흡수 → reparse로 옵션 ④ 정리</li>
+      <li><span class="badge b-m2">M2</span> 해설 박스가 옵션 옆 → side_cutoff_x로 옵션 분리</li>
+      <li><span class="badge b-m3">M3</span> 표 깨짐 → vector bbox PNG 크롭</li>
+      <li><span class="badge b-m4">M4</span> 수식 깨짐 → raster image PNG 크롭</li>
+      <li><span class="badge b-skip">SKIP</span> needs_review (Step 6에서 사용자 결정)</li>
+      <li><span class="badge b-untouched">UNTOUCHED</span> v1 byte-identical 보존 확인용</li>
+      <li>점선 박스 = parser v2 figs (PNG) — 원본 PDF의 표/수식 영역 크롭</li>
+      <li>녹색 옵션 = correct_marker</li>
+      <li>비교: TE_export.pdf의 같은 페이지 위/아래 슬라이드 페어 — 위 슬라이드(깨진 화면)와 본 화면을 대조</li>
+    </ul>
+  </section>
+
+  <div id="container"></div>
+
+  <div class="footer-note">
+    <strong>Session 4 검증 결과 요약</strong> ·
+    questions 735 / reparsed 105 / fig-added 70 / needs_review skip 4 /
+    untouched byte-identical 564 / orphan stmt_id 0 / 모든 fig PNG ref 해결.
+    이 페이지에서 명백한 깨짐(옵션에 해설 잔재, 표/수식 누락)이 보이면 Session 5 conflict_review.html에 적재 대상.
+  </div>
+</main>
+<script src="data/exam_B/data.js"></script>
+<script>
+(function () {
+  // ── Sample selection (curated by tools/merge_v2_into_v1 + figs_manifest analysis) ─
+  const SAMPLES = [
+    { section_id: 'overlap', section_title: 'M3 ∩ M1/M2 중첩 4건 — reparse + 표 fig 둘 다 적용',
+      desc: '옵션 ①②③④에서 표 영역이 옵션 텍스트로 흡수되었던 케이스. v2_text가 옵션을 깨끗이 재분리했고, M3 fig manifest로 표 PNG가 stem placement에 추가됨.',
+      qids: ['q_0312_35_t','q_0479_19_b','q_0660_7_t','q_0661_10_b'] },
+
+    { section_id: 'm1only', section_title: 'M1 only (해설 박스 옵션 아래) — 3건',
+      desc: '옵션 ④ 이후의 해설 본문이 옵션 ④ 텍스트로 흡수되어 있었음. EXPL_START_RE 또는 Y_GAP_THRESHOLD=28로 cut. 옵션 ④가 깔끔히 짧아져야 PASS.',
+      qids: ['q_0003_7_b','q_0008_14_t','q_0009_14_b'] },
+
+    { section_id: 'm2only', section_title: 'M2 only (해설 박스 옵션 옆) — 3건',
+      desc: 'vertical-stack 옵션 ①②③④ 옆에 해설 박스가 우측 column으로 그려진 케이스. side_cutoff_x = max(marker_x)+50 으로 우측 column 텍스트가 explanation으로 분리되어야 PASS.',
+      qids: ['q_0065_69_t','q_0195_14_t','q_0387_25_t'] },
+
+    { section_id: 'fallback', section_title: 'Lazy-drop fallback 케이스 — 1건',
+      desc: 'parse_v2_text가 EXPL_START_RE에 의해 옵션 ① 영역을 전부 cut → 빈 문자열 반환 → v1 옵션과 v1 statement_id 모두 무손상 보존. 옵션 ①은 v1처럼 폴루션이 남아있어야 정상 (v2 reparse 결과가 "" 였으므로).',
+      qids: ['q_0519_17_t'] },
+
+    { section_id: 'stemfig', section_title: 'Stem placement fig (M4 수식) — 1건',
+      desc: '문제 지문에 깨진 수식이 있는 케이스. raster PNG가 stem 아래 점선 박스로 표시되어야 정상.',
+      qids: ['q_0023_30_b'] },
+
+    { section_id: 'explfig', section_title: 'Explanation placement fig (M4) — 2건',
+      desc: '해설 영역에 수식 raster가 있는 케이스. 해설 본문 아래에 PNG가 점선 박스로 나타나야 정상.',
+      qids: ['q_0105_16_t','q_0106_17_b'] },
+
+    { section_id: 'choicefig', section_title: 'Choice_N placement fig (M4) — 3건',
+      desc: '특정 보기에 수식 raster가 포함된 케이스. 해당 옵션 텍스트 아래에 PNG가 점선 박스로 보여야 정상. (choice_1 / choice_2 / choice_4 각 1건)',
+      qids: ['q_0203_22_t','q_0067_71_t','q_0263_16_b'] },
+
+    { section_id: 'unknown', section_title: 'Unknown placement (1건)',
+      desc: 'extract_figs.py의 placement 자동 추정이 실패한 1건. 헬퍼는 unknown을 stem placement로 폴드해서 stem 아래에 표시.',
+      qids: ['q_0659_6_b'] },
+
+    { section_id: 'needsreview', section_title: 'needs_review skip — 4건 (v1 보존)',
+      desc: 'extract_figs.py가 raster image도 broken-text도 감지 못한 4건. Session 4에서 "skip — v1 그대로 보존"으로 결정. fig 없음, 옵션/해설 v1 그대로 (Step 6 시각 컨펌 트랙으로).',
+      qids: ['q_0583_34_t','q_0584_35_b','q_0585_36_t','q_0626_17_b'] },
+
+    { section_id: 'untouched', section_title: '정상 untouched 표본 — 5건 (byte-identical 보존)',
+      desc: 'defect 목록에 없는 일반 문제. 어떤 식으로도 변경되지 않아야 정상. v1 화면과 동일하게 보여야 PASS.',
+      qids: ['q_0000_4_b','q_0001_6_b','q_0002_7_t','q_0004_8_t','q_0005_9_t'] },
+  ];
+
+  const ACTIVE_EXAM = 'exam_B';
+  const Q   = (window.THUNDER_QUESTIONS  || []);
+  const STM = (window.THUNDER_STATEMENTS || []);
+  const QBY = Object.fromEntries(Q.map(q => [q.question_id, q]));
+  const SBY = Object.fromEntries(STM.map(s => [s.statement_id, s]));
+
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+  }
+  function figsAt(q, target) {
+    if (!q.figs || !q.figs.length) return '';
+    return q.figs
+      .filter(f => (f.placement || 'unknown') === target ||
+                   (target === 'stem' && f.placement === 'unknown'))
+      .map(f => '<img class="fig-img" src="data/' + ACTIVE_EXAM + '/' + esc(f.src) +
+                '" alt="' + esc(f.alt || '') + '">')
+      .join('');
+  }
+  const MARKER_TO_PLACE = { '①':'choice_1', '②':'choice_2', '③':'choice_3', '④':'choice_4' };
+
+  function badgeFor(qid, sectionId) {
+    if (sectionId === 'untouched') return '<span class="badge b-untouched">UNTOUCHED</span>';
+    if (sectionId === 'needsreview') return '<span class="badge b-skip">SKIP — v1 보존</span>';
+    if (sectionId === 'fallback') return '<span class="badge b-fallback">M1 (lazy fallback)</span>';
+    return '';
+  }
+
+  function renderCard(qid, sectionId) {
+    const q = QBY[qid];
+    if (!q) return '<div class="card">⚠ 누락: ' + esc(qid) + '</div>';
+
+    const slidePos = q.slide_pos === 'top' ? '위' : (q.slide_pos === 'bottom' ? '아래' : q.slide_pos);
+    const figPlacements = (q.figs || []).map(f => f.placement).join(', ');
+
+    let optsHtml = '';
+    for (const m of ['①','②','③','④']) {
+      const opt = (q.options || {})[m];
+      if (!opt) continue;
+      const isCorrect = (q.correct_marker === m);
+      optsHtml += '<li class="opt' + (isCorrect ? ' opt-correct' : '') + '">' +
+                  '<span class="opt-marker">' + m + '</span>' +
+                  esc(opt.text || '') +
+                  figsAt(q, MARKER_TO_PLACE[m]) +
+                  '</li>';
+    }
+
+    return [
+      '<div class="card" id="card-' + qid + '">',
+        '<div class="card-head">',
+          '<span class="qid">' + qid + '</span>',
+          badgeFor(qid, sectionId),
+          (q.figs && q.figs.length) ? ('<span class="badge b-m4">figs: ' + esc(figPlacements) + '</span>') : '',
+          '<span class="src-meta">출처: ' + esc((q.source_pdf||'').replace(/\.pdf$/,'')) + ' · pg ' + q.pdf_page + ' · ' + slidePos + '</span>',
+        '</div>',
+        '<div class="stem">' + esc(q.stem || '') + figsAt(q, 'stem') + '</div>',
+        '<ul class="opts">' + optsHtml + '</ul>',
+        '<div class="expl">해설 — ' + esc(q.explanation || '(없음)') + figsAt(q, 'explanation') + '</div>',
+        '<div class="compare-hint">▸ TE_export.pdf 페이지 ' + q.pdf_page + '의 ' + slidePos + ' 슬라이드와 비교 (위쪽=깨진 v1, 아래쪽=원본 PDF)</div>',
+      '</div>'
+    ].join('');
+  }
+
+  const container = document.getElementById('container');
+  for (const s of SAMPLES) {
+    let html = '<section id="' + s.section_id + '"><h2>' + esc(s.section_title) + '</h2>';
+    html += '<div class="desc">' + esc(s.desc) + '</div>';
+    for (const qid of s.qids) html += renderCard(qid, s.section_id);
+    html += '</section>';
+    container.insertAdjacentHTML('beforeend', html);
+  }
+
+  // header counter update
+  const total = SAMPLES.reduce((a, s) => a + s.qids.length, 0);
+  console.log('[spotcheck] rendered ' + total + ' samples across ' + SAMPLES.length + ' sections');
+})();
+</script>
+</body>
+</html>

@@ -87,6 +87,21 @@ const App = (function () {
 
   function $(id) { return document.getElementById(id); }
 
+  // ── figs (parser v2 — exam_B M3 tables, M4 formulas) ─────────────────────
+  // Render <img> tags for figs whose placement matches `target`.
+  // `target` is one of: 'stem', 'choice_1'..'choice_4', 'explanation'.
+  // 'unknown' placement is folded into 'stem' so nothing is silently lost.
+  function figsHtml(q, target) {
+    if (!q || !q.figs || !q.figs.length) return '';
+    const match = (p) => p === target || (target === 'stem' && p === 'unknown');
+    return q.figs
+      .filter(f => match(f.placement || 'unknown'))
+      .map(f => '<img class="fig-img" src="data/' + ACTIVE_EXAM + '/' + f.src +
+                '" style="max-width:100%;height:auto;display:block;margin:6px 0;"' +
+                ' alt="' + esc(f.alt || '') + '">')
+      .join('');
+  }
+
   function makeFilterKey(topic, subtopic) {
     return (topic || '전체') + '||' + (subtopic || '전체');
   }
@@ -464,6 +479,19 @@ const App = (function () {
     const yearStr = yearList.length ? ' [' + yearList.join(', ') + ']' : '';
     $('quiz-stem').textContent = formatStem(stemMeta.cleaned + yearStr);
 
+    // image_url: PDF table / formula captures (A-category questions)
+    const imgWrap = $('quiz-image-wrap');
+    imgWrap.innerHTML = '';
+    if (q.image_url) {
+      const img = document.createElement('img');
+      img.className = 'quiz-image';
+      img.src = q.image_url;
+      if (q.image_caption) img.alt = q.image_caption;
+      imgWrap.appendChild(img);
+    }
+    // parser v2 figs (M3 tables / M4 formulas) at stem placement
+    imgWrap.innerHTML += figsHtml(q, 'stem');
+
     const container = $('quiz-options');
     container.innerHTML = '';
     opts.forEach(opt => {
@@ -481,6 +509,15 @@ const App = (function () {
 
       btn.appendChild(markerSpan);
       btn.appendChild(textSpan);
+      // parser v2 figs at choice_N placement (origKey = ①②③④)
+      const choiceMap = { '①':'choice_1', '②':'choice_2', '③':'choice_3', '④':'choice_4' };
+      const choiceFigsHtml = figsHtml(q, choiceMap[opt.origKey] || '');
+      if (choiceFigsHtml) {
+        const figWrap = document.createElement('span');
+        figWrap.className = 'opt-figs';
+        figWrap.innerHTML = choiceFigsHtml;
+        btn.appendChild(figWrap);
+      }
       btn.addEventListener('click', () => handleAnswer(opt.origKey));
       container.appendChild(btn);
     });
@@ -577,18 +614,29 @@ const App = (function () {
       const chosenFlag = isChosen ? '<span class="flag-chosen">◀ 선택</span>' : '';
       const answerFlag = isAnswer ? '<span class="flag-answer">★ 정답</span>' : '';
 
+      // parser v2 figs at choice_N placement (reveal mode)
+      const revealChoiceMap = { '①':'choice_1', '②':'choice_2', '③':'choice_3', '④':'choice_4' };
+      const revealFigsInline = figsHtml(q, revealChoiceMap[opt.origKey] || '');
+
       row.innerHTML =
         '<span class="opt-marker">' + esc(opt.displayKey) + '</span>' +
         tvHtml +
         '<span class="reveal-opt-text">' + esc(formatText(opt.text)).replace(/\n/g, '<br>') + '</span>' +
-        chosenFlag + answerFlag;
+        chosenFlag + answerFlag +
+        revealFigsInline;
 
       detailEl.appendChild(row);
     });
 
     const explEl = $('reveal-explanation');
     const explClean = cleanExplanation(q.explanation || '');
-    explEl.textContent = explClean ? formatText(explClean) : '해설 없음';
+    // parser v2 figs at explanation placement — render after text via innerHTML
+    const explFigsHtml = figsHtml(q, 'explanation');
+    if (explFigsHtml) {
+      explEl.innerHTML = (explClean ? esc(formatText(explClean)).replace(/\n/g,'<br>') : '해설 없음') + explFigsHtml;
+    } else {
+      explEl.textContent = explClean ? formatText(explClean) : '해설 없음';
+    }
 
     const stemMetaForSource = extractStemMeta(q.stem);
     const yearStr  = (q.year_tags && q.year_tags.length)
@@ -823,7 +871,7 @@ const App = (function () {
       });
       var stored = localStorage.getItem('thunderexam_active_exam');
       var valid = fallback.some(function (e) { return e.id === stored; });
-      ACTIVE_EXAM = valid ? stored : fallback[0].id;
+      ACTIVE_EXAM = valid ? stored : (fallback.length ? fallback[0].id : ACTIVE_EXAM);
       sel.value = ACTIVE_EXAM;
       loadExam(ACTIVE_EXAM);
     });

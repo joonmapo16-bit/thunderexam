@@ -1,0 +1,3001 @@
+{
+  "summary": {
+    "M3": {
+      "detected": 12,
+      "fallback": 0,
+      "zero": 0,
+      "imgs": 13
+    },
+    "M4": {
+      "image": 57,
+      "text_line": 1,
+      "none": 4,
+      "imgs": 85
+    },
+    "needs_review_count": 4
+  },
+  "figs": [
+    {
+      "qid": "q_0312_35_t",
+      "src": "figs/q_0312_35_t_table_0.png",
+      "kind": "table",
+      "defect_type": "M3",
+      "tier": null,
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목4편리스크관리 NEW.pdf",
+      "pdf_page": 35,
+      "slide": "t",
+      "bbox": [
+        151.2,
+        183.0,
+        471.12,
+        245.4
+      ],
+      "bbox_pad": [
+        147.2,
+        179.0,
+        475.12,
+        249.4
+      ],
+      "placement": "stem",
+      "detect_source": "find_tables",
+      "fig_idx": 0,
+      "image_size_pt": [
+        319.9,
+        62.4
+      ]
+    },
+    {
+      "qid": "q_0311_34_b",
+      "src": "figs/q_0311_34_b_table_0.png",
+      "kind": "table",
+      "defect_type": "M3",
+      "tier": null,
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목4편리스크관리 NEW.pdf",
+      "pdf_page": 34,
+      "slide": "b",
+      "bbox": [
+        148.68,
+        544.08,
+        446.28,
+        592.92
+      ],
+      "bbox_pad": [
+        144.68,
+        540.08,
+        450.28,
+        596.92
+      ],
+      "placement": "stem",
+      "detect_source": "find_tables",
+      "fig_idx": 0,
+      "image_size_pt": [
+        297.6,
+        48.8
+      ]
+    },
+    {
+      "qid": "q_0306_28_b",
+      "src": "figs/q_0306_28_b_table_0.png",
+      "kind": "table",
+      "defect_type": "M3",
+      "tier": null,
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목4편리스크관리 NEW.pdf",
+      "pdf_page": 28,
+      "slide": "b",
+      "bbox": [
+        167.04,
+        650.4,
+        427.92,
+        694.2
+      ],
+      "bbox_pad": [
+        163.04,
+        646.4,
+        431.92,
+        698.2
+      ],
+      "placement": "explanation",
+      "detect_source": "find_tables",
+      "fig_idx": 0,
+      "image_size_pt": [
+        260.9,
+        43.8
+      ]
+    },
+    {
+      "qid": "q_0295_17_t",
+      "src": "figs/q_0295_17_t_table_0.png",
+      "kind": "table",
+      "defect_type": "M3",
+      "tier": null,
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목4편리스크관리 NEW.pdf",
+      "pdf_page": 17,
+      "slide": "t",
+      "bbox": [
+        148.56,
+        195.36,
+        446.16,
+        246.72
+      ],
+      "bbox_pad": [
+        144.56,
+        191.36,
+        450.16,
+        250.72
+      ],
+      "placement": "stem",
+      "detect_source": "find_tables",
+      "fig_idx": 0,
+      "image_size_pt": [
+        297.6,
+        51.4
+      ]
+    },
+    {
+      "qid": "q_0284_7_b",
+      "src": "figs/q_0284_7_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목4편리스크관리 NEW.pdf",
+      "pdf_page": 7,
+      "slide": "b",
+      "bbox": [
+        126.84,
+        543.84,
+        474.48,
+        607.44
+      ],
+      "bbox_pad": [
+        122.84,
+        539.84,
+        478.48,
+        611.44
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        347.6,
+        63.6
+      ]
+    },
+    {
+      "qid": "q_0284_7_b",
+      "src": "figs/q_0284_7_b_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목4편리스크관리 NEW.pdf",
+      "pdf_page": 7,
+      "slide": "b",
+      "bbox": [
+        251.16,
+        630.24,
+        499.68,
+        685.68
+      ],
+      "bbox_pad": [
+        247.16,
+        626.24,
+        503.68,
+        689.68
+      ],
+      "placement": "choice_3",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        248.5,
+        55.4
+      ]
+    },
+    {
+      "qid": "q_0292_15_b",
+      "src": "figs/q_0292_15_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목4편리스크관리 NEW.pdf",
+      "pdf_page": 15,
+      "slide": "b",
+      "bbox": [
+        191.64,
+        580.2,
+        476.76,
+        678.12
+      ],
+      "bbox_pad": [
+        187.64,
+        576.2,
+        480.76,
+        682.12
+      ],
+      "placement": "choice_3",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        285.1,
+        97.9
+      ]
+    },
+    {
+      "qid": "q_0293_16_t",
+      "src": "figs/q_0293_16_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목4편리스크관리 NEW.pdf",
+      "pdf_page": 16,
+      "slide": "t",
+      "bbox": [
+        191.64,
+        214.08,
+        476.76,
+        312.0
+      ],
+      "bbox_pad": [
+        187.64,
+        210.08,
+        480.76,
+        316.0
+      ],
+      "placement": "choice_4",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        285.1,
+        97.9
+      ]
+    },
+    {
+      "qid": "q_0296_21_b",
+      "src": "figs/q_0296_21_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목4편리스크관리 NEW.pdf",
+      "pdf_page": 21,
+      "slide": "b",
+      "bbox": [
+        120.24,
+        628.56,
+        405.72,
+        657.84
+      ],
+      "bbox_pad": [
+        116.24,
+        624.56,
+        409.72,
+        661.84
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        285.5,
+        29.3
+      ]
+    },
+    {
+      "qid": "q_0297_22_t",
+      "src": "figs/q_0297_22_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목4편리스크관리 NEW.pdf",
+      "pdf_page": 22,
+      "slide": "t",
+      "bbox": [
+        117.96,
+        277.56,
+        491.16,
+        341.76
+      ],
+      "bbox_pad": [
+        113.96,
+        273.56,
+        495.16,
+        345.76
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        373.2,
+        64.2
+      ]
+    },
+    {
+      "qid": "q_0307_29_t",
+      "src": "figs/q_0307_29_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목4편리스크관리 NEW.pdf",
+      "pdf_page": 29,
+      "slide": "t",
+      "bbox": [
+        125.52,
+        321.36,
+        451.56,
+        349.32
+      ],
+      "bbox_pad": [
+        121.52,
+        317.36,
+        455.56,
+        353.32
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        326.0,
+        28.0
+      ]
+    },
+    {
+      "qid": "q_0488_30_b",
+      "src": "figs/q_0488_30_b_table_0.png",
+      "kind": "table",
+      "defect_type": "M3",
+      "tier": null,
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목4편주식투자운용 NEW(수정260226).pdf",
+      "pdf_page": 30,
+      "slide": "b",
+      "bbox": [
+        151.68,
+        547.32,
+        443.64,
+        632.4
+      ],
+      "bbox_pad": [
+        147.68,
+        543.32,
+        447.64,
+        636.4
+      ],
+      "placement": "stem",
+      "detect_source": "find_tables",
+      "fig_idx": 0,
+      "image_size_pt": [
+        292.0,
+        85.1
+      ]
+    },
+    {
+      "qid": "q_0479_19_b",
+      "src": "figs/q_0479_19_b_table_0.png",
+      "kind": "table",
+      "defect_type": "M3",
+      "tier": null,
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목4편주식투자운용 NEW(수정260226).pdf",
+      "pdf_page": 19,
+      "slide": "b",
+      "bbox": [
+        137.76,
+        541.44,
+        457.68,
+        588.24
+      ],
+      "bbox_pad": [
+        133.76,
+        537.44,
+        461.68,
+        592.24
+      ],
+      "placement": "stem",
+      "detect_source": "find_tables",
+      "fig_idx": 0,
+      "image_size_pt": [
+        319.9,
+        46.8
+      ]
+    },
+    {
+      "qid": "q_0483_24_b",
+      "src": "figs/q_0483_24_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목4편주식투자운용 NEW(수정260226).pdf",
+      "pdf_page": 24,
+      "slide": "b",
+      "bbox": [
+        118.32,
+        652.32,
+        480.0,
+        670.92
+      ],
+      "bbox_pad": [
+        114.32,
+        648.32,
+        484.0,
+        674.92
+      ],
+      "placement": "choice_4",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        361.7,
+        18.6
+      ]
+    },
+    {
+      "qid": "q_0483_24_b",
+      "src": "figs/q_0483_24_b_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목4편주식투자운용 NEW(수정260226).pdf",
+      "pdf_page": 24,
+      "slide": "b",
+      "bbox": [
+        118.32,
+        672.6,
+        304.2,
+        688.92
+      ],
+      "bbox_pad": [
+        114.32,
+        668.6,
+        308.2,
+        692.92
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        185.9,
+        16.3
+      ]
+    },
+    {
+      "qid": "q_0483_24_b",
+      "src": "figs/q_0483_24_b_formula_2.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목4편주식투자운용 NEW(수정260226).pdf",
+      "pdf_page": 24,
+      "slide": "b",
+      "bbox": [
+        118.68,
+        692.52,
+        377.52,
+        708.24
+      ],
+      "bbox_pad": [
+        114.68,
+        688.52,
+        381.52,
+        712.24
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 2,
+      "image_size_pt": [
+        258.8,
+        15.7
+      ]
+    },
+    {
+      "qid": "q_0486_28_t",
+      "src": "figs/q_0486_28_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목4편주식투자운용 NEW(수정260226).pdf",
+      "pdf_page": 28,
+      "slide": "t",
+      "bbox": [
+        153.0,
+        179.16,
+        499.92,
+        244.56
+      ],
+      "bbox_pad": [
+        149.0,
+        175.16,
+        503.92,
+        248.56
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        346.9,
+        65.4
+      ]
+    },
+    {
+      "qid": "q_0486_28_t",
+      "src": "figs/q_0486_28_t_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목4편주식투자운용 NEW(수정260226).pdf",
+      "pdf_page": 28,
+      "slide": "t",
+      "bbox": [
+        196.92,
+        254.4,
+        513.36,
+        345.12
+      ],
+      "bbox_pad": [
+        192.92,
+        250.4,
+        517.36,
+        349.12
+      ],
+      "placement": "choice_3",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        316.4,
+        90.7
+      ]
+    },
+    {
+      "qid": "q_0500_39_b",
+      "src": "figs/q_0500_39_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목4편주식투자운용 NEW(수정260226).pdf",
+      "pdf_page": 39,
+      "slide": "b",
+      "bbox": [
+        108.84,
+        672.96,
+        411.24,
+        694.56
+      ],
+      "bbox_pad": [
+        104.84,
+        668.96,
+        415.24,
+        698.56
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        302.4,
+        21.6
+      ]
+    },
+    {
+      "qid": "q_0501_40_t",
+      "src": "figs/q_0501_40_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목4편주식투자운용 NEW(수정260226).pdf",
+      "pdf_page": 40,
+      "slide": "t",
+      "bbox": [
+        217.44,
+        293.64,
+        466.92,
+        337.92
+      ],
+      "bbox_pad": [
+        213.44,
+        289.64,
+        470.92,
+        341.92
+      ],
+      "placement": "choice_3",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        249.5,
+        44.3
+      ]
+    },
+    {
+      "qid": "q_0501_40_t",
+      "src": "figs/q_0501_40_t_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목4편주식투자운용 NEW(수정260226).pdf",
+      "pdf_page": 40,
+      "slide": "t",
+      "bbox": [
+        111.48,
+        173.64,
+        483.84,
+        270.48
+      ],
+      "bbox_pad": [
+        107.48,
+        169.64,
+        487.84,
+        274.48
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        372.4,
+        96.8
+      ]
+    },
+    {
+      "qid": "q_0505_43_b",
+      "src": "figs/q_0505_43_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목4편주식투자운용 NEW(수정260226).pdf",
+      "pdf_page": 43,
+      "slide": "b",
+      "bbox": [
+        129.48,
+        669.0,
+        346.8,
+        687.96
+      ],
+      "bbox_pad": [
+        125.48,
+        665.0,
+        350.8,
+        691.96
+      ],
+      "placement": "choice_4",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        217.3,
+        19.0
+      ]
+    },
+    {
+      "qid": "q_0625_17_t",
+      "src": "figs/q_0625_17_t_table_0.png",
+      "kind": "table",
+      "defect_type": "M3",
+      "tier": null,
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목7편투자운용결과분석 NEW(수정251207).pdf",
+      "pdf_page": 17,
+      "slide": "t",
+      "bbox": [
+        198.0,
+        204.84,
+        294.0,
+        300.84
+      ],
+      "bbox_pad": [
+        194.0,
+        200.84,
+        298.0,
+        304.84
+      ],
+      "placement": "choice_2",
+      "detect_source": "find_tables",
+      "fig_idx": 0,
+      "image_size_pt": [
+        96.0,
+        96.0
+      ]
+    },
+    {
+      "qid": "q_0629_21_t",
+      "src": "figs/q_0629_21_t_table_0.png",
+      "kind": "table",
+      "defect_type": "M3",
+      "tier": null,
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목7편투자운용결과분석 NEW(수정251207).pdf",
+      "pdf_page": 21,
+      "slide": "t",
+      "bbox": [
+        137.76,
+        195.36,
+        457.68,
+        257.76
+      ],
+      "bbox_pad": [
+        133.76,
+        191.36,
+        461.68,
+        261.76
+      ],
+      "placement": "stem",
+      "detect_source": "find_tables",
+      "fig_idx": 0,
+      "image_size_pt": [
+        319.9,
+        62.4
+      ]
+    },
+    {
+      "qid": "q_0629_21_t",
+      "src": "figs/q_0629_21_t_table_1.png",
+      "kind": "table",
+      "defect_type": "M3",
+      "tier": null,
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목7편투자운용결과분석 NEW(수정251207).pdf",
+      "pdf_page": 21,
+      "slide": "t",
+      "bbox": [
+        263.28,
+        276.12,
+        485.52,
+        339.6
+      ],
+      "bbox_pad": [
+        259.28,
+        272.12,
+        489.52,
+        343.6
+      ],
+      "placement": "choice_2",
+      "detect_source": "find_tables",
+      "fig_idx": 1,
+      "image_size_pt": [
+        222.2,
+        63.5
+      ]
+    },
+    {
+      "qid": "q_0631_28_t",
+      "src": "figs/q_0631_28_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목7편투자운용결과분석 NEW(수정251207).pdf",
+      "pdf_page": 28,
+      "slide": "t",
+      "bbox": [
+        112.44,
+        322.2,
+        465.84,
+        355.2
+      ],
+      "bbox_pad": [
+        108.44,
+        318.2,
+        469.84,
+        359.2
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        353.4,
+        33.0
+      ]
+    },
+    {
+      "qid": "q_0631_28_t",
+      "src": "figs/q_0631_28_t_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목7편투자운용결과분석 NEW(수정251207).pdf",
+      "pdf_page": 28,
+      "slide": "t",
+      "bbox": [
+        159.6,
+        155.64,
+        471.72,
+        194.16
+      ],
+      "bbox_pad": [
+        155.6,
+        151.64,
+        475.72,
+        198.16
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        312.1,
+        38.5
+      ]
+    },
+    {
+      "qid": "q_0664_12_b",
+      "src": "figs/q_0664_12_b_table_0.png",
+      "kind": "table",
+      "defect_type": "M3",
+      "tier": null,
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목9편분산투자이론 NEW.pdf",
+      "pdf_page": 12,
+      "slide": "b",
+      "bbox": [
+        339.96,
+        682.56,
+        470.88,
+        714.84
+      ],
+      "bbox_pad": [
+        335.96,
+        678.56,
+        474.88,
+        718.84
+      ],
+      "placement": "explanation",
+      "detect_source": "find_tables",
+      "fig_idx": 0,
+      "image_size_pt": [
+        130.9,
+        32.3
+      ]
+    },
+    {
+      "qid": "q_0661_10_b",
+      "src": "figs/q_0661_10_b_table_0.png",
+      "kind": "table",
+      "defect_type": "M3",
+      "tier": null,
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목9편분산투자이론 NEW.pdf",
+      "pdf_page": 10,
+      "slide": "b",
+      "bbox": [
+        139.28,
+        541.44,
+        457.68,
+        588.24
+      ],
+      "bbox_pad": [
+        135.28,
+        537.44,
+        461.68,
+        592.24
+      ],
+      "placement": "stem",
+      "detect_source": "find_tables",
+      "fig_idx": 0,
+      "image_size_pt": [
+        318.4,
+        46.8
+      ]
+    },
+    {
+      "qid": "q_0659_6_b",
+      "src": "figs/q_0659_6_b_table_0.png",
+      "kind": "table",
+      "defect_type": "M3",
+      "tier": null,
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목9편분산투자이론 NEW.pdf",
+      "pdf_page": 6,
+      "slide": "b",
+      "bbox": [
+        149.0,
+        547.32,
+        413.28,
+        625.32
+      ],
+      "bbox_pad": [
+        145.0,
+        543.32,
+        417.28,
+        629.32
+      ],
+      "placement": "unknown",
+      "detect_source": "find_tables",
+      "fig_idx": 0,
+      "image_size_pt": [
+        264.3,
+        78.0
+      ]
+    },
+    {
+      "qid": "q_0660_7_t",
+      "src": "figs/q_0660_7_t_table_0.png",
+      "kind": "table",
+      "defect_type": "M3",
+      "tier": null,
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목9편분산투자이론 NEW.pdf",
+      "pdf_page": 7,
+      "slide": "t",
+      "bbox": [
+        158.76,
+        195.36,
+        478.68,
+        257.76
+      ],
+      "bbox_pad": [
+        154.76,
+        191.36,
+        482.68,
+        261.76
+      ],
+      "placement": "stem",
+      "detect_source": "find_tables",
+      "fig_idx": 0,
+      "image_size_pt": [
+        319.9,
+        62.4
+      ]
+    },
+    {
+      "qid": "q_0676_32_b",
+      "src": "figs/q_0676_32_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목9편분산투자이론 NEW.pdf",
+      "pdf_page": 32,
+      "slide": "b",
+      "bbox": [
+        129.36,
+        679.68,
+        423.36,
+        709.92
+      ],
+      "bbox_pad": [
+        125.36,
+        675.68,
+        427.36,
+        713.92
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        294.0,
+        30.2
+      ]
+    },
+    {
+      "qid": "q_0676_32_b",
+      "src": "figs/q_0676_32_b_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목9편분산투자이론 NEW.pdf",
+      "pdf_page": 32,
+      "slide": "b",
+      "bbox": [
+        111.0,
+        536.64,
+        484.2,
+        652.56
+      ],
+      "bbox_pad": [
+        107.0,
+        532.64,
+        488.2,
+        656.56
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        373.2,
+        115.9
+      ]
+    },
+    {
+      "qid": "q_0657_4_b",
+      "src": "figs/q_0657_4_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "B",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목9편분산투자이론 NEW.pdf",
+      "pdf_page": 4,
+      "slide": "b",
+      "bbox": [
+        147.96,
+        642.36,
+        447.24,
+        674.88
+      ],
+      "bbox_pad": [
+        143.96,
+        638.36,
+        451.24,
+        678.88
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        299.3,
+        32.5
+      ]
+    },
+    {
+      "qid": "q_0023_30_b",
+      "src": "figs/q_0023_30_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+      "pdf_page": 30,
+      "slide": "b",
+      "bbox": [
+        214.56,
+        628.68,
+        477.0,
+        701.04
+      ],
+      "bbox_pad": [
+        210.56,
+        624.68,
+        481.0,
+        705.04
+      ],
+      "placement": "choice_3",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        262.4,
+        72.4
+      ]
+    },
+    {
+      "qid": "q_0023_30_b",
+      "src": "figs/q_0023_30_b_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+      "pdf_page": 30,
+      "slide": "b",
+      "bbox": [
+        125.88,
+        545.64,
+        484.92,
+        618.24
+      ],
+      "bbox_pad": [
+        121.88,
+        541.64,
+        488.92,
+        622.24
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        359.0,
+        72.6
+      ]
+    },
+    {
+      "qid": "q_0067_71_t",
+      "src": "figs/q_0067_71_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+      "pdf_page": 71,
+      "slide": "t",
+      "bbox": [
+        154.92,
+        189.0,
+        417.72,
+        251.76
+      ],
+      "bbox_pad": [
+        150.92,
+        185.0,
+        421.72,
+        255.76
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        262.8,
+        62.8
+      ]
+    },
+    {
+      "qid": "q_0067_71_t",
+      "src": "figs/q_0067_71_t_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+      "pdf_page": 71,
+      "slide": "t",
+      "bbox": [
+        297.72,
+        273.72,
+        504.48,
+        305.52
+      ],
+      "bbox_pad": [
+        293.72,
+        269.72,
+        508.48,
+        309.52
+      ],
+      "placement": "choice_2",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        206.8,
+        31.8
+      ]
+    },
+    {
+      "qid": "q_0105_16_t",
+      "src": "figs/q_0105_16_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강1과목3편부동산 NEW.pdf",
+      "pdf_page": 16,
+      "slide": "t",
+      "bbox": [
+        126.12,
+        292.92,
+        326.76,
+        314.64
+      ],
+      "bbox_pad": [
+        122.12,
+        288.92,
+        330.76,
+        318.64
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        200.6,
+        21.7
+      ]
+    },
+    {
+      "qid": "q_0106_17_b",
+      "src": "figs/q_0106_17_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강1과목3편부동산 NEW.pdf",
+      "pdf_page": 17,
+      "slide": "b",
+      "bbox": [
+        254.4,
+        688.2,
+        502.56,
+        714.12
+      ],
+      "bbox_pad": [
+        250.4,
+        684.2,
+        506.56,
+        718.12
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        248.2,
+        25.9
+      ]
+    },
+    {
+      "qid": "q_0119_30_t",
+      "src": "figs/q_0119_30_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강1과목3편부동산 NEW.pdf",
+      "pdf_page": 30,
+      "slide": "t",
+      "bbox": [
+        123.48,
+        305.04,
+        471.48,
+        338.52
+      ],
+      "bbox_pad": [
+        119.48,
+        301.04,
+        475.48,
+        342.52
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        348.0,
+        33.5
+      ]
+    },
+    {
+      "qid": "q_0120_30_b",
+      "src": "figs/q_0120_30_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강1과목3편부동산 NEW.pdf",
+      "pdf_page": 30,
+      "slide": "b",
+      "bbox": [
+        125.76,
+        673.44,
+        447.24,
+        712.56
+      ],
+      "bbox_pad": [
+        121.76,
+        669.44,
+        451.24,
+        716.56
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        321.5,
+        39.1
+      ]
+    },
+    {
+      "qid": "q_0131_40_t",
+      "src": "figs/q_0131_40_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강1과목3편부동산 NEW.pdf",
+      "pdf_page": 40,
+      "slide": "t",
+      "bbox": [
+        213.48,
+        225.48,
+        393.84,
+        273.36
+      ],
+      "bbox_pad": [
+        209.48,
+        221.48,
+        397.84,
+        277.36
+      ],
+      "placement": "choice_2",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        180.4,
+        47.9
+      ]
+    },
+    {
+      "qid": "q_0153_25_t",
+      "src": "figs/q_0153_25_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목1편대안투자 NEW(수정250915).pdf",
+      "pdf_page": 25,
+      "slide": "t",
+      "bbox": [
+        127.8,
+        269.16,
+        480.96,
+        315.0
+      ],
+      "bbox_pad": [
+        123.8,
+        265.16,
+        484.96,
+        319.0
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        353.2,
+        45.8
+      ]
+    },
+    {
+      "qid": "q_0158_32_t",
+      "src": "figs/q_0158_32_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목1편대안투자 NEW(수정250915).pdf",
+      "pdf_page": 32,
+      "slide": "t",
+      "bbox": [
+        109.2,
+        259.68,
+        508.44,
+        359.52
+      ],
+      "bbox_pad": [
+        105.2,
+        255.68,
+        512.44,
+        363.52
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        399.2,
+        99.8
+      ]
+    },
+    {
+      "qid": "q_0167_7_b",
+      "src": "figs/q_0167_7_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목2편해외투자 NEW(완성)(26년 개정반영).pdf",
+      "pdf_page": 7,
+      "slide": "b",
+      "bbox": [
+        115.32,
+        540.72,
+        471.72,
+        616.56
+      ],
+      "bbox_pad": [
+        111.32,
+        536.72,
+        475.72,
+        620.56
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        356.4,
+        75.8
+      ]
+    },
+    {
+      "qid": "q_0167_7_b",
+      "src": "figs/q_0167_7_b_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목2편해외투자 NEW(완성)(26년 개정반영).pdf",
+      "pdf_page": 7,
+      "slide": "b",
+      "bbox": [
+        172.32,
+        631.32,
+        480.0,
+        715.44
+      ],
+      "bbox_pad": [
+        168.32,
+        627.32,
+        484.0,
+        719.44
+      ],
+      "placement": "choice_3",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        307.7,
+        84.1
+      ]
+    },
+    {
+      "qid": "q_0180_20_b",
+      "src": "figs/q_0180_20_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목2편해외투자 NEW(완성)(26년 개정반영).pdf",
+      "pdf_page": 20,
+      "slide": "b",
+      "bbox": [
+        132.36,
+        548.52,
+        432.84,
+        575.76
+      ],
+      "bbox_pad": [
+        128.36,
+        544.52,
+        436.84,
+        579.76
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        300.5,
+        27.2
+      ]
+    },
+    {
+      "qid": "q_0180_20_b",
+      "src": "figs/q_0180_20_b_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목2편해외투자 NEW(완성)(26년 개정반영).pdf",
+      "pdf_page": 20,
+      "slide": "b",
+      "bbox": [
+        225.96,
+        615.36,
+        468.48,
+        655.2
+      ],
+      "bbox_pad": [
+        221.96,
+        611.36,
+        472.48,
+        659.2
+      ],
+      "placement": "choice_3",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        242.5,
+        39.8
+      ]
+    },
+    {
+      "qid": "q_0181_21_t",
+      "src": "figs/q_0181_21_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목2편해외투자 NEW(완성)(26년 개정반영).pdf",
+      "pdf_page": 21,
+      "slide": "t",
+      "bbox": [
+        123.24,
+        177.84,
+        454.44,
+        207.6
+      ],
+      "bbox_pad": [
+        119.24,
+        173.84,
+        458.44,
+        211.6
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        331.2,
+        29.8
+      ]
+    },
+    {
+      "qid": "q_0181_21_t",
+      "src": "figs/q_0181_21_t_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목2편해외투자 NEW(완성)(26년 개정반영).pdf",
+      "pdf_page": 21,
+      "slide": "t",
+      "bbox": [
+        254.52,
+        243.24,
+        420.36,
+        283.2
+      ],
+      "bbox_pad": [
+        250.52,
+        239.24,
+        424.36,
+        287.2
+      ],
+      "placement": "choice_2",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        165.8,
+        40.0
+      ]
+    },
+    {
+      "qid": "q_0182_21_b",
+      "src": "figs/q_0182_21_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목2편해외투자 NEW(완성)(26년 개정반영).pdf",
+      "pdf_page": 21,
+      "slide": "b",
+      "bbox": [
+        123.24,
+        543.96,
+        465.6,
+        592.08
+      ],
+      "bbox_pad": [
+        119.24,
+        539.96,
+        469.6,
+        596.08
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        342.4,
+        48.1
+      ]
+    },
+    {
+      "qid": "q_0182_21_b",
+      "src": "figs/q_0182_21_b_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목2편해외투자 NEW(완성)(26년 개정반영).pdf",
+      "pdf_page": 21,
+      "slide": "b",
+      "bbox": [
+        124.56,
+        684.0,
+        327.72,
+        707.88
+      ],
+      "bbox_pad": [
+        120.56,
+        680.0,
+        331.72,
+        711.88
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        203.2,
+        23.9
+      ]
+    },
+    {
+      "qid": "q_0188_6_b",
+      "src": "figs/q_0188_6_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목3편 투자분석기법(산업분석) NEW(수정251221).pdf",
+      "pdf_page": 6,
+      "slide": "b",
+      "bbox": [
+        108.48,
+        668.28,
+        466.2,
+        717.72
+      ],
+      "bbox_pad": [
+        104.48,
+        664.28,
+        470.2,
+        721.72
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        357.7,
+        49.4
+      ]
+    },
+    {
+      "qid": "q_0203_22_t",
+      "src": "figs/q_0203_22_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목3편 투자분석기법(산업분석) NEW(수정251221).pdf",
+      "pdf_page": 22,
+      "slide": "t",
+      "bbox": [
+        114.12,
+        265.76,
+        311.65,
+        278.59
+      ],
+      "bbox_pad": [
+        110.12,
+        261.76,
+        315.65,
+        282.59
+      ],
+      "placement": "choice_1",
+      "detect_source": "text_line",
+      "fig_idx": 0,
+      "image_size_pt": [
+        197.5,
+        12.8
+      ]
+    },
+    {
+      "qid": "q_0203_22_t",
+      "src": "figs/q_0203_22_t_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목3편 투자분석기법(산업분석) NEW(수정251221).pdf",
+      "pdf_page": 22,
+      "slide": "t",
+      "bbox": [
+        377.88,
+        281.6,
+        392.74,
+        291.86
+      ],
+      "bbox_pad": [
+        373.88,
+        277.6,
+        396.74,
+        295.86
+      ],
+      "placement": "choice_1",
+      "detect_source": "text_line",
+      "fig_idx": 1,
+      "image_size_pt": [
+        14.9,
+        10.3
+      ]
+    },
+    {
+      "qid": "q_0204_24_t",
+      "src": "figs/q_0204_24_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "B",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목3편 투자분석기법(산업분석) NEW(수정251221).pdf",
+      "pdf_page": 24,
+      "slide": "t",
+      "bbox": [
+        135.36,
+        282.24,
+        397.8,
+        301.2
+      ],
+      "bbox_pad": [
+        131.36,
+        278.24,
+        401.8,
+        305.2
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        262.4,
+        19.0
+      ]
+    },
+    {
+      "qid": "q_0206_25_t",
+      "src": "figs/q_0206_25_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "B",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목3편 투자분석기법(산업분석) NEW(수정251221).pdf",
+      "pdf_page": 25,
+      "slide": "t",
+      "bbox": [
+        126.84,
+        282.24,
+        468.48,
+        316.56
+      ],
+      "bbox_pad": [
+        122.84,
+        278.24,
+        472.48,
+        320.56
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        341.6,
+        34.3
+      ]
+    },
+    {
+      "qid": "q_0212_9_t",
+      "src": "figs/q_0212_9_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목3편투자분석기법(기본적분석) NEW(수정251012).pdf",
+      "pdf_page": 9,
+      "slide": "t",
+      "bbox": [
+        154.92,
+        176.52,
+        462.96,
+        206.28
+      ],
+      "bbox_pad": [
+        150.92,
+        172.52,
+        466.96,
+        210.28
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        308.0,
+        29.8
+      ]
+    },
+    {
+      "qid": "q_0227_28_t",
+      "src": "figs/q_0227_28_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목3편투자분석기법(기본적분석) NEW(수정251012).pdf",
+      "pdf_page": 28,
+      "slide": "t",
+      "bbox": [
+        118.68,
+        261.96,
+        484.56,
+        345.72
+      ],
+      "bbox_pad": [
+        114.68,
+        257.96,
+        488.56,
+        349.72
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        365.9,
+        83.8
+      ]
+    },
+    {
+      "qid": "q_0235_34_b",
+      "src": "figs/q_0235_34_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목3편투자분석기법(기본적분석) NEW(수정251012).pdf",
+      "pdf_page": 34,
+      "slide": "b",
+      "bbox": [
+        166.44,
+        624.12,
+        455.76,
+        673.56
+      ],
+      "bbox_pad": [
+        162.44,
+        620.12,
+        459.76,
+        677.56
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        289.3,
+        49.4
+      ]
+    },
+    {
+      "qid": "q_0235_34_b",
+      "src": "figs/q_0235_34_b_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목3편투자분석기법(기본적분석) NEW(수정251012).pdf",
+      "pdf_page": 34,
+      "slide": "b",
+      "bbox": [
+        149.4,
+        543.6,
+        461.64,
+        577.32
+      ],
+      "bbox_pad": [
+        145.4,
+        539.6,
+        465.64,
+        581.32
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        312.2,
+        33.7
+      ]
+    },
+    {
+      "qid": "q_0237_37_t",
+      "src": "figs/q_0237_37_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목3편투자분석기법(기본적분석) NEW(수정251012).pdf",
+      "pdf_page": 37,
+      "slide": "t",
+      "bbox": [
+        115.32,
+        257.04,
+        417.72,
+        278.28
+      ],
+      "bbox_pad": [
+        111.32,
+        253.04,
+        421.72,
+        282.28
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        302.4,
+        21.2
+      ]
+    },
+    {
+      "qid": "q_0237_37_t",
+      "src": "figs/q_0237_37_t_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목3편투자분석기법(기본적분석) NEW(수정251012).pdf",
+      "pdf_page": 37,
+      "slide": "t",
+      "bbox": [
+        115.32,
+        280.32,
+        491.4,
+        332.64
+      ],
+      "bbox_pad": [
+        111.32,
+        276.32,
+        495.4,
+        336.64
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        376.1,
+        52.3
+      ]
+    },
+    {
+      "qid": "q_0250_51_b",
+      "src": "figs/q_0250_51_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목3편투자분석기법(기본적분석) NEW(수정251012).pdf",
+      "pdf_page": 51,
+      "slide": "b",
+      "bbox": [
+        130.44,
+        537.36,
+        469.8,
+        581.28
+      ],
+      "bbox_pad": [
+        126.44,
+        533.36,
+        473.8,
+        585.28
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        339.4,
+        43.9
+      ]
+    },
+    {
+      "qid": "q_0250_51_b",
+      "src": "figs/q_0250_51_b_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목3편투자분석기법(기본적분석) NEW(수정251012).pdf",
+      "pdf_page": 51,
+      "slide": "b",
+      "bbox": [
+        162.48,
+        590.16,
+        454.44,
+        707.64
+      ],
+      "bbox_pad": [
+        158.48,
+        586.16,
+        458.44,
+        711.64
+      ],
+      "placement": "choice_3",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        292.0,
+        117.5
+      ]
+    },
+    {
+      "qid": "q_0214_11_t",
+      "src": "figs/q_0214_11_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "B",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목3편투자분석기법(기본적분석) NEW(수정251012).pdf",
+      "pdf_page": 11,
+      "slide": "t",
+      "bbox": [
+        126.84,
+        278.64,
+        456.72,
+        338.16
+      ],
+      "bbox_pad": [
+        122.84,
+        274.64,
+        460.72,
+        342.16
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        329.9,
+        59.5
+      ]
+    },
+    {
+      "qid": "q_0215_11_b",
+      "src": "figs/q_0215_11_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "B",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목3편투자분석기법(기본적분석) NEW(수정251012).pdf",
+      "pdf_page": 11,
+      "slide": "b",
+      "bbox": [
+        123.84,
+        634.32,
+        417.72,
+        661.44
+      ],
+      "bbox_pad": [
+        119.84,
+        630.32,
+        421.72,
+        665.44
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        293.9,
+        27.1
+      ]
+    },
+    {
+      "qid": "q_0255_7_b",
+      "src": "figs/q_0255_7_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목3편투자분석기법(기술적분석) NEW.pdf",
+      "pdf_page": 7,
+      "slide": "b",
+      "bbox": [
+        129.48,
+        545.28,
+        474.72,
+        605.16
+      ],
+      "bbox_pad": [
+        125.48,
+        541.28,
+        478.72,
+        609.16
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        345.2,
+        59.9
+      ]
+    },
+    {
+      "qid": "q_0255_7_b",
+      "src": "figs/q_0255_7_b_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목3편투자분석기법(기술적분석) NEW.pdf",
+      "pdf_page": 7,
+      "slide": "b",
+      "bbox": [
+        212.28,
+        628.68,
+        474.72,
+        670.92
+      ],
+      "bbox_pad": [
+        208.28,
+        624.68,
+        478.72,
+        674.92
+      ],
+      "placement": "choice_2",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        262.4,
+        42.2
+      ]
+    },
+    {
+      "qid": "q_0263_16_b",
+      "src": "figs/q_0263_16_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목3편투자분석기법(기술적분석) NEW.pdf",
+      "pdf_page": 16,
+      "slide": "b",
+      "bbox": [
+        183.48,
+        583.2,
+        505.44,
+        715.44
+      ],
+      "bbox_pad": [
+        179.48,
+        579.2,
+        509.44,
+        719.44
+      ],
+      "placement": "choice_4",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        322.0,
+        132.2
+      ]
+    },
+    {
+      "qid": "q_0263_16_b",
+      "src": "figs/q_0263_16_b_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목3편투자분석기법(기술적분석) NEW.pdf",
+      "pdf_page": 16,
+      "slide": "b",
+      "bbox": [
+        154.68,
+        527.88,
+        493.68,
+        571.08
+      ],
+      "bbox_pad": [
+        150.68,
+        523.88,
+        497.68,
+        575.08
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        339.0,
+        43.2
+      ]
+    },
+    {
+      "qid": "q_0272_30_b",
+      "src": "figs/q_0272_30_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강2과목3편투자분석기법(기술적분석) NEW.pdf",
+      "pdf_page": 30,
+      "slide": "b",
+      "bbox": [
+        118.32,
+        676.8,
+        468.48,
+        706.92
+      ],
+      "bbox_pad": [
+        114.32,
+        672.8,
+        472.48,
+        710.92
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        350.2,
+        30.1
+      ]
+    },
+    {
+      "qid": "q_0364_5_b",
+      "src": "figs/q_0364_5_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목2편자본시장법 NEW(완성)(26년 개정반영)(수정260325).pdf",
+      "pdf_page": 5,
+      "slide": "b",
+      "bbox": [
+        129.72,
+        685.68,
+        346.8,
+        718.08
+      ],
+      "bbox_pad": [
+        125.72,
+        681.68,
+        350.8,
+        722.08
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        217.1,
+        32.4
+      ]
+    },
+    {
+      "qid": "q_0520_17_b",
+      "src": "figs/q_0520_17_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목5편채권투자운용 NEW(수정250901).pdf",
+      "pdf_page": 17,
+      "slide": "b",
+      "bbox": [
+        123.84,
+        543.0,
+        480.0,
+        624.84
+      ],
+      "bbox_pad": [
+        119.84,
+        539.0,
+        484.0,
+        628.84
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        356.2,
+        81.8
+      ]
+    },
+    {
+      "qid": "q_0520_17_b",
+      "src": "figs/q_0520_17_b_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목5편채권투자운용 NEW(수정250901).pdf",
+      "pdf_page": 17,
+      "slide": "b",
+      "bbox": [
+        208.92,
+        643.44,
+        426.24,
+        690.24
+      ],
+      "bbox_pad": [
+        204.92,
+        639.44,
+        430.24,
+        694.24
+      ],
+      "placement": "choice_3",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        217.3,
+        46.8
+      ]
+    },
+    {
+      "qid": "q_0536_38_b",
+      "src": "figs/q_0536_38_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목5편채권투자운용 NEW(수정250901).pdf",
+      "pdf_page": 38,
+      "slide": "b",
+      "bbox": [
+        124.92,
+        558.96,
+        372.24,
+        638.88
+      ],
+      "bbox_pad": [
+        120.92,
+        554.96,
+        376.24,
+        642.88
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        247.3,
+        79.9
+      ]
+    },
+    {
+      "qid": "q_0536_38_b",
+      "src": "figs/q_0536_38_b_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목5편채권투자운용 NEW(수정250901).pdf",
+      "pdf_page": 38,
+      "slide": "b",
+      "bbox": [
+        213.84,
+        662.4,
+        469.8,
+        722.64
+      ],
+      "bbox_pad": [
+        209.84,
+        658.4,
+        473.8,
+        726.64
+      ],
+      "placement": "choice_3",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        256.0,
+        60.2
+      ]
+    },
+    {
+      "qid": "q_0538_40_b",
+      "src": "figs/q_0538_40_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목5편채권투자운용 NEW(수정250901).pdf",
+      "pdf_page": 40,
+      "slide": "b",
+      "bbox": [
+        186.36,
+        616.32,
+        423.36,
+        687.0
+      ],
+      "bbox_pad": [
+        182.36,
+        612.32,
+        427.36,
+        691.0
+      ],
+      "placement": "choice_2",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        237.0,
+        70.7
+      ]
+    },
+    {
+      "qid": "q_0538_40_b",
+      "src": "figs/q_0538_40_b_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목5편채권투자운용 NEW(수정250901).pdf",
+      "pdf_page": 40,
+      "slide": "b",
+      "bbox": [
+        139.56,
+        540.96,
+        417.72,
+        607.8
+      ],
+      "bbox_pad": [
+        135.56,
+        536.96,
+        421.72,
+        611.8
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        278.2,
+        66.8
+      ]
+    },
+    {
+      "qid": "q_0541_45_t",
+      "src": "figs/q_0541_45_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목5편채권투자운용 NEW(수정250901).pdf",
+      "pdf_page": 45,
+      "slide": "t",
+      "bbox": [
+        114.12,
+        178.44,
+        459.96,
+        253.08
+      ],
+      "bbox_pad": [
+        110.12,
+        174.44,
+        463.96,
+        257.08
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        345.8,
+        74.6
+      ]
+    },
+    {
+      "qid": "q_0541_45_t",
+      "src": "figs/q_0541_45_t_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목5편채권투자운용 NEW(수정250901).pdf",
+      "pdf_page": 45,
+      "slide": "t",
+      "bbox": [
+        173.64,
+        263.64,
+        459.96,
+        343.8
+      ],
+      "bbox_pad": [
+        169.64,
+        259.64,
+        463.96,
+        347.8
+      ],
+      "placement": "choice_2",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        286.3,
+        80.2
+      ]
+    },
+    {
+      "qid": "q_0561_10_b",
+      "src": "figs/q_0561_10_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목6편파생상품운용 NEW(수정250915).pdf",
+      "pdf_page": 10,
+      "slide": "b",
+      "bbox": [
+        192.0,
+        637.56,
+        477.0,
+        676.56
+      ],
+      "bbox_pad": [
+        188.0,
+        633.56,
+        481.0,
+        680.56
+      ],
+      "placement": "choice_3",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        285.0,
+        39.0
+      ]
+    },
+    {
+      "qid": "q_0561_10_b",
+      "src": "figs/q_0561_10_b_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목6편파생상품운용 NEW(수정250915).pdf",
+      "pdf_page": 10,
+      "slide": "b",
+      "bbox": [
+        123.84,
+        546.6,
+        482.88,
+        604.8
+      ],
+      "bbox_pad": [
+        119.84,
+        542.6,
+        486.88,
+        608.8
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        359.0,
+        58.2
+      ]
+    },
+    {
+      "qid": "q_0565_13_t",
+      "src": "figs/q_0565_13_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목6편파생상품운용 NEW(수정250915).pdf",
+      "pdf_page": 13,
+      "slide": "t",
+      "bbox": [
+        123.84,
+        180.48,
+        482.88,
+        238.68
+      ],
+      "bbox_pad": [
+        119.84,
+        176.48,
+        486.88,
+        242.68
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        359.0,
+        58.2
+      ]
+    },
+    {
+      "qid": "q_0565_13_t",
+      "src": "figs/q_0565_13_t_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목6편파생상품운용 NEW(수정250915).pdf",
+      "pdf_page": 13,
+      "slide": "t",
+      "bbox": [
+        217.44,
+        251.76,
+        470.52,
+        327.36
+      ],
+      "bbox_pad": [
+        213.44,
+        247.76,
+        474.52,
+        331.36
+      ],
+      "placement": "choice_3",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        253.1,
+        75.6
+      ]
+    },
+    {
+      "qid": "q_0592_43_b",
+      "src": "figs/q_0592_43_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목6편파생상품운용 NEW(수정250915).pdf",
+      "pdf_page": 43,
+      "slide": "b",
+      "bbox": [
+        123.84,
+        634.32,
+        386.4,
+        689.28
+      ],
+      "bbox_pad": [
+        119.84,
+        630.32,
+        390.4,
+        693.28
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        262.6,
+        55.0
+      ]
+    },
+    {
+      "qid": "q_0593_44_t",
+      "src": "figs/q_0593_44_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목6편파생상품운용 NEW(수정250915).pdf",
+      "pdf_page": 44,
+      "slide": "t",
+      "bbox": [
+        120.96,
+        268.2,
+        474.36,
+        338.88
+      ],
+      "bbox_pad": [
+        116.96,
+        264.2,
+        478.36,
+        342.88
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        353.4,
+        70.7
+      ]
+    },
+    {
+      "qid": "q_0602_52_t",
+      "src": "figs/q_0602_52_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목6편파생상품운용 NEW(수정250915).pdf",
+      "pdf_page": 52,
+      "slide": "t",
+      "bbox": [
+        237.48,
+        189.24,
+        502.56,
+        332.28
+      ],
+      "bbox_pad": [
+        233.48,
+        185.24,
+        506.56,
+        336.28
+      ],
+      "placement": "choice_4",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        265.1,
+        143.0
+      ]
+    },
+    {
+      "qid": "q_0606_58_t",
+      "src": "figs/q_0606_58_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목6편파생상품운용 NEW(수정250915).pdf",
+      "pdf_page": 58,
+      "slide": "t",
+      "bbox": [
+        126.12,
+        182.4,
+        475.68,
+        226.56
+      ],
+      "bbox_pad": [
+        122.12,
+        178.4,
+        479.68,
+        230.56
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        349.6,
+        44.2
+      ]
+    },
+    {
+      "qid": "q_0606_58_t",
+      "src": "figs/q_0606_58_t_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목6편파생상품운용 NEW(수정250915).pdf",
+      "pdf_page": 58,
+      "slide": "t",
+      "bbox": [
+        240.12,
+        282.24,
+        440.4,
+        315.24
+      ],
+      "bbox_pad": [
+        236.12,
+        278.24,
+        444.4,
+        319.24
+      ],
+      "placement": "choice_4",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        200.3,
+        33.0
+      ]
+    },
+    {
+      "qid": "q_0609_60_t",
+      "src": "figs/q_0609_60_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목6편파생상품운용 NEW(수정250915).pdf",
+      "pdf_page": 60,
+      "slide": "t",
+      "bbox": [
+        206.04,
+        196.2,
+        397.8,
+        244.56
+      ],
+      "bbox_pad": [
+        202.04,
+        192.2,
+        401.8,
+        248.56
+      ],
+      "placement": "choice_2",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        191.8,
+        48.4
+      ]
+    },
+    {
+      "qid": "q_0639_9_b",
+      "src": "figs/q_0639_9_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목8편 거시경제 NEW(수정251221).pdf",
+      "pdf_page": 9,
+      "slide": "b",
+      "bbox": [
+        143.88,
+        661.8,
+        470.76,
+        700.44
+      ],
+      "bbox_pad": [
+        139.88,
+        657.8,
+        474.76,
+        704.44
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        326.9,
+        38.6
+      ]
+    },
+    {
+      "qid": "q_0644_16_t",
+      "src": "figs/q_0644_16_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목8편 거시경제 NEW(수정251221).pdf",
+      "pdf_page": 16,
+      "slide": "t",
+      "bbox": [
+        123.6,
+        262.92,
+        474.12,
+        312.0
+      ],
+      "bbox_pad": [
+        119.6,
+        258.92,
+        478.12,
+        316.0
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        350.5,
+        49.1
+      ]
+    },
+    {
+      "qid": "q_0645_18_b",
+      "src": "figs/q_0645_18_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목8편 거시경제 NEW(수정251221).pdf",
+      "pdf_page": 18,
+      "slide": "b",
+      "bbox": [
+        125.88,
+        666.36,
+        474.12,
+        706.32
+      ],
+      "bbox_pad": [
+        121.88,
+        662.36,
+        478.12,
+        710.32
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        348.2,
+        40.0
+      ]
+    },
+    {
+      "qid": "q_0646_19_t",
+      "src": "figs/q_0646_19_t_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목8편 거시경제 NEW(수정251221).pdf",
+      "pdf_page": 19,
+      "slide": "t",
+      "bbox": [
+        160.92,
+        166.68,
+        466.2,
+        194.88
+      ],
+      "bbox_pad": [
+        156.92,
+        162.68,
+        470.2,
+        198.88
+      ],
+      "placement": "stem",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        305.3,
+        28.2
+      ]
+    },
+    {
+      "qid": "q_0646_19_t",
+      "src": "figs/q_0646_19_t_formula_1.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강3과목8편 거시경제 NEW(수정251221).pdf",
+      "pdf_page": 19,
+      "slide": "t",
+      "bbox": [
+        228.96,
+        226.32,
+        454.08,
+        280.92
+      ],
+      "bbox_pad": [
+        224.96,
+        222.32,
+        458.08,
+        284.92
+      ],
+      "placement": "choice_3",
+      "detect_source": "image",
+      "fig_idx": 1,
+      "image_size_pt": [
+        225.1,
+        54.6
+      ]
+    },
+    {
+      "qid": "q_0722_47_b",
+      "src": "figs/q_0722_47_b_formula_0.png",
+      "kind": "formula",
+      "defect_type": "M4",
+      "tier": "A",
+      "subtype": null,
+      "source_pdf": "실전마무리특강OT및1과목1편세제 NEW(완성)(26년 개정반영)(수정260422).pdf",
+      "pdf_page": 47,
+      "slide": "b",
+      "bbox": [
+        124.2,
+        625.8,
+        494.04,
+        669.96
+      ],
+      "bbox_pad": [
+        120.2,
+        621.8,
+        498.04,
+        673.96
+      ],
+      "placement": "explanation",
+      "detect_source": "image",
+      "fig_idx": 0,
+      "image_size_pt": [
+        369.8,
+        44.2
+      ]
+    }
+  ],
+  "needs_review": [
+    {
+      "qid": "q_0583_34_t",
+      "defect_type": "M4",
+      "tier": "A",
+      "source_pdf": "실전마무리특강3과목6편파생상품운용 NEW(수정250915).pdf",
+      "pdf_page": 34,
+      "slide": "t",
+      "reason": "no_raster_image_no_broken_text",
+      "needs_visual_review": true
+    },
+    {
+      "qid": "q_0584_35_b",
+      "defect_type": "M4",
+      "tier": "A",
+      "source_pdf": "실전마무리특강3과목6편파생상품운용 NEW(수정250915).pdf",
+      "pdf_page": 35,
+      "slide": "b",
+      "reason": "no_raster_image_no_broken_text",
+      "needs_visual_review": true
+    },
+    {
+      "qid": "q_0585_36_t",
+      "defect_type": "M4",
+      "tier": "A",
+      "source_pdf": "실전마무리특강3과목6편파생상품운용 NEW(수정250915).pdf",
+      "pdf_page": 36,
+      "slide": "t",
+      "reason": "no_raster_image_no_broken_text",
+      "needs_visual_review": true
+    },
+    {
+      "qid": "q_0626_17_b",
+      "defect_type": "M4",
+      "tier": "A",
+      "source_pdf": "실전마무리특강3과목7편투자운용결과분석 NEW(수정251207).pdf",
+      "pdf_page": 17,
+      "slide": "b",
+      "reason": "no_raster_image_no_broken_text",
+      "needs_visual_review": true
+    }
+  ]
+}

@@ -154,9 +154,7 @@
         "pdf_page": 19,
         "slide_pos": "top",
         "source_q_no": 35,
-        "year_tags": [
-          "2024.03"
-        ],
+        "year_tags": [],
         "question_id": "q_0179_19_t",
         "option": "②",
         "statement_id": "stmt_0198d6656a"
@@ -444,7 +442,7 @@
         "slide_pos": "top",
         "source_q_no": 31,
         "year_tags": [
-          "2022.02"
+          "2022.02 기출복원"
         ],
         "question_id": "q_0692_17_t",
         "option": "④",
@@ -829,7 +827,7 @@
         "slide_pos": "top",
         "source_q_no": 73,
         "year_tags": [
-          "2022.06"
+          "2022.06 기출복원"
         ],
         "question_id": "q_0498_38_t",
         "option": "②",
@@ -1057,9 +1055,7 @@
         "pdf_page": 24,
         "slide_pos": "top",
         "source_q_no": 45,
-        "year_tags": [
-          "2021.01"
-        ],
+        "year_tags": [],
         "question_id": "q_0575_24_t",
         "option": "③",
         "statement_id": "stmt_0934417de3"
@@ -1135,9 +1131,7 @@
         "pdf_page": 71,
         "slide_pos": "bottom",
         "source_q_no": 140,
-        "year_tags": [
-          "2021.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0068_71_b",
         "option": "④",
         "statement_id": "stmt_09d1b102bf"
@@ -1205,7 +1199,7 @@
         "slide_pos": "top",
         "source_q_no": 31,
         "year_tags": [
-          "2022.02"
+          "2022.02 기출복원"
         ],
         "question_id": "q_0692_17_t",
         "option": "①",
@@ -1358,9 +1352,7 @@
         "pdf_page": 24,
         "slide_pos": "top",
         "source_q_no": 45,
-        "year_tags": [
-          "2021.01"
-        ],
+        "year_tags": [],
         "question_id": "q_0575_24_t",
         "option": "②",
         "statement_id": "stmt_0b86921249"
@@ -1688,7 +1680,7 @@
         "slide_pos": "bottom",
         "source_q_no": 40,
         "year_tags": [
-          "2025.07"
+          "2025.07 기출복원"
         ],
         "question_id": "q_0017_21_b",
         "option": "②",
@@ -2064,9 +2056,7 @@
         "pdf_page": 11,
         "slide_pos": "bottom",
         "source_q_no": 20,
-        "year_tags": [
-          "2023.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0472_11_b",
         "option": "③",
         "statement_id": "stmt_118970bcaa"
@@ -2194,9 +2184,7 @@
         "pdf_page": 25,
         "slide_pos": "top",
         "source_q_no": 47,
-        "year_tags": [
-          "2021.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0387_25_t",
         "option": "③",
         "statement_id": "stmt_12c40edbaf"
@@ -2322,22 +2310,8 @@
         "pdf_page": 46,
         "slide_pos": "bottom",
         "source_q_no": 90,
-        "year_tags": [
-          "2022.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0042_46_b",
-        "option": "④",
-        "statement_id": "stmt_13b0995686"
-      },
-      {
-        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
-        "pdf_page": 81,
-        "slide_pos": "bottom",
-        "source_q_no": 160,
-        "year_tags": [
-          "2023.06"
-        ],
-        "question_id": "q_0079_81_b",
         "option": "④",
         "statement_id": "stmt_13b0995686"
       },
@@ -2346,9 +2320,7 @@
         "pdf_page": 10,
         "slide_pos": "top",
         "source_q_no": 17,
-        "year_tags": [
-          "2022.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0323_10_t",
         "option": "④",
         "statement_id": "stmt_13b0995686"
@@ -2358,10 +2330,18 @@
         "pdf_page": 25,
         "slide_pos": "top",
         "source_q_no": 47,
-        "year_tags": [
-          "2021.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0387_25_t",
+        "option": "④",
+        "statement_id": "stmt_13b0995686"
+      },
+      {
+        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+        "pdf_page": 81,
+        "slide_pos": "bottom",
+        "source_q_no": 160,
+        "year_tags": [],
+        "question_id": "q_0079_81_b",
         "option": "④",
         "statement_id": "stmt_13b0995686"
       }
@@ -2437,7 +2417,7 @@
         "slide_pos": "top",
         "source_q_no": 107,
         "year_tags": [
-          "2022.11"
+          "2022.11 기출복원"
         ],
         "question_id": "q_0729_55_t",
         "option": "④",
@@ -2685,9 +2665,7 @@
         "pdf_page": 16,
         "slide_pos": "bottom",
         "source_q_no": null,
-        "year_tags": [
-          "2021.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0294_16_b",
         "option": "①",
         "statement_id": "stmt_15fc61f53b"
@@ -2774,7 +2752,7 @@
         "slide_pos": "top",
         "source_q_no": 109,
         "year_tags": [
-          "2021.06"
+          "2021.06 기출복원"
         ],
         "question_id": "q_0548_56_t",
         "option": "③",
@@ -2851,9 +2829,7 @@
         "pdf_page": 7,
         "slide_pos": "top",
         "source_q_no": 11,
-        "year_tags": [
-          "2023.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0189_7_t",
         "option": "④",
         "statement_id": "stmt_16f0a3ad21"
@@ -3783,7 +3759,7 @@
         "slide_pos": "top",
         "source_q_no": 73,
         "year_tags": [
-          "2022.06"
+          "2022.06 기출복원"
         ],
         "question_id": "q_0498_38_t",
         "option": "③",
@@ -4233,9 +4209,7 @@
         "pdf_page": 39,
         "slide_pos": "bottom",
         "source_q_no": 76,
-        "year_tags": [
-          "2023.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0349_39_b",
         "option": "③",
         "statement_id": "stmt_2238f11cd8"
@@ -4372,9 +4346,7 @@
         "pdf_page": 7,
         "slide_pos": "top",
         "source_q_no": null,
-        "year_tags": [
-          "2021.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0660_7_t",
         "option": "①",
         "statement_id": "stmt_2372ba370a"
@@ -4921,9 +4893,7 @@
         "pdf_page": 71,
         "slide_pos": "bottom",
         "source_q_no": 140,
-        "year_tags": [
-          "2021.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0068_71_b",
         "option": "②",
         "statement_id": "stmt_276b316348"
@@ -5333,9 +5303,7 @@
         "pdf_page": 14,
         "slide_pos": "bottom",
         "source_q_no": 26,
-        "year_tags": [
-          "2022.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0217_14_b",
         "option": "①",
         "statement_id": "stmt_2ada210a2f"
@@ -5472,7 +5440,7 @@
         "slide_pos": "top",
         "source_q_no": 109,
         "year_tags": [
-          "2021.06"
+          "2021.06 기출복원"
         ],
         "question_id": "q_0548_56_t",
         "option": "④",
@@ -5644,9 +5612,7 @@
         "pdf_page": 14,
         "slide_pos": "bottom",
         "source_q_no": 26,
-        "year_tags": [
-          "2022.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0009_14_b",
         "option": "②",
         "statement_id": "stmt_2cb38266a9"
@@ -5722,9 +5688,7 @@
         "pdf_page": 14,
         "slide_pos": "bottom",
         "source_q_no": 26,
-        "year_tags": [
-          "2022.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0217_14_b",
         "option": "③",
         "statement_id": "stmt_2d4d36391f"
@@ -5915,7 +5879,7 @@
         "slide_pos": "top",
         "source_q_no": 25,
         "year_tags": [
-          "2021.01"
+          "2021.01 기출복원"
         ],
         "question_id": "q_0195_14_t",
         "option": "②",
@@ -6136,7 +6100,7 @@
         "slide_pos": "bottom",
         "source_q_no": 40,
         "year_tags": [
-          "2025.07"
+          "2025.07 기출복원"
         ],
         "question_id": "q_0017_21_b",
         "option": "①",
@@ -6185,9 +6149,7 @@
         "pdf_page": 14,
         "slide_pos": "bottom",
         "source_q_no": 26,
-        "year_tags": [
-          "2022.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0009_14_b",
         "option": "①",
         "statement_id": "stmt_32009dedb8"
@@ -6206,9 +6168,7 @@
         "pdf_page": 35,
         "slide_pos": "top",
         "source_q_no": 100,
-        "year_tags": [
-          "2023.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0312_35_t",
         "option": "③",
         "statement_id": "stmt_32096c2e0e"
@@ -6218,9 +6178,7 @@
         "pdf_page": 19,
         "slide_pos": "bottom",
         "source_q_no": 36,
-        "year_tags": [
-          "2022.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0479_19_b",
         "option": "③",
         "statement_id": "stmt_32096c2e0e"
@@ -6309,7 +6267,7 @@
         "slide_pos": "top",
         "source_q_no": 101,
         "year_tags": [
-          "2022.11"
+          "2022.11 기출복원"
         ],
         "question_id": "q_0727_52_t",
         "option": "④",
@@ -6500,9 +6458,7 @@
         "pdf_page": 16,
         "slide_pos": "bottom",
         "source_q_no": null,
-        "year_tags": [
-          "2021.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0294_16_b",
         "option": "④",
         "statement_id": "stmt_335e120bcd"
@@ -6560,7 +6516,7 @@
         "slide_pos": "top",
         "source_q_no": 31,
         "year_tags": [
-          "2022.02"
+          "2022.02 기출복원"
         ],
         "question_id": "q_0692_17_t",
         "option": "③",
@@ -6745,7 +6701,7 @@
         "slide_pos": "top",
         "source_q_no": 13,
         "year_tags": [
-          "2021.01"
+          "2021.01 기출복원"
         ],
         "question_id": "q_0683_8_t",
         "option": "④",
@@ -6901,7 +6857,7 @@
         "slide_pos": "top",
         "source_q_no": 107,
         "year_tags": [
-          "2022.11"
+          "2022.11 기출복원"
         ],
         "question_id": "q_0729_55_t",
         "option": "③",
@@ -7271,22 +7227,10 @@
       },
       {
         "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
-        "pdf_page": 6,
-        "slide_pos": "bottom",
-        "source_q_no": 2,
-        "year_tags": [],
-        "question_id": "q_0001_6_b",
-        "option": "②",
-        "statement_id": "stmt_3a0dbb564c"
-      },
-      {
-        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
         "pdf_page": 7,
         "slide_pos": "bottom",
         "source_q_no": 12,
-        "year_tags": [
-          "2022.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0003_7_b",
         "option": "②",
         "statement_id": "stmt_3a0dbb564c"
@@ -7296,9 +7240,7 @@
         "pdf_page": 34,
         "slide_pos": "top",
         "source_q_no": 65,
-        "year_tags": [
-          "2022.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0027_34_t",
         "option": "②",
         "statement_id": "stmt_3a0dbb564c"
@@ -7308,34 +7250,8 @@
         "pdf_page": 42,
         "slide_pos": "top",
         "source_q_no": 81,
-        "year_tags": [
-          "2023.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0037_42_t",
-        "option": "②",
-        "statement_id": "stmt_3a0dbb564c"
-      },
-      {
-        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
-        "pdf_page": 54,
-        "slide_pos": "top",
-        "source_q_no": 105,
-        "year_tags": [
-          "2024.03"
-        ],
-        "question_id": "q_0050_54_t",
-        "option": "②",
-        "statement_id": "stmt_3a0dbb564c"
-      },
-      {
-        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
-        "pdf_page": 61,
-        "slide_pos": "top",
-        "source_q_no": 119,
-        "year_tags": [
-          "2023.02"
-        ],
-        "question_id": "q_0056_61_t",
         "option": "②",
         "statement_id": "stmt_3a0dbb564c"
       },
@@ -7344,22 +7260,8 @@
         "pdf_page": 63,
         "slide_pos": "top",
         "source_q_no": 123,
-        "year_tags": [
-          "2024.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0058_63_t",
-        "option": "②",
-        "statement_id": "stmt_3a0dbb564c"
-      },
-      {
-        "pdf": "실전마무리특강1과목3편부동산 NEW.pdf",
-        "pdf_page": 29,
-        "slide_pos": "bottom",
-        "source_q_no": null,
-        "year_tags": [
-          "2022.02"
-        ],
-        "question_id": "q_0118_29_b",
         "option": "②",
         "statement_id": "stmt_3a0dbb564c"
       },
@@ -7398,9 +7300,7 @@
         "pdf_page": 36,
         "slide_pos": "top",
         "source_q_no": 69,
-        "year_tags": [
-          "2022.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0346_36_t",
         "option": "②",
         "statement_id": "stmt_3a0dbb564c"
@@ -7411,21 +7311,9 @@
         "slide_pos": "top",
         "source_q_no": 85,
         "year_tags": [
-          "2023.06"
+          "2023.06 기출복원"
         ],
         "question_id": "q_0354_44_t",
-        "option": "②",
-        "statement_id": "stmt_3a0dbb564c"
-      },
-      {
-        "pdf": "실전마무리특강3과목2편자본시장법 NEW(완성)(26년 개정반영)(수정260325).pdf",
-        "pdf_page": 47,
-        "slide_pos": "bottom",
-        "source_q_no": 92,
-        "year_tags": [
-          "2023.02"
-        ],
-        "question_id": "q_0411_47_b",
         "option": "②",
         "statement_id": "stmt_3a0dbb564c"
       },
@@ -7440,23 +7328,11 @@
         "statement_id": "stmt_3a0dbb564c"
       },
       {
-        "pdf": "실전마무리특강3과목2편자본시장법 NEW(완성)(26년 개정반영)(수정260325).pdf",
-        "pdf_page": 61,
-        "slide_pos": "bottom",
-        "source_q_no": 27,
-        "year_tags": [],
-        "question_id": "q_0425_61_b",
-        "option": "②",
-        "statement_id": "stmt_3a0dbb564c"
-      },
-      {
         "pdf": "실전마무리특강3과목3편 협회규정 NEW(수정251221).pdf",
         "pdf_page": 7,
         "slide_pos": "top",
         "source_q_no": 11,
-        "year_tags": [
-          "2021.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0446_7_t",
         "option": "②",
         "statement_id": "stmt_3a0dbb564c"
@@ -7472,12 +7348,74 @@
         "statement_id": "stmt_3a0dbb564c"
       },
       {
+        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+        "pdf_page": 6,
+        "slide_pos": "bottom",
+        "source_q_no": 2,
+        "year_tags": [],
+        "question_id": "q_0001_6_b",
+        "option": "②",
+        "statement_id": "stmt_3a0dbb564c"
+      },
+      {
+        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+        "pdf_page": 54,
+        "slide_pos": "top",
+        "source_q_no": 105,
+        "year_tags": [],
+        "question_id": "q_0050_54_t",
+        "option": "②",
+        "statement_id": "stmt_3a0dbb564c"
+      },
+      {
+        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+        "pdf_page": 61,
+        "slide_pos": "top",
+        "source_q_no": 119,
+        "year_tags": [],
+        "question_id": "q_0056_61_t",
+        "option": "②",
+        "statement_id": "stmt_3a0dbb564c"
+      },
+      {
+        "pdf": "실전마무리특강1과목3편부동산 NEW.pdf",
+        "pdf_page": 29,
+        "slide_pos": "bottom",
+        "source_q_no": null,
+        "year_tags": [],
+        "question_id": "q_0118_29_b",
+        "option": "②",
+        "statement_id": "stmt_3a0dbb564c"
+      },
+      {
+        "pdf": "실전마무리특강3과목2편자본시장법 NEW(완성)(26년 개정반영)(수정260325).pdf",
+        "pdf_page": 47,
+        "slide_pos": "bottom",
+        "source_q_no": 92,
+        "year_tags": [
+          "2023.02 기출복원"
+        ],
+        "question_id": "q_0411_47_b",
+        "option": "②",
+        "statement_id": "stmt_3a0dbb564c"
+      },
+      {
+        "pdf": "실전마무리특강3과목2편자본시장법 NEW(완성)(26년 개정반영)(수정260325).pdf",
+        "pdf_page": 61,
+        "slide_pos": "bottom",
+        "source_q_no": 27,
+        "year_tags": [],
+        "question_id": "q_0425_61_b",
+        "option": "②",
+        "statement_id": "stmt_3a0dbb564c"
+      },
+      {
         "pdf": "실전마무리특강OT및1과목1편세제 NEW(완성)(26년 개정반영)(수정260422).pdf",
         "pdf_page": 25,
         "slide_pos": "top",
         "source_q_no": 47,
         "year_tags": [
-          "2023.06"
+          "2023.06 기출복원"
         ],
         "question_id": "q_0701_25_t",
         "option": "②",
@@ -7775,9 +7713,7 @@
         "pdf_page": 11,
         "slide_pos": "bottom",
         "source_q_no": 20,
-        "year_tags": [
-          "2023.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0193_11_b",
         "option": "①",
         "statement_id": "stmt_3baba39eca"
@@ -8085,9 +8021,7 @@
         "pdf_page": 34,
         "slide_pos": "bottom",
         "source_q_no": null,
-        "year_tags": [
-          "2021.01"
-        ],
+        "year_tags": [],
         "question_id": "q_0679_34_b",
         "option": "①",
         "statement_id": "stmt_3e3ebf48a7"
@@ -8201,9 +8135,7 @@
         "pdf_page": 14,
         "slide_pos": "bottom",
         "source_q_no": 26,
-        "year_tags": [
-          "2022.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0009_14_b",
         "option": "④",
         "statement_id": "stmt_3f38276a72"
@@ -8222,9 +8154,7 @@
         "pdf_page": 16,
         "slide_pos": "bottom",
         "source_q_no": null,
-        "year_tags": [
-          "2021.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0294_16_b",
         "option": "③",
         "statement_id": "stmt_3fae70a2c2"
@@ -8300,9 +8230,7 @@
         "pdf_page": 50,
         "slide_pos": "top",
         "source_q_no": 97,
-        "year_tags": [
-          "2021.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0600_50_t",
         "option": "③",
         "statement_id": "stmt_4071c3a66e"
@@ -8455,7 +8383,7 @@
         "slide_pos": "top",
         "source_q_no": 101,
         "year_tags": [
-          "2022.11"
+          "2022.11 기출복원"
         ],
         "question_id": "q_0727_52_t",
         "option": "③",
@@ -8762,9 +8690,7 @@
         "pdf_page": 19,
         "slide_pos": "top",
         "source_q_no": 35,
-        "year_tags": [
-          "2024.03"
-        ],
+        "year_tags": [],
         "question_id": "q_0179_19_t",
         "option": "④",
         "statement_id": "stmt_43fd557f11"
@@ -9153,7 +9079,7 @@
         "slide_pos": "top",
         "source_q_no": 107,
         "year_tags": [
-          "2022.11"
+          "2022.11 기출복원"
         ],
         "question_id": "q_0729_55_t",
         "option": "②",
@@ -9317,7 +9243,7 @@
         "slide_pos": "bottom",
         "source_q_no": 16,
         "year_tags": [
-          "2025.01"
+          "2025.01 기출복원"
         ],
         "question_id": "q_0213_9_b",
         "option": "④",
@@ -9338,10 +9264,18 @@
         "pdf_page": 23,
         "slide_pos": "top",
         "source_q_no": 43,
-        "year_tags": [
-          "2023.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0334_23_t",
+        "option": "④",
+        "statement_id": "stmt_48cd850b71"
+      },
+      {
+        "pdf": "실전마무리특강3과목2편자본시장법 NEW(완성)(26년 개정반영)(수정260325).pdf",
+        "pdf_page": 45,
+        "slide_pos": "top",
+        "source_q_no": 87,
+        "year_tags": [],
+        "question_id": "q_0408_45_t",
         "option": "④",
         "statement_id": "stmt_48cd850b71"
       },
@@ -9351,21 +9285,9 @@
         "slide_pos": "top",
         "source_q_no": 89,
         "year_tags": [
-          "2023.11"
+          "2023.11 기출복원"
         ],
         "question_id": "q_0357_46_t",
-        "option": "④",
-        "statement_id": "stmt_48cd850b71"
-      },
-      {
-        "pdf": "실전마무리특강3과목2편자본시장법 NEW(완성)(26년 개정반영)(수정260325).pdf",
-        "pdf_page": 45,
-        "slide_pos": "top",
-        "source_q_no": 87,
-        "year_tags": [
-          "2023.06"
-        ],
-        "question_id": "q_0408_45_t",
         "option": "④",
         "statement_id": "stmt_48cd850b71"
       },
@@ -9384,9 +9306,7 @@
         "pdf_page": 24,
         "slide_pos": "top",
         "source_q_no": 45,
-        "year_tags": [
-          "2025.10"
-        ],
+        "year_tags": [],
         "question_id": "q_0465_24_t",
         "option": "④",
         "statement_id": "stmt_48cd850b71"
@@ -9407,7 +9327,7 @@
         "slide_pos": "top",
         "source_q_no": 59,
         "year_tags": [
-          "2019.11"
+          "2019.11 기출복원"
         ],
         "question_id": "q_0634_31_t",
         "option": "④",
@@ -9669,7 +9589,7 @@
         "slide_pos": "top",
         "source_q_no": 13,
         "year_tags": [
-          "2021.01"
+          "2021.01 기출복원"
         ],
         "question_id": "q_0683_8_t",
         "option": "①",
@@ -9756,9 +9676,7 @@
         "pdf_page": 34,
         "slide_pos": "top",
         "source_q_no": 65,
-        "year_tags": [
-          "2022.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0027_34_t",
         "option": "③",
         "statement_id": "stmt_4b5488deb9"
@@ -9768,34 +9686,8 @@
         "pdf_page": 42,
         "slide_pos": "top",
         "source_q_no": 81,
-        "year_tags": [
-          "2023.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0037_42_t",
-        "option": "③",
-        "statement_id": "stmt_4b5488deb9"
-      },
-      {
-        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
-        "pdf_page": 61,
-        "slide_pos": "top",
-        "source_q_no": 119,
-        "year_tags": [
-          "2023.02"
-        ],
-        "question_id": "q_0056_61_t",
-        "option": "③",
-        "statement_id": "stmt_4b5488deb9"
-      },
-      {
-        "pdf": "실전마무리특강1과목3편부동산 NEW.pdf",
-        "pdf_page": 29,
-        "slide_pos": "bottom",
-        "source_q_no": null,
-        "year_tags": [
-          "2022.02"
-        ],
-        "question_id": "q_0118_29_b",
         "option": "③",
         "statement_id": "stmt_4b5488deb9"
       },
@@ -9805,21 +9697,9 @@
         "slide_pos": "bottom",
         "source_q_no": 16,
         "year_tags": [
-          "2025.01"
+          "2025.01 기출복원"
         ],
         "question_id": "q_0213_9_b",
-        "option": "②",
-        "statement_id": "stmt_4b5488deb9"
-      },
-      {
-        "pdf": "실전마무리특강3과목1편직무윤리 NEW(완성)(26년 개정반영)(수정260330).pdf",
-        "pdf_page": 23,
-        "slide_pos": "top",
-        "source_q_no": 43,
-        "year_tags": [
-          "2023.02"
-        ],
-        "question_id": "q_0334_23_t",
         "option": "②",
         "statement_id": "stmt_4b5488deb9"
       },
@@ -9829,22 +9709,10 @@
         "slide_pos": "top",
         "source_q_no": 85,
         "year_tags": [
-          "2023.06"
+          "2023.06 기출복원"
         ],
         "question_id": "q_0354_44_t",
         "option": "③",
-        "statement_id": "stmt_4b5488deb9"
-      },
-      {
-        "pdf": "실전마무리특강3과목1편직무윤리 NEW(완성)(26년 개정반영)(수정260330).pdf",
-        "pdf_page": 46,
-        "slide_pos": "top",
-        "source_q_no": 89,
-        "year_tags": [
-          "2023.11"
-        ],
-        "question_id": "q_0357_46_t",
-        "option": "②",
         "statement_id": "stmt_4b5488deb9"
       },
       {
@@ -9852,23 +9720,9 @@
         "pdf_page": 45,
         "slide_pos": "top",
         "source_q_no": 87,
-        "year_tags": [
-          "2023.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0408_45_t",
         "option": "②",
-        "statement_id": "stmt_4b5488deb9"
-      },
-      {
-        "pdf": "실전마무리특강3과목2편자본시장법 NEW(완성)(26년 개정반영)(수정260325).pdf",
-        "pdf_page": 47,
-        "slide_pos": "bottom",
-        "source_q_no": 92,
-        "year_tags": [
-          "2023.02"
-        ],
-        "question_id": "q_0411_47_b",
-        "option": "③",
         "statement_id": "stmt_4b5488deb9"
       },
       {
@@ -9882,24 +9736,66 @@
         "statement_id": "stmt_4b5488deb9"
       },
       {
-        "pdf": "실전마무리특강3과목3편 협회규정 NEW(수정251221).pdf",
-        "pdf_page": 24,
-        "slide_pos": "top",
-        "source_q_no": 45,
-        "year_tags": [
-          "2025.10"
-        ],
-        "question_id": "q_0465_24_t",
-        "option": "②",
-        "statement_id": "stmt_4b5488deb9"
-      },
-      {
         "pdf": "실전마무리특강3과목5편채권투자운용 NEW(수정250901).pdf",
         "pdf_page": 17,
         "slide_pos": "top",
         "source_q_no": 6,
         "year_tags": [],
         "question_id": "q_0519_17_t",
+        "option": "②",
+        "statement_id": "stmt_4b5488deb9"
+      },
+      {
+        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+        "pdf_page": 61,
+        "slide_pos": "top",
+        "source_q_no": 119,
+        "year_tags": [],
+        "question_id": "q_0056_61_t",
+        "option": "③",
+        "statement_id": "stmt_4b5488deb9"
+      },
+      {
+        "pdf": "실전마무리특강1과목3편부동산 NEW.pdf",
+        "pdf_page": 29,
+        "slide_pos": "bottom",
+        "source_q_no": null,
+        "year_tags": [],
+        "question_id": "q_0118_29_b",
+        "option": "③",
+        "statement_id": "stmt_4b5488deb9"
+      },
+      {
+        "pdf": "실전마무리특강3과목1편직무윤리 NEW(완성)(26년 개정반영)(수정260330).pdf",
+        "pdf_page": 46,
+        "slide_pos": "top",
+        "source_q_no": 89,
+        "year_tags": [
+          "2023.11 기출복원"
+        ],
+        "question_id": "q_0357_46_t",
+        "option": "②",
+        "statement_id": "stmt_4b5488deb9"
+      },
+      {
+        "pdf": "실전마무리특강3과목2편자본시장법 NEW(완성)(26년 개정반영)(수정260325).pdf",
+        "pdf_page": 47,
+        "slide_pos": "bottom",
+        "source_q_no": 92,
+        "year_tags": [
+          "2023.02 기출복원"
+        ],
+        "question_id": "q_0411_47_b",
+        "option": "③",
+        "statement_id": "stmt_4b5488deb9"
+      },
+      {
+        "pdf": "실전마무리특강3과목3편 협회규정 NEW(수정251221).pdf",
+        "pdf_page": 24,
+        "slide_pos": "top",
+        "source_q_no": 45,
+        "year_tags": [],
+        "question_id": "q_0465_24_t",
         "option": "②",
         "statement_id": "stmt_4b5488deb9"
       },
@@ -9919,7 +9815,7 @@
         "slide_pos": "top",
         "source_q_no": 59,
         "year_tags": [
-          "2019.11"
+          "2019.11 기출복원"
         ],
         "question_id": "q_0634_31_t",
         "option": "②",
@@ -9932,6 +9828,16 @@
         "source_q_no": 12,
         "year_tags": [],
         "question_id": "q_0655_31_b",
+        "option": "②",
+        "statement_id": "stmt_4b5488deb9"
+      },
+      {
+        "pdf": "실전마무리특강3과목1편직무윤리 NEW(완성)(26년 개정반영)(수정260330).pdf",
+        "pdf_page": 23,
+        "slide_pos": "top",
+        "source_q_no": 43,
+        "year_tags": [],
+        "question_id": "q_0334_23_t",
         "option": "②",
         "statement_id": "stmt_4b5488deb9"
       }
@@ -10065,9 +9971,7 @@
         "pdf_page": 50,
         "slide_pos": "top",
         "source_q_no": 97,
-        "year_tags": [
-          "2021.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0600_50_t",
         "option": "④",
         "statement_id": "stmt_4c39d7dbaa"
@@ -10390,9 +10294,7 @@
         "pdf_page": 34,
         "slide_pos": "top",
         "source_q_no": 65,
-        "year_tags": [
-          "2022.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0027_34_t",
         "option": "④",
         "statement_id": "stmt_4eef935870"
@@ -10402,34 +10304,8 @@
         "pdf_page": 42,
         "slide_pos": "top",
         "source_q_no": 81,
-        "year_tags": [
-          "2023.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0037_42_t",
-        "option": "④",
-        "statement_id": "stmt_4eef935870"
-      },
-      {
-        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
-        "pdf_page": 61,
-        "slide_pos": "top",
-        "source_q_no": 119,
-        "year_tags": [
-          "2023.02"
-        ],
-        "question_id": "q_0056_61_t",
-        "option": "④",
-        "statement_id": "stmt_4eef935870"
-      },
-      {
-        "pdf": "실전마무리특강1과목3편부동산 NEW.pdf",
-        "pdf_page": 29,
-        "slide_pos": "bottom",
-        "source_q_no": null,
-        "year_tags": [
-          "2022.02"
-        ],
-        "question_id": "q_0118_29_b",
         "option": "④",
         "statement_id": "stmt_4eef935870"
       },
@@ -10449,21 +10325,9 @@
         "slide_pos": "top",
         "source_q_no": 85,
         "year_tags": [
-          "2023.06"
+          "2023.06 기출복원"
         ],
         "question_id": "q_0354_44_t",
-        "option": "④",
-        "statement_id": "stmt_4eef935870"
-      },
-      {
-        "pdf": "실전마무리특강3과목2편자본시장법 NEW(완성)(26년 개정반영)(수정260325).pdf",
-        "pdf_page": 47,
-        "slide_pos": "bottom",
-        "source_q_no": 92,
-        "year_tags": [
-          "2023.02"
-        ],
-        "question_id": "q_0411_47_b",
         "option": "④",
         "statement_id": "stmt_4eef935870"
       },
@@ -10474,6 +10338,38 @@
         "source_q_no": 24,
         "year_tags": [],
         "question_id": "q_0418_55_b",
+        "option": "④",
+        "statement_id": "stmt_4eef935870"
+      },
+      {
+        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+        "pdf_page": 61,
+        "slide_pos": "top",
+        "source_q_no": 119,
+        "year_tags": [],
+        "question_id": "q_0056_61_t",
+        "option": "④",
+        "statement_id": "stmt_4eef935870"
+      },
+      {
+        "pdf": "실전마무리특강1과목3편부동산 NEW.pdf",
+        "pdf_page": 29,
+        "slide_pos": "bottom",
+        "source_q_no": null,
+        "year_tags": [],
+        "question_id": "q_0118_29_b",
+        "option": "④",
+        "statement_id": "stmt_4eef935870"
+      },
+      {
+        "pdf": "실전마무리특강3과목2편자본시장법 NEW(완성)(26년 개정반영)(수정260325).pdf",
+        "pdf_page": 47,
+        "slide_pos": "bottom",
+        "source_q_no": 92,
+        "year_tags": [
+          "2023.02 기출복원"
+        ],
+        "question_id": "q_0411_47_b",
         "option": "④",
         "statement_id": "stmt_4eef935870"
       },
@@ -10770,9 +10666,7 @@
         "pdf_page": 35,
         "slide_pos": "top",
         "source_q_no": 100,
-        "year_tags": [
-          "2023.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0312_35_t",
         "option": "④",
         "statement_id": "stmt_50c9e8d5fc"
@@ -10782,9 +10676,7 @@
         "pdf_page": 19,
         "slide_pos": "bottom",
         "source_q_no": 36,
-        "year_tags": [
-          "2022.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0479_19_b",
         "option": "④",
         "statement_id": "stmt_50c9e8d5fc"
@@ -11350,7 +11242,7 @@
         "slide_pos": "top",
         "source_q_no": 83,
         "year_tags": [
-          "2021.01"
+          "2021.01 기출복원"
         ],
         "question_id": "q_0591_43_t",
         "option": "②",
@@ -11478,22 +11370,10 @@
       },
       {
         "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
-        "pdf_page": 6,
-        "slide_pos": "bottom",
-        "source_q_no": 2,
-        "year_tags": [],
-        "question_id": "q_0001_6_b",
-        "option": "④",
-        "statement_id": "stmt_54c24ca93f"
-      },
-      {
-        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
         "pdf_page": 7,
         "slide_pos": "bottom",
         "source_q_no": 12,
-        "year_tags": [
-          "2022.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0003_7_b",
         "option": "④",
         "statement_id": "stmt_54c24ca93f"
@@ -11503,23 +11383,9 @@
         "pdf_page": 46,
         "slide_pos": "bottom",
         "source_q_no": 90,
-        "year_tags": [
-          "2022.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0042_46_b",
         "option": "③",
-        "statement_id": "stmt_54c24ca93f"
-      },
-      {
-        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
-        "pdf_page": 54,
-        "slide_pos": "top",
-        "source_q_no": 105,
-        "year_tags": [
-          "2024.03"
-        ],
-        "question_id": "q_0050_54_t",
-        "option": "④",
         "statement_id": "stmt_54c24ca93f"
       },
       {
@@ -11527,33 +11393,9 @@
         "pdf_page": 63,
         "slide_pos": "top",
         "source_q_no": 123,
-        "year_tags": [
-          "2024.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0058_63_t",
         "option": "④",
-        "statement_id": "stmt_54c24ca93f"
-      },
-      {
-        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
-        "pdf_page": 69,
-        "slide_pos": "top",
-        "source_q_no": 21,
-        "year_tags": [],
-        "question_id": "q_0065_69_t",
-        "option": "④",
-        "statement_id": "stmt_54c24ca93f"
-      },
-      {
-        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
-        "pdf_page": 81,
-        "slide_pos": "bottom",
-        "source_q_no": 160,
-        "year_tags": [
-          "2023.06"
-        ],
-        "question_id": "q_0079_81_b",
-        "option": "③",
         "statement_id": "stmt_54c24ca93f"
       },
       {
@@ -11581,9 +11423,7 @@
         "pdf_page": 10,
         "slide_pos": "top",
         "source_q_no": 17,
-        "year_tags": [
-          "2022.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0323_10_t",
         "option": "①",
         "statement_id": "stmt_54c24ca93f"
@@ -11593,9 +11433,7 @@
         "pdf_page": 36,
         "slide_pos": "top",
         "source_q_no": 69,
-        "year_tags": [
-          "2022.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0346_36_t",
         "option": "④",
         "statement_id": "stmt_54c24ca93f"
@@ -11605,9 +11443,7 @@
         "pdf_page": 25,
         "slide_pos": "top",
         "source_q_no": 47,
-        "year_tags": [
-          "2021.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0387_25_t",
         "option": "②",
         "statement_id": "stmt_54c24ca93f"
@@ -11617,21 +11453,39 @@
         "pdf_page": 7,
         "slide_pos": "top",
         "source_q_no": 11,
-        "year_tags": [
-          "2021.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0446_7_t",
         "option": "④",
         "statement_id": "stmt_54c24ca93f"
       },
       {
-        "pdf": "실전마무리특강3과목5편채권투자운용 NEW(수정250901).pdf",
+        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
         "pdf_page": 6,
         "slide_pos": "bottom",
         "source_q_no": 2,
         "year_tags": [],
-        "question_id": "q_0508_6_b",
+        "question_id": "q_0001_6_b",
         "option": "④",
+        "statement_id": "stmt_54c24ca93f"
+      },
+      {
+        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+        "pdf_page": 54,
+        "slide_pos": "top",
+        "source_q_no": 105,
+        "year_tags": [],
+        "question_id": "q_0050_54_t",
+        "option": "④",
+        "statement_id": "stmt_54c24ca93f"
+      },
+      {
+        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+        "pdf_page": 81,
+        "slide_pos": "bottom",
+        "source_q_no": 160,
+        "year_tags": [],
+        "question_id": "q_0079_81_b",
+        "option": "③",
         "statement_id": "stmt_54c24ca93f"
       },
       {
@@ -11640,7 +11494,7 @@
         "slide_pos": "top",
         "source_q_no": 47,
         "year_tags": [
-          "2023.06"
+          "2023.06 기출복원"
         ],
         "question_id": "q_0701_25_t",
         "option": "④",
@@ -11653,6 +11507,26 @@
         "source_q_no": 13,
         "year_tags": [],
         "question_id": "q_0706_31_t",
+        "option": "④",
+        "statement_id": "stmt_54c24ca93f"
+      },
+      {
+        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+        "pdf_page": 69,
+        "slide_pos": "top",
+        "source_q_no": 21,
+        "year_tags": [],
+        "question_id": "q_0065_69_t",
+        "option": "④",
+        "statement_id": "stmt_54c24ca93f"
+      },
+      {
+        "pdf": "실전마무리특강3과목5편채권투자운용 NEW(수정250901).pdf",
+        "pdf_page": 6,
+        "slide_pos": "bottom",
+        "source_q_no": 2,
+        "year_tags": [],
+        "question_id": "q_0508_6_b",
         "option": "④",
         "statement_id": "stmt_54c24ca93f"
       }
@@ -11814,7 +11688,7 @@
         "slide_pos": "top",
         "source_q_no": 25,
         "year_tags": [
-          "2021.01"
+          "2021.01 기출복원"
         ],
         "question_id": "q_0195_14_t",
         "option": "③",
@@ -11874,9 +11748,7 @@
         "pdf_page": 34,
         "slide_pos": "bottom",
         "source_q_no": null,
-        "year_tags": [
-          "2021.01"
-        ],
+        "year_tags": [],
         "question_id": "q_0679_34_b",
         "option": "③",
         "statement_id": "stmt_5681d6dd91"
@@ -11895,9 +11767,7 @@
         "pdf_page": 7,
         "slide_pos": "top",
         "source_q_no": 11,
-        "year_tags": [
-          "2023.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0189_7_t",
         "option": "①",
         "statement_id": "stmt_56ca6cd9ad"
@@ -12216,7 +12086,7 @@
         "slide_pos": "top",
         "source_q_no": 109,
         "year_tags": [
-          "2021.06"
+          "2021.06 기출복원"
         ],
         "question_id": "q_0548_56_t",
         "option": "②",
@@ -12524,9 +12394,7 @@
         "pdf_page": 50,
         "slide_pos": "top",
         "source_q_no": 97,
-        "year_tags": [
-          "2021.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0600_50_t",
         "option": "①",
         "statement_id": "stmt_5b18ea5802"
@@ -12602,9 +12470,7 @@
         "pdf_page": 10,
         "slide_pos": "top",
         "source_q_no": 17,
-        "year_tags": [
-          "2022.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0323_10_t",
         "option": "②",
         "statement_id": "stmt_5b753a8a9e"
@@ -12808,9 +12674,7 @@
         "pdf_page": 11,
         "slide_pos": "bottom",
         "source_q_no": 20,
-        "year_tags": [
-          "2023.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0193_11_b",
         "option": "③",
         "statement_id": "stmt_5d0494d4a9"
@@ -12830,7 +12694,7 @@
         "slide_pos": "top",
         "source_q_no": 83,
         "year_tags": [
-          "2021.01"
+          "2021.01 기출복원"
         ],
         "question_id": "q_0591_43_t",
         "option": "①",
@@ -12945,9 +12809,7 @@
         "pdf_page": 50,
         "slide_pos": "top",
         "source_q_no": 97,
-        "year_tags": [
-          "2023.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0248_50_t",
         "option": "④",
         "statement_id": "stmt_5e7ccde112"
@@ -13543,9 +13405,7 @@
         "pdf_page": 11,
         "slide_pos": "bottom",
         "source_q_no": 20,
-        "year_tags": [
-          "2023.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0193_11_b",
         "option": "②",
         "statement_id": "stmt_6476149308"
@@ -13564,9 +13424,7 @@
         "pdf_page": 24,
         "slide_pos": "top",
         "source_q_no": 45,
-        "year_tags": [
-          "2021.01"
-        ],
+        "year_tags": [],
         "question_id": "q_0575_24_t",
         "option": "①",
         "statement_id": "stmt_649730397d"
@@ -13637,9 +13495,7 @@
         "pdf_page": 11,
         "slide_pos": "bottom",
         "source_q_no": 20,
-        "year_tags": [
-          "2023.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0472_11_b",
         "option": "①",
         "statement_id": "stmt_64eacd267a"
@@ -14123,7 +13979,7 @@
         "slide_pos": "top",
         "source_q_no": 73,
         "year_tags": [
-          "2022.06"
+          "2022.06 기출복원"
         ],
         "question_id": "q_0498_38_t",
         "option": "④",
@@ -14765,7 +14621,7 @@
         "slide_pos": "top",
         "source_q_no": 83,
         "year_tags": [
-          "2021.01"
+          "2021.01 기출복원"
         ],
         "question_id": "q_0591_43_t",
         "option": "④",
@@ -14842,9 +14698,7 @@
         "pdf_page": 35,
         "slide_pos": "top",
         "source_q_no": 100,
-        "year_tags": [
-          "2023.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0312_35_t",
         "option": "①",
         "statement_id": "stmt_6dcd4ce23d"
@@ -14854,9 +14708,7 @@
         "pdf_page": 19,
         "slide_pos": "bottom",
         "source_q_no": 36,
-        "year_tags": [
-          "2022.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0479_19_b",
         "option": "①",
         "statement_id": "stmt_6dcd4ce23d"
@@ -16086,35 +15938,11 @@
       },
       {
         "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
-        "pdf_page": 6,
-        "slide_pos": "bottom",
-        "source_q_no": 2,
-        "year_tags": [],
-        "question_id": "q_0001_6_b",
-        "option": "③",
-        "statement_id": "stmt_773e19aaba"
-      },
-      {
-        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
         "pdf_page": 7,
         "slide_pos": "bottom",
         "source_q_no": 12,
-        "year_tags": [
-          "2022.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0003_7_b",
-        "option": "③",
-        "statement_id": "stmt_773e19aaba"
-      },
-      {
-        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
-        "pdf_page": 54,
-        "slide_pos": "top",
-        "source_q_no": 105,
-        "year_tags": [
-          "2024.03"
-        ],
-        "question_id": "q_0050_54_t",
         "option": "③",
         "statement_id": "stmt_773e19aaba"
       },
@@ -16123,9 +15951,7 @@
         "pdf_page": 63,
         "slide_pos": "top",
         "source_q_no": 123,
-        "year_tags": [
-          "2024.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0058_63_t",
         "option": "③",
         "statement_id": "stmt_773e19aaba"
@@ -16166,7 +15992,7 @@
         "slide_pos": "bottom",
         "source_q_no": 16,
         "year_tags": [
-          "2025.01"
+          "2025.01 기출복원"
         ],
         "question_id": "q_0213_9_b",
         "option": "③",
@@ -16187,9 +16013,7 @@
         "pdf_page": 23,
         "slide_pos": "top",
         "source_q_no": 43,
-        "year_tags": [
-          "2023.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0334_23_t",
         "option": "③",
         "statement_id": "stmt_773e19aaba"
@@ -16199,10 +16023,48 @@
         "pdf_page": 36,
         "slide_pos": "top",
         "source_q_no": 69,
-        "year_tags": [
-          "2022.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0346_36_t",
+        "option": "③",
+        "statement_id": "stmt_773e19aaba"
+      },
+      {
+        "pdf": "실전마무리특강3과목2편자본시장법 NEW(완성)(26년 개정반영)(수정260325).pdf",
+        "pdf_page": 45,
+        "slide_pos": "top",
+        "source_q_no": 87,
+        "year_tags": [],
+        "question_id": "q_0408_45_t",
+        "option": "③",
+        "statement_id": "stmt_773e19aaba"
+      },
+      {
+        "pdf": "실전마무리특강3과목3편 협회규정 NEW(수정251221).pdf",
+        "pdf_page": 7,
+        "slide_pos": "top",
+        "source_q_no": 11,
+        "year_tags": [],
+        "question_id": "q_0446_7_t",
+        "option": "③",
+        "statement_id": "stmt_773e19aaba"
+      },
+      {
+        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+        "pdf_page": 6,
+        "slide_pos": "bottom",
+        "source_q_no": 2,
+        "year_tags": [],
+        "question_id": "q_0001_6_b",
+        "option": "③",
+        "statement_id": "stmt_773e19aaba"
+      },
+      {
+        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+        "pdf_page": 54,
+        "slide_pos": "top",
+        "source_q_no": 105,
+        "year_tags": [],
+        "question_id": "q_0050_54_t",
         "option": "③",
         "statement_id": "stmt_773e19aaba"
       },
@@ -16212,21 +16074,9 @@
         "slide_pos": "top",
         "source_q_no": 89,
         "year_tags": [
-          "2023.11"
+          "2023.11 기출복원"
         ],
         "question_id": "q_0357_46_t",
-        "option": "③",
-        "statement_id": "stmt_773e19aaba"
-      },
-      {
-        "pdf": "실전마무리특강3과목2편자본시장법 NEW(완성)(26년 개정반영)(수정260325).pdf",
-        "pdf_page": 45,
-        "slide_pos": "top",
-        "source_q_no": 87,
-        "year_tags": [
-          "2023.06"
-        ],
-        "question_id": "q_0408_45_t",
         "option": "③",
         "statement_id": "stmt_773e19aaba"
       },
@@ -16242,24 +16092,10 @@
       },
       {
         "pdf": "실전마무리특강3과목3편 협회규정 NEW(수정251221).pdf",
-        "pdf_page": 7,
-        "slide_pos": "top",
-        "source_q_no": 11,
-        "year_tags": [
-          "2021.11"
-        ],
-        "question_id": "q_0446_7_t",
-        "option": "③",
-        "statement_id": "stmt_773e19aaba"
-      },
-      {
-        "pdf": "실전마무리특강3과목3편 협회규정 NEW(수정251221).pdf",
         "pdf_page": 24,
         "slide_pos": "top",
         "source_q_no": 45,
-        "year_tags": [
-          "2025.10"
-        ],
+        "year_tags": [],
         "question_id": "q_0465_24_t",
         "option": "③",
         "statement_id": "stmt_773e19aaba"
@@ -16280,7 +16116,7 @@
         "slide_pos": "top",
         "source_q_no": 59,
         "year_tags": [
-          "2019.11"
+          "2019.11 기출복원"
         ],
         "question_id": "q_0634_31_t",
         "option": "③",
@@ -16302,7 +16138,7 @@
         "slide_pos": "top",
         "source_q_no": 47,
         "year_tags": [
-          "2023.06"
+          "2023.06 기출복원"
         ],
         "question_id": "q_0701_25_t",
         "option": "③",
@@ -16678,7 +16514,7 @@
         "slide_pos": "top",
         "source_q_no": 83,
         "year_tags": [
-          "2021.01"
+          "2021.01 기출복원"
         ],
         "question_id": "q_0591_43_t",
         "option": "③",
@@ -17443,7 +17279,7 @@
         "slide_pos": "top",
         "source_q_no": 101,
         "year_tags": [
-          "2022.11"
+          "2022.11 기출복원"
         ],
         "question_id": "q_0727_52_t",
         "option": "①",
@@ -17925,9 +17761,7 @@
         "pdf_page": 50,
         "slide_pos": "top",
         "source_q_no": 97,
-        "year_tags": [
-          "2023.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0248_50_t",
         "option": "②",
         "statement_id": "stmt_840cbf06f4"
@@ -18272,9 +18106,7 @@
         "pdf_page": 10,
         "slide_pos": "top",
         "source_q_no": 17,
-        "year_tags": [
-          "2022.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0323_10_t",
         "option": "③",
         "statement_id": "stmt_871fdcafd7"
@@ -18487,9 +18319,7 @@
         "pdf_page": 50,
         "slide_pos": "top",
         "source_q_no": 97,
-        "year_tags": [
-          "2021.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0600_50_t",
         "option": "②",
         "statement_id": "stmt_88088af9b4"
@@ -18692,7 +18522,7 @@
         "slide_pos": "top",
         "source_q_no": 19,
         "year_tags": [
-          "2023.02"
+          "2023.02 기출복원"
         ],
         "question_id": "q_0641_11_t",
         "option": "①",
@@ -19022,7 +18852,7 @@
         "slide_pos": "top",
         "source_q_no": 73,
         "year_tags": [
-          "2021.01"
+          "2021.01 기출복원"
         ],
         "question_id": "q_0535_38_t",
         "option": "①",
@@ -20002,7 +19832,7 @@
         "slide_pos": "top",
         "source_q_no": 109,
         "year_tags": [
-          "2021.06"
+          "2021.06 기출복원"
         ],
         "question_id": "q_0548_56_t",
         "option": "①",
@@ -20174,9 +20004,7 @@
         "pdf_page": 14,
         "slide_pos": "bottom",
         "source_q_no": 26,
-        "year_tags": [
-          "2022.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0009_14_b",
         "option": "③",
         "statement_id": "stmt_9535cb5927"
@@ -20332,9 +20160,7 @@
         "pdf_page": 71,
         "slide_pos": "bottom",
         "source_q_no": 140,
-        "year_tags": [
-          "2021.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0068_71_b",
         "option": "③",
         "statement_id": "stmt_961fc9b16e"
@@ -20459,7 +20285,7 @@
         "slide_pos": "top",
         "source_q_no": 13,
         "year_tags": [
-          "2021.01"
+          "2021.01 기출복원"
         ],
         "question_id": "q_0683_8_t",
         "option": "②",
@@ -21026,9 +20852,7 @@
         "pdf_page": 24,
         "slide_pos": "top",
         "source_q_no": 45,
-        "year_tags": [
-          "2021.01"
-        ],
+        "year_tags": [],
         "question_id": "q_0575_24_t",
         "option": "④",
         "statement_id": "stmt_9bfb3c634c"
@@ -21307,22 +21131,10 @@
       },
       {
         "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
-        "pdf_page": 6,
-        "slide_pos": "bottom",
-        "source_q_no": 2,
-        "year_tags": [],
-        "question_id": "q_0001_6_b",
-        "option": "①",
-        "statement_id": "stmt_9dd3032db6"
-      },
-      {
-        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
         "pdf_page": 7,
         "slide_pos": "bottom",
         "source_q_no": 12,
-        "year_tags": [
-          "2022.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0003_7_b",
         "option": "①",
         "statement_id": "stmt_9dd3032db6"
@@ -21332,9 +21144,7 @@
         "pdf_page": 34,
         "slide_pos": "top",
         "source_q_no": 65,
-        "year_tags": [
-          "2022.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0027_34_t",
         "option": "①",
         "statement_id": "stmt_9dd3032db6"
@@ -21344,9 +21154,7 @@
         "pdf_page": 42,
         "slide_pos": "top",
         "source_q_no": 81,
-        "year_tags": [
-          "2023.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0037_42_t",
         "option": "①",
         "statement_id": "stmt_9dd3032db6"
@@ -21356,35 +21164,9 @@
         "pdf_page": 46,
         "slide_pos": "bottom",
         "source_q_no": 90,
-        "year_tags": [
-          "2022.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0042_46_b",
         "option": "②",
-        "statement_id": "stmt_9dd3032db6"
-      },
-      {
-        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
-        "pdf_page": 54,
-        "slide_pos": "top",
-        "source_q_no": 105,
-        "year_tags": [
-          "2024.03"
-        ],
-        "question_id": "q_0050_54_t",
-        "option": "①",
-        "statement_id": "stmt_9dd3032db6"
-      },
-      {
-        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
-        "pdf_page": 61,
-        "slide_pos": "top",
-        "source_q_no": 119,
-        "year_tags": [
-          "2023.02"
-        ],
-        "question_id": "q_0056_61_t",
-        "option": "①",
         "statement_id": "stmt_9dd3032db6"
       },
       {
@@ -21392,44 +21174,8 @@
         "pdf_page": 63,
         "slide_pos": "top",
         "source_q_no": 123,
-        "year_tags": [
-          "2024.06"
-        ],
-        "question_id": "q_0058_63_t",
-        "option": "①",
-        "statement_id": "stmt_9dd3032db6"
-      },
-      {
-        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
-        "pdf_page": 69,
-        "slide_pos": "top",
-        "source_q_no": 21,
         "year_tags": [],
-        "question_id": "q_0065_69_t",
-        "option": "②",
-        "statement_id": "stmt_9dd3032db6"
-      },
-      {
-        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
-        "pdf_page": 81,
-        "slide_pos": "bottom",
-        "source_q_no": 160,
-        "year_tags": [
-          "2023.06"
-        ],
-        "question_id": "q_0079_81_b",
-        "option": "②",
-        "statement_id": "stmt_9dd3032db6"
-      },
-      {
-        "pdf": "실전마무리특강1과목3편부동산 NEW.pdf",
-        "pdf_page": 29,
-        "slide_pos": "bottom",
-        "source_q_no": null,
-        "year_tags": [
-          "2022.02"
-        ],
-        "question_id": "q_0118_29_b",
+        "question_id": "q_0058_63_t",
         "option": "①",
         "statement_id": "stmt_9dd3032db6"
       },
@@ -21459,21 +21205,9 @@
         "slide_pos": "bottom",
         "source_q_no": 16,
         "year_tags": [
-          "2025.01"
+          "2025.01 기출복원"
         ],
         "question_id": "q_0213_9_b",
-        "option": "①",
-        "statement_id": "stmt_9dd3032db6"
-      },
-      {
-        "pdf": "실전마무리특강3과목1편직무윤리 NEW(완성)(26년 개정반영)(수정260330).pdf",
-        "pdf_page": 23,
-        "slide_pos": "top",
-        "source_q_no": 43,
-        "year_tags": [
-          "2023.02"
-        ],
-        "question_id": "q_0334_23_t",
         "option": "①",
         "statement_id": "stmt_9dd3032db6"
       },
@@ -21482,9 +21216,7 @@
         "pdf_page": 36,
         "slide_pos": "top",
         "source_q_no": 69,
-        "year_tags": [
-          "2022.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0346_36_t",
         "option": "①",
         "statement_id": "stmt_9dd3032db6"
@@ -21495,21 +21227,9 @@
         "slide_pos": "top",
         "source_q_no": 85,
         "year_tags": [
-          "2023.06"
+          "2023.06 기출복원"
         ],
         "question_id": "q_0354_44_t",
-        "option": "①",
-        "statement_id": "stmt_9dd3032db6"
-      },
-      {
-        "pdf": "실전마무리특강3과목1편직무윤리 NEW(완성)(26년 개정반영)(수정260330).pdf",
-        "pdf_page": 46,
-        "slide_pos": "top",
-        "source_q_no": 89,
-        "year_tags": [
-          "2023.11"
-        ],
-        "question_id": "q_0357_46_t",
         "option": "①",
         "statement_id": "stmt_9dd3032db6"
       },
@@ -21518,9 +21238,7 @@
         "pdf_page": 25,
         "slide_pos": "top",
         "source_q_no": 47,
-        "year_tags": [
-          "2021.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0387_25_t",
         "option": "①",
         "statement_id": "stmt_9dd3032db6"
@@ -21530,22 +21248,8 @@
         "pdf_page": 45,
         "slide_pos": "top",
         "source_q_no": 87,
-        "year_tags": [
-          "2023.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0408_45_t",
-        "option": "①",
-        "statement_id": "stmt_9dd3032db6"
-      },
-      {
-        "pdf": "실전마무리특강3과목2편자본시장법 NEW(완성)(26년 개정반영)(수정260325).pdf",
-        "pdf_page": 47,
-        "slide_pos": "bottom",
-        "source_q_no": 92,
-        "year_tags": [
-          "2023.02"
-        ],
-        "question_id": "q_0411_47_b",
         "option": "①",
         "statement_id": "stmt_9dd3032db6"
       },
@@ -21564,10 +21268,82 @@
         "pdf_page": 7,
         "slide_pos": "top",
         "source_q_no": 11,
-        "year_tags": [
-          "2021.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0446_7_t",
+        "option": "①",
+        "statement_id": "stmt_9dd3032db6"
+      },
+      {
+        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+        "pdf_page": 6,
+        "slide_pos": "bottom",
+        "source_q_no": 2,
+        "year_tags": [],
+        "question_id": "q_0001_6_b",
+        "option": "①",
+        "statement_id": "stmt_9dd3032db6"
+      },
+      {
+        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+        "pdf_page": 54,
+        "slide_pos": "top",
+        "source_q_no": 105,
+        "year_tags": [],
+        "question_id": "q_0050_54_t",
+        "option": "①",
+        "statement_id": "stmt_9dd3032db6"
+      },
+      {
+        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+        "pdf_page": 61,
+        "slide_pos": "top",
+        "source_q_no": 119,
+        "year_tags": [],
+        "question_id": "q_0056_61_t",
+        "option": "①",
+        "statement_id": "stmt_9dd3032db6"
+      },
+      {
+        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+        "pdf_page": 81,
+        "slide_pos": "bottom",
+        "source_q_no": 160,
+        "year_tags": [],
+        "question_id": "q_0079_81_b",
+        "option": "②",
+        "statement_id": "stmt_9dd3032db6"
+      },
+      {
+        "pdf": "실전마무리특강1과목3편부동산 NEW.pdf",
+        "pdf_page": 29,
+        "slide_pos": "bottom",
+        "source_q_no": null,
+        "year_tags": [],
+        "question_id": "q_0118_29_b",
+        "option": "①",
+        "statement_id": "stmt_9dd3032db6"
+      },
+      {
+        "pdf": "실전마무리특강3과목1편직무윤리 NEW(완성)(26년 개정반영)(수정260330).pdf",
+        "pdf_page": 46,
+        "slide_pos": "top",
+        "source_q_no": 89,
+        "year_tags": [
+          "2023.11 기출복원"
+        ],
+        "question_id": "q_0357_46_t",
+        "option": "①",
+        "statement_id": "stmt_9dd3032db6"
+      },
+      {
+        "pdf": "실전마무리특강3과목2편자본시장법 NEW(완성)(26년 개정반영)(수정260325).pdf",
+        "pdf_page": 47,
+        "slide_pos": "bottom",
+        "source_q_no": 92,
+        "year_tags": [
+          "2023.02 기출복원"
+        ],
+        "question_id": "q_0411_47_b",
         "option": "①",
         "statement_id": "stmt_9dd3032db6"
       },
@@ -21576,21 +21352,9 @@
         "pdf_page": 24,
         "slide_pos": "top",
         "source_q_no": 45,
-        "year_tags": [
-          "2025.10"
-        ],
+        "year_tags": [],
         "question_id": "q_0465_24_t",
         "option": "①",
-        "statement_id": "stmt_9dd3032db6"
-      },
-      {
-        "pdf": "실전마무리특강3과목5편채권투자운용 NEW(수정250901).pdf",
-        "pdf_page": 6,
-        "slide_pos": "bottom",
-        "source_q_no": 2,
-        "year_tags": [],
-        "question_id": "q_0508_6_b",
-        "option": "③",
         "statement_id": "stmt_9dd3032db6"
       },
       {
@@ -21619,7 +21383,7 @@
         "slide_pos": "top",
         "source_q_no": 47,
         "year_tags": [
-          "2023.06"
+          "2023.06 기출복원"
         ],
         "question_id": "q_0701_25_t",
         "option": "①",
@@ -21633,6 +21397,36 @@
         "year_tags": [],
         "question_id": "q_0706_31_t",
         "option": "①",
+        "statement_id": "stmt_9dd3032db6"
+      },
+      {
+        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+        "pdf_page": 69,
+        "slide_pos": "top",
+        "source_q_no": 21,
+        "year_tags": [],
+        "question_id": "q_0065_69_t",
+        "option": "②",
+        "statement_id": "stmt_9dd3032db6"
+      },
+      {
+        "pdf": "실전마무리특강3과목1편직무윤리 NEW(완성)(26년 개정반영)(수정260330).pdf",
+        "pdf_page": 23,
+        "slide_pos": "top",
+        "source_q_no": 43,
+        "year_tags": [],
+        "question_id": "q_0334_23_t",
+        "option": "①",
+        "statement_id": "stmt_9dd3032db6"
+      },
+      {
+        "pdf": "실전마무리특강3과목5편채권투자운용 NEW(수정250901).pdf",
+        "pdf_page": 6,
+        "slide_pos": "bottom",
+        "source_q_no": 2,
+        "year_tags": [],
+        "question_id": "q_0508_6_b",
+        "option": "③",
         "statement_id": "stmt_9dd3032db6"
       }
     ],
@@ -21848,9 +21642,7 @@
         "pdf_page": 11,
         "slide_pos": "bottom",
         "source_q_no": 20,
-        "year_tags": [
-          "2023.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0193_11_b",
         "option": "④",
         "statement_id": "stmt_a0034c298c"
@@ -21869,9 +21661,7 @@
         "pdf_page": 7,
         "slide_pos": "top",
         "source_q_no": 11,
-        "year_tags": [
-          "2023.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0189_7_t",
         "option": "③",
         "statement_id": "stmt_a021789177"
@@ -21949,9 +21739,7 @@
         "pdf_page": 19,
         "slide_pos": "top",
         "source_q_no": 35,
-        "year_tags": [
-          "2024.03"
-        ],
+        "year_tags": [],
         "question_id": "q_0179_19_t",
         "option": "①",
         "statement_id": "stmt_a0ad322882"
@@ -21970,9 +21758,7 @@
         "pdf_page": 55,
         "slide_pos": "bottom",
         "source_q_no": 108,
-        "year_tags": [
-          "2019.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0547_55_b",
         "option": "②",
         "statement_id": "stmt_a0cc22ce60"
@@ -22099,7 +21885,7 @@
         "slide_pos": "top",
         "source_q_no": 101,
         "year_tags": [
-          "2022.11"
+          "2022.11 기출복원"
         ],
         "question_id": "q_0727_52_t",
         "option": "②",
@@ -22235,9 +22021,7 @@
         "pdf_page": 34,
         "slide_pos": "bottom",
         "source_q_no": null,
-        "year_tags": [
-          "2021.01"
-        ],
+        "year_tags": [],
         "question_id": "q_0679_34_b",
         "option": "④",
         "statement_id": "stmt_a375cbbd4a"
@@ -22256,9 +22040,7 @@
         "pdf_page": 55,
         "slide_pos": "bottom",
         "source_q_no": 108,
-        "year_tags": [
-          "2019.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0547_55_b",
         "option": "④",
         "statement_id": "stmt_a37b1a9828"
@@ -22451,7 +22233,7 @@
         "slide_pos": "top",
         "source_q_no": 37,
         "year_tags": [
-          "2022.11"
+          "2022.11 기출복원"
         ],
         "question_id": "q_0570_20_t",
         "option": "③",
@@ -22652,9 +22434,7 @@
         "pdf_page": 16,
         "slide_pos": "bottom",
         "source_q_no": null,
-        "year_tags": [
-          "2021.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0294_16_b",
         "option": "②",
         "statement_id": "stmt_a62a7e1e62"
@@ -22769,7 +22549,7 @@
         "slide_pos": "top",
         "source_q_no": 73,
         "year_tags": [
-          "2021.01"
+          "2021.01 기출복원"
         ],
         "question_id": "q_0535_38_t",
         "option": "②",
@@ -22838,7 +22618,7 @@
         "slide_pos": "top",
         "source_q_no": 13,
         "year_tags": [
-          "2021.01"
+          "2021.01 기출복원"
         ],
         "question_id": "q_0683_8_t",
         "option": "③",
@@ -22897,7 +22677,7 @@
         "slide_pos": "top",
         "source_q_no": 107,
         "year_tags": [
-          "2022.11"
+          "2022.11 기출복원"
         ],
         "question_id": "q_0729_55_t",
         "option": "①",
@@ -22995,9 +22775,7 @@
         "pdf_page": 7,
         "slide_pos": "top",
         "source_q_no": 11,
-        "year_tags": [
-          "2023.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0189_7_t",
         "option": "②",
         "statement_id": "stmt_a9ff1ac6ed"
@@ -23016,9 +22794,7 @@
         "pdf_page": 39,
         "slide_pos": "bottom",
         "source_q_no": 76,
-        "year_tags": [
-          "2023.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0349_39_b",
         "option": "②",
         "statement_id": "stmt_aa13f5a219"
@@ -23258,9 +23034,7 @@
         "pdf_page": 14,
         "slide_pos": "bottom",
         "source_q_no": 26,
-        "year_tags": [
-          "2022.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0217_14_b",
         "option": "②",
         "statement_id": "stmt_acf153b7fa"
@@ -23336,9 +23110,7 @@
         "pdf_page": 42,
         "slide_pos": "top",
         "source_q_no": 81,
-        "year_tags": [
-          "2020.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0240_42_t",
         "option": "②",
         "statement_id": "stmt_ada0275242"
@@ -23416,9 +23188,7 @@
         "pdf_page": 35,
         "slide_pos": "top",
         "source_q_no": 100,
-        "year_tags": [
-          "2023.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0312_35_t",
         "option": "②",
         "statement_id": "stmt_ae4f281df5"
@@ -23428,9 +23198,7 @@
         "pdf_page": 19,
         "slide_pos": "bottom",
         "source_q_no": 36,
-        "year_tags": [
-          "2022.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0479_19_b",
         "option": "②",
         "statement_id": "stmt_ae4f281df5"
@@ -23787,7 +23555,7 @@
         "slide_pos": "top",
         "source_q_no": 19,
         "year_tags": [
-          "2023.02"
+          "2023.02 기출복원"
         ],
         "question_id": "q_0641_11_t",
         "option": "③",
@@ -24170,9 +23938,7 @@
         "pdf_page": 42,
         "slide_pos": "top",
         "source_q_no": 81,
-        "year_tags": [
-          "2020.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0240_42_t",
         "option": "①",
         "statement_id": "stmt_b435af3aca"
@@ -24388,7 +24154,7 @@
         "slide_pos": "top",
         "source_q_no": 25,
         "year_tags": [
-          "2021.01"
+          "2021.01 기출복원"
         ],
         "question_id": "q_0195_14_t",
         "option": "④",
@@ -24760,9 +24526,7 @@
         "pdf_page": 39,
         "slide_pos": "bottom",
         "source_q_no": 76,
-        "year_tags": [
-          "2023.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0349_39_b",
         "option": "④",
         "statement_id": "stmt_b7f1c4d1d8"
@@ -24803,7 +24567,7 @@
         "slide_pos": "bottom",
         "source_q_no": 16,
         "year_tags": [
-          "2019.11"
+          "2019.11 기출복원"
         ],
         "question_id": "q_0619_9_b",
         "option": "④",
@@ -24987,9 +24751,7 @@
         "pdf_page": 55,
         "slide_pos": "bottom",
         "source_q_no": 108,
-        "year_tags": [
-          "2019.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0547_55_b",
         "option": "③",
         "statement_id": "stmt_b97cc7b0e9"
@@ -25598,9 +25360,7 @@
         "pdf_page": 7,
         "slide_pos": "top",
         "source_q_no": null,
-        "year_tags": [
-          "2021.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0660_7_t",
         "option": "③",
         "statement_id": "stmt_bf19d5cb28"
@@ -26288,7 +26048,7 @@
         "slide_pos": "bottom",
         "source_q_no": 16,
         "year_tags": [
-          "2019.11"
+          "2019.11 기출복원"
         ],
         "question_id": "q_0619_9_b",
         "option": "②",
@@ -26444,9 +26204,7 @@
         "pdf_page": 50,
         "slide_pos": "top",
         "source_q_no": 97,
-        "year_tags": [
-          "2023.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0248_50_t",
         "option": "③",
         "statement_id": "stmt_c5f6bc6370"
@@ -26915,7 +26673,7 @@
         "slide_pos": "top",
         "source_q_no": 37,
         "year_tags": [
-          "2022.11"
+          "2022.11 기출복원"
         ],
         "question_id": "q_0570_20_t",
         "option": "①",
@@ -26976,7 +26734,7 @@
         "slide_pos": "top",
         "source_q_no": 73,
         "year_tags": [
-          "2022.06"
+          "2022.06 기출복원"
         ],
         "question_id": "q_0498_38_t",
         "option": "①",
@@ -27015,9 +26773,7 @@
         "pdf_page": 42,
         "slide_pos": "top",
         "source_q_no": 81,
-        "year_tags": [
-          "2020.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0240_42_t",
         "option": "③",
         "statement_id": "stmt_caaba315b2"
@@ -27097,9 +26853,7 @@
         "pdf_page": 39,
         "slide_pos": "bottom",
         "source_q_no": 76,
-        "year_tags": [
-          "2023.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0349_39_b",
         "option": "①",
         "statement_id": "stmt_caddd71a76"
@@ -27157,7 +26911,7 @@
         "slide_pos": "bottom",
         "source_q_no": 40,
         "year_tags": [
-          "2025.07"
+          "2025.07 기출복원"
         ],
         "question_id": "q_0017_21_b",
         "option": "③",
@@ -27178,7 +26932,7 @@
         "slide_pos": "bottom",
         "source_q_no": 16,
         "year_tags": [
-          "2019.11"
+          "2019.11 기출복원"
         ],
         "question_id": "q_0619_9_b",
         "option": "③",
@@ -27989,9 +27743,7 @@
         "pdf_page": 19,
         "slide_pos": "top",
         "source_q_no": 35,
-        "year_tags": [
-          "2024.03"
-        ],
+        "year_tags": [],
         "question_id": "q_0179_19_t",
         "option": "③",
         "statement_id": "stmt_d220115f58"
@@ -29322,9 +29074,7 @@
         "pdf_page": 14,
         "slide_pos": "bottom",
         "source_q_no": 26,
-        "year_tags": [
-          "2022.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0217_14_b",
         "option": "④",
         "statement_id": "stmt_dba515739e"
@@ -29718,9 +29468,7 @@
         "pdf_page": 11,
         "slide_pos": "bottom",
         "source_q_no": 20,
-        "year_tags": [
-          "2023.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0472_11_b",
         "option": "②",
         "statement_id": "stmt_e00d9545bd"
@@ -29841,7 +29589,7 @@
         "slide_pos": "bottom",
         "source_q_no": 40,
         "year_tags": [
-          "2025.07"
+          "2025.07 기출복원"
         ],
         "question_id": "q_0017_21_b",
         "option": "④",
@@ -30016,7 +29764,7 @@
         "slide_pos": "top",
         "source_q_no": 37,
         "year_tags": [
-          "2022.11"
+          "2022.11 기출복원"
         ],
         "question_id": "q_0570_20_t",
         "option": "②",
@@ -30229,7 +29977,7 @@
         "slide_pos": "top",
         "source_q_no": 73,
         "year_tags": [
-          "2021.01"
+          "2021.01 기출복원"
         ],
         "question_id": "q_0535_38_t",
         "option": "④",
@@ -30516,7 +30264,7 @@
         "slide_pos": "top",
         "source_q_no": 19,
         "year_tags": [
-          "2023.02"
+          "2023.02 기출복원"
         ],
         "question_id": "q_0641_11_t",
         "option": "④",
@@ -30902,9 +30650,7 @@
         "pdf_page": 34,
         "slide_pos": "bottom",
         "source_q_no": null,
-        "year_tags": [
-          "2021.01"
-        ],
+        "year_tags": [],
         "question_id": "q_0679_34_b",
         "option": "②",
         "statement_id": "stmt_e7ec93cc34"
@@ -31039,9 +30785,7 @@
         "pdf_page": 50,
         "slide_pos": "top",
         "source_q_no": 97,
-        "year_tags": [
-          "2023.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0248_50_t",
         "option": "①",
         "statement_id": "stmt_e8f833bc00"
@@ -31130,7 +30874,7 @@
         "slide_pos": "top",
         "source_q_no": 31,
         "year_tags": [
-          "2022.02"
+          "2022.02 기출복원"
         ],
         "question_id": "q_0692_17_t",
         "option": "②",
@@ -31285,9 +31029,7 @@
         "pdf_page": 7,
         "slide_pos": "top",
         "source_q_no": null,
-        "year_tags": [
-          "2021.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0660_7_t",
         "option": "②",
         "statement_id": "stmt_eaa58b411c"
@@ -31424,9 +31166,7 @@
         "pdf_page": 11,
         "slide_pos": "bottom",
         "source_q_no": 20,
-        "year_tags": [
-          "2023.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0472_11_b",
         "option": "④",
         "statement_id": "stmt_ebb964a017"
@@ -31502,9 +31242,7 @@
         "pdf_page": 42,
         "slide_pos": "top",
         "source_q_no": 81,
-        "year_tags": [
-          "2020.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0240_42_t",
         "option": "④",
         "statement_id": "stmt_ec13a1b3ef"
@@ -31922,10 +31660,18 @@
         "pdf_page": 46,
         "slide_pos": "bottom",
         "source_q_no": 90,
-        "year_tags": [
-          "2022.02"
-        ],
+        "year_tags": [],
         "question_id": "q_0042_46_b",
+        "option": "①",
+        "statement_id": "stmt_efd23dd5ed"
+      },
+      {
+        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
+        "pdf_page": 81,
+        "slide_pos": "bottom",
+        "source_q_no": 160,
+        "year_tags": [],
+        "question_id": "q_0079_81_b",
         "option": "①",
         "statement_id": "stmt_efd23dd5ed"
       },
@@ -31936,18 +31682,6 @@
         "source_q_no": 21,
         "year_tags": [],
         "question_id": "q_0065_69_t",
-        "option": "①",
-        "statement_id": "stmt_efd23dd5ed"
-      },
-      {
-        "pdf": "실전마무리특강1과목2편금융상품 NEW(완성)(26년 개정반영완료).pdf",
-        "pdf_page": 81,
-        "slide_pos": "bottom",
-        "source_q_no": 160,
-        "year_tags": [
-          "2023.06"
-        ],
-        "question_id": "q_0079_81_b",
         "option": "①",
         "statement_id": "stmt_efd23dd5ed"
       },
@@ -32098,9 +31832,7 @@
         "pdf_page": 71,
         "slide_pos": "bottom",
         "source_q_no": 140,
-        "year_tags": [
-          "2021.06"
-        ],
+        "year_tags": [],
         "question_id": "q_0068_71_b",
         "option": "①",
         "statement_id": "stmt_f1211e82b3"
@@ -32953,9 +32685,7 @@
         "pdf_page": 55,
         "slide_pos": "bottom",
         "source_q_no": 108,
-        "year_tags": [
-          "2019.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0547_55_b",
         "option": "①",
         "statement_id": "stmt_f896bacf29"
@@ -32975,7 +32705,7 @@
         "slide_pos": "bottom",
         "source_q_no": 16,
         "year_tags": [
-          "2019.11"
+          "2019.11 기출복원"
         ],
         "question_id": "q_0619_9_b",
         "option": "①",
@@ -33015,7 +32745,7 @@
         "slide_pos": "top",
         "source_q_no": 73,
         "year_tags": [
-          "2021.01"
+          "2021.01 기출복원"
         ],
         "question_id": "q_0535_38_t",
         "option": "③",
@@ -33131,7 +32861,7 @@
         "slide_pos": "top",
         "source_q_no": 37,
         "year_tags": [
-          "2022.11"
+          "2022.11 기출복원"
         ],
         "question_id": "q_0570_20_t",
         "option": "④",
@@ -33152,7 +32882,7 @@
         "slide_pos": "top",
         "source_q_no": 25,
         "year_tags": [
-          "2021.01"
+          "2021.01 기출복원"
         ],
         "question_id": "q_0195_14_t",
         "option": "①",
@@ -33191,9 +32921,7 @@
         "pdf_page": 7,
         "slide_pos": "top",
         "source_q_no": null,
-        "year_tags": [
-          "2021.11"
-        ],
+        "year_tags": [],
         "question_id": "q_0660_7_t",
         "option": "④",
         "statement_id": "stmt_fb4faec9ab"
@@ -33529,7 +33257,7 @@
         "slide_pos": "top",
         "source_q_no": 19,
         "year_tags": [
-          "2023.02"
+          "2023.02 기출복원"
         ],
         "question_id": "q_0641_11_t",
         "option": "②",

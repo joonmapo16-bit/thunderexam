@@ -2367,13 +2367,13 @@
     ],
     "figs": [
       {
-        "placement": "skip",
+        "placement": "explanation",
         "src": "figs/q_0067_71_t_formula_0.png",
         "alt": "",
         "kind": "formula"
       },
       {
-        "placement": "skip",
+        "placement": "explanation",
         "src": "figs/q_0067_71_t_formula_1.png",
         "alt": "",
         "kind": "formula"
@@ -3691,7 +3691,7 @@
     ],
     "figs": [
       {
-        "placement": "skip",
+        "placement": "explanation",
         "src": "figs/q_0105_16_t_formula_0.png",
         "alt": "",
         "kind": "formula"
@@ -9355,13 +9355,13 @@
     ],
     "figs": [
       {
-        "placement": "skip",
+        "placement": "explanation",
         "src": "figs/q_0263_16_b_formula_0.png",
         "alt": "",
         "kind": "formula"
       },
       {
-        "placement": "skip",
+        "placement": "explanation",
         "src": "figs/q_0263_16_b_formula_1.png",
         "alt": "",
         "kind": "formula"

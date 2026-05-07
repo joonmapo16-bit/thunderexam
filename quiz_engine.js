@@ -147,6 +147,30 @@ const QuizEngine = (function () {
     return Math.pow(questionMaxFreq(q), alpha);
   }
 
+  // ── Option text cleaner (B1) ──────────────────────────────────────────────
+  //
+  // Strips trailing noise from option text caused by PDF parser boundary leaks.
+  // Patterns (matched left-to-right; truncation at first match past position 20):
+  //   "가: / 나: / 다: / 라:" — start of next explanation item bled into option
+  //   "즉 / ▶ / ▷ / ※"      — explanation trigger words
+  //   "N개 가:"              — count-type answer bleeding into next label
+  // Guard: text shorter than 30 chars is returned unchanged (avoids false
+  // positives on very short options where the trigger char may be intentional).
+
+  function cleanOption(text) {
+    if (!text || text.length < 30) return text;
+    const triggers = [
+      /\s+(?:가|나|다|라):\s*/,
+      /\s+(?:즉|▶|▷|※)\s+/,
+      /\s+\d{1,2}개\s+(?:가|나|다|라):/,
+    ];
+    for (const re of triggers) {
+      const m = text.match(re);
+      if (m && m.index > 20) return text.slice(0, m.index).trim();
+    }
+    return text;
+  }
+
   // ── Canonical normalizer ─────────────────────────────────────────────────
   //
   // Called in init() on every question before it enters qBank.
@@ -161,13 +185,13 @@ const QuizEngine = (function () {
     if (Array.isArray(q.options)) {
       opts = q.options.map(o => ({
         origKey:      o.marker,
-        text:         o.text || '',
+        text:         cleanOption(o.text || ''),
         statement_id: null,
       }));
     } else {
       opts = Object.entries(q.options || {}).map(([k, v]) => ({
         origKey:      k,
-        text:         (v && typeof v === 'object') ? (v.text || '') : String(v || ''),
+        text:         cleanOption((v && typeof v === 'object') ? (v.text || '') : String(v || '')),
         statement_id: (v && v.statement_id) || null,
       }));
     }
